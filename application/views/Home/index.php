@@ -39,9 +39,41 @@
 
     #set_social_icon a {
         color: white;
-        padding: 15px;
+        padding: 15px 15px 15px 15px;
         border: 1px solid white;
     }
+
+    #set_search {
+        width: 39%;
+        height:42px;
+        background:white;
+        border-radius:5px;
+        border:1px solid white;
+        box-shadow:none;
+        margin-left:18%;
+        border:1px solide white;
+    }
+    #set_search_btn{
+        height:44px;
+        width-10%;
+        line-height:45%;
+        background: #c77700;
+        box-shadow:none;
+        margin-top:-6px;
+        margin-left:-7px;
+        border-radius:0px 5px 5px 0px;
+    }
+    #set_mobile_search{
+        border:1px solid white;
+        background:white;
+        color:black;
+        margin:0 auto;
+        border-radius:5px;
+        box-shadow:none;
+        padding-left:3px;
+        margin-right:-3px;
+    }
+    form{display:inline;}
     </style>
 </head>
 
@@ -59,7 +91,13 @@
     <!-- navbar section start -->
     <nav class="orange">
         <div class="nav-wrapper">
-            <img src="<?= base_url('asset/image/logo.png') ?>">
+            <a class="brand-logo left">&nbsp;&nbsp;Ghanshyam</a>
+            <!-- Search Box Start -->
+            <?= form_open(); ?>
+            <input type="text" name="" id="set_search" placeholder="Search..." class="hide-on-med-and-down">
+            <button type="submit" class="btn waves-waves-effect waves-light hide-on-med-and-down" id="set_search_btn">Search</button>
+            <?= form_close(); ?>
+            <!-- Search Box Start -->
             <!-- Menu Button Section Start -->
             <a href="#" class="sidenav-trigger right" data-target="mobile_menu"><i class="material-icons">menu</i></a>
             <!-- Menu Button Section End -->
@@ -80,7 +118,8 @@
     </nav>
     <!-- navbar section end -->
     <!-- menu bar section start -->
-    <nav class="orange hide-on-med-and-down" style="height: 35px;line-height: 35px;box-shadow:none;">
+    <nav class="orange hide-on-med-and-down"
+        style="height: 35px;line-height: 35px;box-shadow:none;border:1px solid white;">
         <div class="container">
             <div class="nav-wrapper">
                 <ul class="left">
@@ -101,6 +140,13 @@
         </div>
     </nav>
     <!-- menu bar section end -->
+    <!-- Mobile Search Section Start -->
+    <div class="orange hide-on-med-and-up" style="padding:10px;">
+        <?= form_open(); ?>
+        <center><input type="text" id="set_mobile_search" placeholder="Search..."></center>
+        <?= form_close(); ?>
+    </div>
+    <!-- Mobile Search Section End -->
     <!-- image slider section -->
     <div class="carousel carousel-slider">
         <a class="carousel-item" href="#two!"><img src="<?= base_url('asset/image/slider/Screenshot (3).png') ?>"
