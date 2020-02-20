@@ -77,7 +77,7 @@
             <input type="text" placeholder="Email Address" id="email">
             <input type="number" placeholder="Mobile Number" id="monile_number">
             <input type="password" placeholder="Password" id="password">
-            <button type="submit" class="btn waves-effect waves-light" style="box-shadow:none;background: #c77700;" >Create Account</button>
+            <button type="submit" class="btn waves-effect waves-light" style="box-shadow:none;background: #c77700;" >Create Account <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
             <?= form_close(); ?>
         </div>
     </div>
