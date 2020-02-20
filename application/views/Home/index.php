@@ -45,35 +45,40 @@
 
     #set_search {
         width: 39%;
-        height:42px;
-        background:white;
-        border-radius:5px;
-        border:1px solid white;
-        box-shadow:none;
-        margin-left:18%;
-        border:1px solide white;
+        height: 42px;
+        background: white;
+        border-radius: 5px;
+        border: 1px solid white;
+        box-shadow: none;
+        margin-left: 18%;
+        border: 1px solide white;
     }
-    #set_search_btn{
-        height:44px;
+
+    #set_search_btn {
+        height: 44px;
         width-10%;
-        line-height:45%;
+        line-height: 45%;
         background: #c77700;
-        box-shadow:none;
-        margin-top:-6px;
-        margin-left:-7px;
-        border-radius:0px 5px 5px 0px;
+        box-shadow: none;
+        margin-top: -6px;
+        margin-left: -7px;
+        border-radius: 0px 5px 5px 0px;
     }
-    #set_mobile_search{
-        border:1px solid white;
-        background:white;
-        color:black;
-        margin:0 auto;
-        border-radius:5px;
-        box-shadow:none;
-        padding-left:3px;
-        margin-right:-3px;
+
+    #set_mobile_search {
+        border: 1px solid white;
+        background: white;
+        color: black;
+        margin: 0 auto;
+        border-radius: 5px;
+        box-shadow: none;
+        padding-left: 3px;
+        margin-right: -3px;
     }
-    form{display:inline;}
+
+    form {
+        display: inline;
+    }
     </style>
 </head>
 
@@ -97,7 +102,7 @@
             <input type="text" name="" id="set_search" placeholder="Search..." class="hide-on-med-and-down">
             <button type="submit" class="btn waves-waves-effect waves-light hide-on-med-and-down" id="set_search_btn">Search</button>
             <?= form_close(); ?>
-            <!-- Search Box Start -->
+            <!-- Search Box End -->
             <!-- Menu Button Section Start -->
             <a href="#" class="sidenav-trigger right" data-target="mobile_menu"><i class="material-icons">menu</i></a>
             <!-- Menu Button Section End -->
