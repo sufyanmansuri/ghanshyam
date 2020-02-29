@@ -21,33 +21,116 @@
         border: 1px solid white;
         height: 30px;
         margin-left: 58%;
-        box-shadow:none;
-        font-size:14px;
-        background:white;
-        padding-left:2px;
+        box-shadow: none;
+        font-size: 14px;
+        background: white;
+        padding-left: 2px;
     }
-    button{
-        height:30px;
-        line-height:30px;
+
+    button {
+        height: 30px;
+        line-height: 30px;
     }
+
     #admin_password {
         width: 15%;
         border: 1px solid white;
         height: 30px;
         margin-left: 1px;
-        box-shadow:none;
-        font-size:14px;
-        background:white;
-        padding-left:2px;
+        box-shadow: none;
+        font-size: 14px;
+        background: white;
+        padding-left: 2px;
     }
-    #fname{
-        width:49%;
+
+    #fname {
+        width: 49%;
+        border: 1px solid silver;
+        height: 35px;
+        box-shadow: none;
+        font-size: 13px;
+        border-radius: 3px;
+        padding-left: 3px;
+        margin-bottom: 35px;
     }
-    #lname{
-        width:49%;
+
+    #lname {
+        width: 49%;
+        border: 1px solid silver;
+        height: 35px;
+        box-shadow: none;
+        font-size: 13px;
+        border-radius: 3px;
+        padding-left: 3px;
+        margin-bottom: 35px;
     }
-    body{
-        background:rgba(0,0,0,0.05);
+
+    #email {
+        border: 1px solid silver;
+        height: 35px;
+        box-shadow: none;
+        font-size: 13px;
+        border-radius: 3px;
+        padding-left: 3px;
+        margin-bottom: 35px;
+    }
+
+    #mobile_number {
+        border: 1px solid silver;
+        height: 35px;
+        box-shadow: none;
+        font-size: 13px;
+        border-radius: 3px;
+        padding-left: 3px;
+        margin-bottom: 35px;
+    }
+
+    #password {
+        border: 1px solid silver;
+        height: 35px;
+        box-shadow: none;
+        font-size: 13px;
+        border-radius: 3px;
+        padding-left: 3px;
+        margin-bottom: 35px;
+    }
+
+    #button {
+        box-shadow: none;
+        background: #c77700;
+    }
+
+    body {
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    /* Media query start */
+    @media only screen and (max-width: 800px) {
+        p {
+            width: 100px;
+        }
+
+        #fname {
+            width: 100%;
+            margin-left: -2px;
+        }
+
+        #lname {
+            width: 100%;
+            margin-left: -2px;
+        }
+
+        #email {
+            margin-left: -2px;
+        }
+
+        #mobile_number {
+            margin-left: -2px;
+        }
+
+        #password {
+            margin-left: -2px;
+        }
     }
     </style>
 </head>
@@ -56,18 +139,30 @@
     <!--topbar section start -->
     <nav class="orange">
         <div class="nav-wrapper">
-            <a href="" class="brand-logo">&nbsp;Admin Account</a>
+            <a href="" class="brand-logo">&nbsp;Ghanshyam</a>
             <?= form_open(); ?>
-            <input type="text" placeholder="username" id="admin_username">
-            <input type="text" id="admin_password" placeholder="password">
-            <button type="submit" class="btn waves-effect waves-light" style="box-shadow:none;background: #c77700;height:32px;margin-top:-4px;">Login</button>
+            <input type="text" placeholder="username" class="hide-on-med-and-down" id="admin_username">
+            <input type="text" id="admin_password" class="hide-on-med-and-down" placeholder="password">
+            <button type="submit" id="button" class="btn waves-effect waves-light hide-on-med-and-down"
+                style="height:32px;margin-top:-4px;">Login</button>
             <?= form_close(); ?>
         </div>
     </nav>
     <!-- Register Section Form Start -->
     <div class="row">
-        <div class="col l8 m8 s12">
+        <!--TODO:<div class="col l8 m8 s12">
             <h5>Register Now</h5>
+        </div>-->
+        <div class="hide-on-med-and-up" style="padding:15px;">
+            <div class="input-field">
+                <input type="text" id="mobile_username">
+                <label for="mobile_username">Username</label>
+            </div>
+            <div class="input-field">
+                <input type="password" id="mobile_password">
+                <label for="mobile_password">Password</label>
+            </div>
+            <button type="submit" id="button" class="btn waves-effect waves-light">Login</button>
         </div>
         <div class="col l4 m4 s12 white">
             <?= form_open(); ?>
@@ -75,9 +170,10 @@
             <input type="text" placeholder="First Name" id="fname">
             <input type="text" placeholder="Last Name" id="lname">
             <input type="text" placeholder="Email Address" id="email">
-            <input type="number" placeholder="Mobile Number" id="monile_number">
+            <input type="number" placeholder="Mobile Number" id="mobile_number">
             <input type="password" placeholder="Password" id="password">
-            <button type="submit" class="btn waves-effect waves-light" style="box-shadow:none;background: #c77700;" >Create Account <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+            <button type="submit" id="button" class="btn waves-effect waves-light">Create Account <i
+                    class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
             <?= form_close(); ?>
         </div>
     </div>

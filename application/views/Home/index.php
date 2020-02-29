@@ -1,253 +1,637 @@
 <!DOCTYPE html>
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<!-- Basic -->
 
 <head>
-    <title></title>
-    <!-- shortcut icon section start -->
-    <link rel="shortcut icon" href="<?= base_url('asset/image/logo.png') ?>">
-    <!--shortcut icon section end -->
-    <!--materialize css include-->
-    <?= link_tag('asset/materialize/css/materialize.css'); ?>
-    <!-- font awesome css include-->
-    <?= link_tag('asset/font/css/font-awesome.css'); ?>
-    <!-- Materialize Icon CSS Include -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- custom css -->
-    <style type="text/css">
-    #top_bar {
-        background: #c77700;
-    }
+    <meta charset="utf-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
 
-    #chinese_menu {
-        width: 50% !Important;
-    }
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    #footer_link li a {
-        color: white;
-        line-height: 35px
-    }
+    <!-- Site Metas -->
+    <title>Ghanshyam Caterers</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    #footer_link li a:hover {
-        color: black;
-        text-decoration: underline;
-    }
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="<?= base_url('asset/image/favicon.ico') ?>" type="image/x-icon">
 
-    #set_social_icon li {
-        display: inline;
-    }
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?= base_url('asset/css/bootstrap.min.css') ?>">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="<?= base_url('asset/css/style.css') ?>">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="<?= base_url('asset/css/responsive.css') ?>">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="<?= base_url('asset/css/custom.css') ?>">
 
-    #set_social_icon a {
-        color: white;
-        padding: 15px 15px 15px 15px;
-        border: 1px solid white;
-    }
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-    #set_search {
-        width: 39%;
-        height: 42px;
-        background: white;
-        border-radius: 5px;
-        border: 1px solid white;
-        box-shadow: none;
-        margin-left: 18%;
-        border: 1px solide white;
-    }
-
-    #set_search_btn {
-        height: 44px;
-        width-10%;
-        line-height: 45%;
-        background: #c77700;
-        box-shadow: none;
-        margin-top: -6px;
-        margin-left: -7px;
-        border-radius: 0px 5px 5px 0px;
-    }
-
-    #set_mobile_search {
-        border: 1px solid white;
-        background: white;
-        color: black;
-        margin: 0 auto;
-        border-radius: 5px;
-        box-shadow: none;
-        padding-left: 3px;
-        margin-right: -3px;
-    }
-
-    form {
-        display: inline;
-    }
-    </style>
 </head>
 
 <body>
-    <!-- topbar section start -->
-    <div id="top_bar" class="hide-on-med-and-down">
-        <span class="white-text">&nbsp;&nbsp;&nbsp;<span
-                class="fa fa-phone">&nbsp;&nbsp;1234567890&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <span class="fa fa-envelope">&nbsp;&nbsp;info@ghanshyam.com</span>
-            <span class="right"><span class="fa fa-gift">&nbsp;&nbsp;Gift
-                    Card&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sell on
-                Shop&nbsp;&nbsp;&nbsp;</span></span>
-    </div>
-    <!-- topbar section end -->
-    <!-- navbar section start -->
-    <nav class="orange">
-        <div class="nav-wrapper">
-            <a class="brand-logo left">&nbsp;&nbsp;Ghanshyam</a>
-            <!-- Search Box Start -->
-            <?= form_open(); ?>
-            <input type="text" name="" id="set_search" placeholder="Search..." class="hide-on-med-and-down">
-            <button type="submit" class="btn waves-waves-effect waves-light hide-on-med-and-down" id="set_search_btn">Search</button>
-            <?= form_close(); ?>
-            <!-- Search Box End -->
-            <!-- Menu Button Section Start -->
-            <a href="#" class="sidenav-trigger right" data-target="mobile_menu"><i class="material-icons">menu</i></a>
-            <!-- Menu Button Section End -->
-            <!-- Mobile Menu Start -->
-            <ul class="sidenav" id="mobile_menu">
-                <li><a href="">One</a></li>
-                <li><a href="">One</a></li>
-                <li><a href="">One</a></li>
-                <li><a href="">One</a></li>
-            </ul>
-            <!-- Mobile Menu End -->
-            <ul class="right hide-on-med-and-down">
-                <li><a href=""><span class="fa fa-shopping-cart">&nbsp;&nbsp;Cart</span></a></li>
-                <li><a href=""><span class="fa fa-sign-in">&nbsp;&nbsp;Signup</span></a></li>
-                <li><a href=""><span class="fa fa-sign-in">&nbsp;&nbsp;Login</span></a></li>
-            </ul>
-        </div>
-    </nav>
-    <!-- navbar section end -->
-    <!-- menu bar section start -->
-    <nav class="orange hide-on-med-and-down"
-        style="height: 35px;line-height: 35px;box-shadow:none;border:1px solid white;">
-        <div class="container">
-            <div class="nav-wrapper">
-                <ul class="left">
-                    <li><a href="" class="dropdown-trigger" data-target="chinese_menu">Chinese</a></li>
-                    <!--Chinese Menu start -->
-                    <ul class="dropdown-content" id="chinese_menu">
-                        <li><a href="">One</a></li>
-                        <li><a href="">One</a></li>
-                        <li><a href="">One</a></li>
+    <!-- Start Main Top -->
+    <header class="main-header">
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+            <div class="container">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="<?php echo site_url('Home') ?>"><img src="<?= base_url('asset/image/logo.png') ?>" class="brand-logo" alt=""></a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li class="nav-item active"><a class="nav-link" href="<?php echo site_url('Home') ?>">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.php">About Us</a></li>
+                        <li class="dropdown megamenu-fw">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Buy <i class="fa fa-caret-down"></i></a>
+                            <ul class="dropdown-menu megamenu-content" role="menu">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-menu col-md-3">
+                                            <h6 class="title">Top</h6>
+                                            <div class="content">
+                                                <ul class="menu-col">
+                                                    <li><a href="shop.php">Jackets</a></li>
+                                                    <li><a href="shop.php">Shirts</a></li>
+                                                    <li><a href="shop.php">Sweaters & Cardigans</a></li>
+                                                    <li><a href="shop.php">T-shirts</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- end col-3 -->
+                                        <div class="col-menu col-md-3">
+                                            <h6 class="title">Bottom</h6>
+                                            <div class="content">
+                                                <ul class="menu-col">
+                                                    <li><a href="shop.php">Swimwear</a></li>
+                                                    <li><a href="shop.php">Skirts</a></li>
+                                                    <li><a href="shop.php">Jeans</a></li>
+                                                    <li><a href="shop.php">Trousers</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- end col-3 -->
+                                        <div class="col-menu col-md-3">
+                                            <h6 class="title">Clothing</h6>
+                                            <div class="content">
+                                                <ul class="menu-col">
+                                                    <li><a href="shop.php">Top Wear</a></li>
+                                                    <li><a href="shop.php">Party wear</a></li>
+                                                    <li><a href="shop.php">Bottom Wear</a></li>
+                                                    <li><a href="shop.php">Indian Wear</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-menu col-md-3">
+                                            <h6 class="title">Accessories</h6>
+                                            <div class="content">
+                                                <ul class="menu-col">
+                                                    <li><a href="shop.php">Bags</a></li>
+                                                    <li><a href="shop.php">Sunglasses</a></li>
+                                                    <li><a href="shop.php">Fragrances</a></li>
+                                                    <li><a href="shop.php">Wallets</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- end col-3 -->
+                                    </div>
+                                    <!-- end row -->
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile <i class="fa fa-caret-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="cart.php">Cart</a></li>
+                                <li><a href="checkout.php">Checkout</a></li>
+                                <li><a href="my-account.php">My Account</a></li>
+                                <li><a href="wishlist.php">Wishlist</a></li>
+                                <li><a href="shop-detail.php">Shop Detail</a></li>
+                            </ul>
+                        </li>
+                        <!--<li class="nav-item"><a class="nav-link" href="service.php">Our Service</a></li>-->
+                        <li class="nav-item"><a class="nav-link" href="contact-us.php">Contact Us</a></li>
                     </ul>
-                    <!--Chinese Menu end -->
-                    <li><a href="">Chinese</a></li>
-                    <li><a href="">Chinese</a></li>
-                    <li><a href="">Chinese</a></li>
-                    <li><a href="">Chinese</a></li>
-                </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+
+                <!-- Start Atribute Navigation -->
+                <div class="attr-nav">
+                    <ul>
+                        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+                        <li class="side-menu"><a href="#">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span class="badge">3</span>
+                            </a></li>
+                    </ul>
+                </div>
+                <!-- End Atribute Navigation -->
+            </div>
+            <!-- Start Side Menu -->
+            <div class="side">
+                <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+                <li class="cart-box">
+                    <ul class="cart-list">
+                        <li>
+                            <a href="#" class="photo"><img src="<?= base_url('asset/image/img-pro-01.jpg') ?>" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Delica omtantur </a></h6>
+                            <p>1x - <span class="price">$80.00</span></p>
+                        </li>
+                        <li>
+                            <a href="#" class="photo"><img src="<?= base_url('asset/image/img-pro-02.jpg') ?>" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Omnes ocurreret</a></h6>
+                            <p>1x - <span class="price">$60.00</span></p>
+                        </li>
+                        <li>
+                            <a href="#" class="photo"><img src="<?= base_url('asset/image/img-pro-03.jpg') ?>" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Agam facilisis</a></h6>
+                            <p>1x - <span class="price">$40.00</span></p>
+                        </li>
+                        <li class="total">
+                            <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                            <span class="float-right"><strong>Total</strong>: $180.00</span>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+            <!-- End Side Menu -->
+        </nav>
+        <!-- End Navigation -->
+    </header>
+    <!-- End Main Top -->
+
+    <!-- Start Top Search -->
+    <div class="top-search">
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="Search">
+                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
             </div>
         </div>
-    </nav>
-    <!-- menu bar section end -->
-    <!-- Mobile Search Section Start -->
-    <div class="orange hide-on-med-and-up" style="padding:10px;">
-        <?= form_open(); ?>
-        <center><input type="text" id="set_mobile_search" placeholder="Search..."></center>
-        <?= form_close(); ?>
     </div>
-    <!-- Mobile Search Section End -->
-    <!-- image slider section -->
-    <div class="carousel carousel-slider">
-        <a class="carousel-item" href="#two!"><img src="<?= base_url('asset/image/slider/Screenshot (3).png') ?>"
-                class="responsive-img"></a>
-        <a class="carousel-item" href="#three!"><img src="<?= base_url('asset/image/slider/Screenshot (4).png') ?>"
-                class="responsive-img"></a>
-        <a class="carousel-item" href="#four!"><img src="<?= base_url('asset/image/slider/Screenshot (5).png') ?>"
-                class="responsive-img"></a>
-        <a class="carousel-item" href="#five!"><img src="<?= base_url('asset/image/slider/Screenshot (6).png') ?>"
-                class="responsive-img"></a>
+    <!-- End Top Search -->
+
+    <!-- Start Slider -->
+    <div id="slides-shop" class="cover-slides">
+        <ul class="slides-container">
+            <li class="text-left">
+                <img src="<?= base_url('asset/image/banner-01.jpg') ?>" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20"><strong>Welcome To <br> Ghanshyam Caterers</strong></h1>
+                            <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
+                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="text-center">
+                <img src="<?= base_url('asset/image/banner-02.jpg') ?>" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20"><strong>Welcome To <br> Ghanshyam Caterers</strong></h1>
+                            <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
+                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="text-right">
+                <img src="<?= base_url('asset/image/banner-03.jpg') ?>" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20"><strong>Welcome To <br> Ghanshyam Caterers</strong></h1>
+                            <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
+                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="slides-navigation">
+            <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+        </div>
     </div>
-    <!-- image slider section end -->
-    <!-- Footer Section start -->
-    <footer class="page-footer orange">
-        <!--four col. section start-->
+    <!-- End Slider -->
+
+    <!-- Start Categories  -->
+    <div class="categories-shop">
         <div class="container">
             <div class="row">
-                <div class="col l3 m6 s12">
-                    <h5>About us</h5>
-                    <p style="text-align:justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                        laborum.</p>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="shop-cat-box">
+                        <img class="img-fluid" src="<?= base_url('asset/image/shahi-paneer.jpg') ?>" alt="" />
+                        <a class="btn hvr-hover" href="#">Shahi Paneer</a>
+                    </div>
+                    <div class="shop-cat-box">
+                        <img class="img-fluid" src="<?= base_url('asset/image/shirt-img.jpg') ?>" alt="" />
+                        <a class="btn hvr-hover" href="#">shirt</a>
+                    </div>
                 </div>
-                <div class="col l3 m6 s12">
-                    <h5>Categories</h5>
-                    <ul id="footer_link">
-                        <li><a href="">Link</a></li>
-                        <li><a href="">Link</a></li>
-                        <li><a href="">Link</a></li>
-                        <li><a href="">Link</a></li>
-                    </ul>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="shop-cat-box">
+                        <img class="img-fluid" src="<?= base_url('asset/image/chaat.jpg') ?>" alt="" />
+                        <a class="btn hvr-hover" href="#">Chaat</a>
+                    </div>
+                    <div class="shop-cat-box">
+                        <img class="img-fluid" src="<?= base_url('asset/image/women-bag-img.jpg') ?>" alt="" />
+                        <a class="btn hvr-hover" href="#">Bags</a>
+                    </div>
                 </div>
-                <div class="col l3 m6 s12">
-                    <h5>Important Links</h5>
-                    <ul id="footer_link">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Create Account</a></li>
-                        <li><a href="">Login</a></li>
-                        <li><a href="">Cart</a></li>
-                        <li><a href="">Admin Panel</a></li>
-                    </ul>
-                </div>
-                <div class="col l3 m6 s12">
-                    <h5>Address</h5>
-                    <p><i class="fa fa-map-marker">&nbsp;&nbsp;20, Haji gaffar Ni
-                            Chali,</br>&nbsp;&nbsp;&nbsp;&nbsp;Usha Cinema Road,
-                            Gomtipur,</br>&nbsp;&nbsp;&nbsp;&nbsp;Ahmedabad - 380021</i></p>
-                    <p><i class="fa fa-phone">&nbsp;&nbsp;+91-7016138213, +91-7041378597</i></p>
-                    <p><i class="fa fa-envelope">&nbsp;&nbsp;sufyan8834@gmail.com</i></p>
-                    <p><a href="https://www.instagram.com/typingmistake" class="white-text"><i
-                                class="fa fa-instagram">&nbsp;&nbsp;Sufyan Mansuri</i></a></p>
-                    <br>
-                    <!--social media icon start-->
-                    <ul id="set_social_icon">
-                        <li><a href=""><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                        <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                        <li><a href=""><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-                        <li><a href=""><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
-                        <li><a href=""><i class="fa fa-google" aria-hidden="true"></i></a></li>
-                    </ul>
-                    <!--social media icon end-->
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="shop-cat-box">
+                        <img class="img-fluid" src="<?= base_url('asset/image/shoes-img.jpg') ?>" alt="" />
+                        <a class="btn hvr-hover" href="#">Shoes</a>
+                    </div>
+                    <div class="shop-cat-box">
+                        <img class="img-fluid" src="<?= base_url('asset/image/women-shoes-img.jpg') ?>" alt="" />
+                        <a class="btn hvr-hover" href="#">Women Shoes</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <!--four col. section start-->
-        <div class="footer-copyright" style="background: #c77700">
-            <div class="container">
-                © 2019 to <?= date('Y') ?> Copyright All rights reserved
-                <a class="grey-text text-lighten-4 right" href="#!">Designed By Sufyan Mansuri</a>
-            </div>
-        </div>
+    </div>
+    <!-- End Categories -->
 
+    <!-- Start Products  -->
+    <div class="products-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-all text-center">
+                        <h1>Featured Products</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="special-menu text-center">
+                        <div class="button-group filter-button-group">
+                            <button class="active" data-filter="*">All</button>
+                            <button data-filter=".top-featured">Top featured</button>
+                            <button data-filter=".best-seller">Best seller</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row special-list">
+                <div class="col-lg-3 col-md-6 special-grid best-seller">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="sale">Sale</p>
+                            </div>
+                            <img src="<?= base_url('asset/image/img-pro-01.jpg') ?>" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="#">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Lorem ipsum dolor sit amet</h4>
+                            <h5> $7.79</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 special-grid top-featured">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="new">New</p>
+                            </div>
+                            <img src="<?= base_url('asset/image/img-pro-02.jpg') ?>" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="#">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Lorem ipsum dolor sit amet</h4>
+                            <h5> $9.79</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 special-grid top-featured">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="sale">Sale</p>
+                            </div>
+                            <img src="<?= base_url('asset/image/img-pro-03.jpg') ?>" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="#">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Lorem ipsum dolor sit amet</h4>
+                            <h5> $10.79</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 special-grid best-seller">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="sale">Sale</p>
+                            </div>
+                            <img src="<?= base_url('asset/image/img-pro-04.jpg') ?>" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                <a class="cart" href="#">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="why-text">
+                            <h4>Lorem ipsum dolor sit amet</h4>
+                            <h5> $15.79</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Products  -->
+
+    <!-- Start Blog  -->
+    <div class="latest-blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-all text-center">
+                        <h1>latest blog</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 col-xl-4">
+                    <div class="blog-box">
+                        <div class="blog-img">
+                            <img class="img-fluid" src="<?= base_url('asset/image/blog-img.jpg') ?>" alt="" />
+                        </div>
+                        <div class="blog-content">
+                            <div class="title-blog">
+                                <h3>Fusce in augue non nisi fringilla</h3>
+                                <p>Nulla ut urna egestas, porta libero id, suscipit orci. Quisque in lectus sit amet urna dignissim feugiat. Mauris molestie egestas pharetra. Ut finibus cursus nunc sed mollis. Praesent laoreet lacinia elit id lobortis.</p>
+                            </div>
+                            <ul class="option-blog">
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Likes"><i class="far fa-heart"></i></a></li>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Views"><i class="fas fa-eye"></i></a></li>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Comments"><i class="far fa-comments"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-4">
+                    <div class="blog-box">
+                        <div class="blog-img">
+                            <img class="img-fluid" src="<?= base_url('asset/image/blog-img-01.jpg') ?>" alt="" />
+                        </div>
+                        <div class="blog-content">
+                            <div class="title-blog">
+                                <h3>Fusce in augue non nisi fringilla</h3>
+                                <p>Nulla ut urna egestas, porta libero id, suscipit orci. Quisque in lectus sit amet urna dignissim feugiat. Mauris molestie egestas pharetra. Ut finibus cursus nunc sed mollis. Praesent laoreet lacinia elit id lobortis.</p>
+                            </div>
+                            <ul class="option-blog">
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Likes"><i class="far fa-heart"></i></a></li>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Views"><i class="fas fa-eye"></i></a></li>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Comments"><i class="far fa-comments"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-4">
+                    <div class="blog-box">
+                        <div class="blog-img">
+                            <img class="img-fluid" src="<?= base_url('asset/image/blog-img-02.jpg') ?>" alt="" />
+                        </div>
+                        <div class="blog-content">
+                            <div class="title-blog">
+                                <h3>Fusce in augue non nisi fringilla</h3>
+                                <p>Nulla ut urna egestas, porta libero id, suscipit orci. Quisque in lectus sit amet urna dignissim feugiat. Mauris molestie egestas pharetra. Ut finibus cursus nunc sed mollis. Praesent laoreet lacinia elit id lobortis.</p>
+                            </div>
+                            <ul class="option-blog">
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Likes"><i class="far fa-heart"></i></a></li>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Views"><i class="fas fa-eye"></i></a></li>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Comments"><i class="far fa-comments"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Blog  -->
+
+
+    <!-- Start Instagram Feed  -->
+    <div class="instagram-box">
+        <div class="main-instagram owl-carousel owl-theme">
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="<?= base_url('asset/image/instagram-img-01.jpg') ?>" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="<?= base_url('asset/image/instagram-img-02.jpg') ?>" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="<?= base_url('asset/image/instagram-img-03.jpg') ?>" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="<?= base_url('asset/image/instagram-img-04.jpg') ?>" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="<?= base_url('asset/image/instagram-img-05.jpg') ?>" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="<?= base_url('asset/image/instagram-img-06.jpg') ?>" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="<?= base_url('asset/image/instagram-img-07.jpg') ?>" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="<?= base_url('asset/image/instagram-img-08.jpg') ?>" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="<?= base_url('asset/image/instagram-img-09.jpg') ?>" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="<?= base_url('asset/image/instagram-img-05.jpg') ?>" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Instagram Feed  -->
+
+
+    <!-- Start Footer  -->
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-widget">
+                            <h4>About Ghanshyam Caterers</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                            <ul>
+                                <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-link">
+                            <h4>Information</h4>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Customer Service</a></li>
+                                <li><a href="#">Our Sitemap</a></li>
+                                <li><a href="#">Terms &amp; Conditions</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Delivery Information</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-link-contact">
+                            <h4>Contact Us</h4>
+                            <ul>
+                                <li>
+                                    <p><i class="fas fa-map-marker-alt"></i>Address: 18, Khodiyarnagar Society, <br>Opp.Vishalnagar Society,
+                                        <br> Isanpur,Ahmedabad-382443. </p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+91-9054173660">+91-9054173660</a></p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-envelope"></i>Email: <a href="mailto:ghanshyam@gmail.com">ghanshyam@gmail.com</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
-    <!-- Footer Section End -->
-    <!-- jquery include-->
-    <script type="text/javascript" src="<?= base_url('asset/jquery/jquery.js'); ?>"></script>
-    <!--materialize js include-->
-    <script type="text/javascript" src="<?= base_url('asset/materialize/js/materialize.js'); ?>"></script>
-    <!--custom js-->
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $('.dropdown-trigger').dropdown({
-            coverTrigger: false
-        });
-    });
-    //sidenav menu script
-    $('.sidenav').sidenav();
-    //slider script
-    $('.carousel.carousel-slider').carousel({
-        fullWidth: true,
-        indicators: true
-    });
-    </script>
+    <!-- End Footer  -->
+
+    <!-- Start copyright  -->
+    <div class="footer-copyright">
+        <p class="footer-company">All Rights Reserved. &copy; 2020 <a href="#">Ghanshyam Caterers</a> Design By :
+            <a href="https://html.design/">html design</a></p>
+    </div>
+    <!-- End copyright  -->
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+    <!-- ALL JS FILES -->
+    <script src="<?= base_url('asset/js/jquery-3.2.1.min.js') ?>"></script>
+    <script src="<?= base_url('asset/js/popper.min.js') ?>"></script>
+    <script src="<?= base_url('asset/js/bootstrap.min.js') ?>"></script>
+    <!-- ALL PLUGINS -->
+    <script src="<?= base_url('asset/js/jquery.superslides.min.js') ?>"></script>
+    <script src="<?= base_url('asset/js/bootstrap-select.js') ?>"></script>
+    <script src="<?= base_url('asset/js/inewsticker.js') ?>"></script>
+    <script src="<?= base_url('asset/js/bootsnav.js') ?>"></script>
+    <script src="<?= base_url('asset/js/images-loded.min.js') ?>"></script>
+    <script src="<?= base_url('asset/js/isotope.min.js') ?>"></script>
+    <script src="<?= base_url('asset/js/owl.carousel.min.js') ?>"></script>
+    <script src="<?= base_url('asset/js/baguetteBox.min.js') ?>"></script>
+    <script src="<?= base_url('asset/js/form-validator.min.js') ?>"></script>
+    <script src="<?= base_url('asset/js/contact-form-script.js') ?>"></script>
+    <script src="<?= base_url('asset/js/custom.js') ?>"></script>
 </body>
 
 </html>
