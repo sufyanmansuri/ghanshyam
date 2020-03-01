@@ -1,0 +1,6 @@
+<body>
+    <!-- ALL JS FILES -->
+    <script src="<?= base_url('asset/js/jquery-3.2.1.min.js') ?>"></script>
+    <script src="<?= base_url('asset/js/popper.min.js') ?>"></script>
+    <script src="<?= base_url('asset/js/bootstrap.min.js') ?>"></script>
+</body>

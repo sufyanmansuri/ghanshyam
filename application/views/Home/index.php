@@ -23,11 +23,11 @@
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="<?= base_url('asset/css/bootstrap.min.css')?>">
+    <link rel="stylesheet" href="<?= base_url('asset/css/bootstrap.min.css') ?>">
     <!-- Material Design Bootstrap -->
-    <link rel="stylesheet" href="<?= base_url('asset/css/mdb.min.css')?>">
+    <link rel="stylesheet" href="<?= base_url('asset/css/mdb.min.css') ?>">
     <!-- Your custom styles (optional) -->
-    <link rel="stylesheet" href="<?= base_url('asset/css/style.css')?>">
+    <link rel="stylesheet" href="<?= base_url('asset/css/style.css') ?>">
 
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="<?= base_url('asset/css/responsive.css') ?>">
@@ -51,7 +51,7 @@
         <nav class="navbar navbar-expand-lg navbar-light navbar-default bootsnav">
             <div class="container">
                 <!-- Start Header Navigation -->
-                <div class="navbar-header" >
+                <div class="navbar-header">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
@@ -659,17 +659,17 @@
                             <div class="modal-body mb-1">
                                 <div class="md-form form-sm mb-5">
                                     <i class="fas fa-envelope prefix"></i>
-                                    <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput10">Your email</label>
+                                    <input type="email" id="email" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="" for="modalLRInput10">Your email</label>
                                 </div>
 
                                 <div class="md-form form-sm mb-4">
                                     <i class="fas fa-lock prefix"></i>
-                                    <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput11">Your password</label>
+                                    <input type="password" id="password" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="" for="modalLRInput11">Your password</label>
                                 </div>
                                 <div class="text-center mt-2">
-                                    <button class="btn hvr-hover" style="color: white;">Log in <i class="fas fa-sign-in ml-1"></i></button>
+                                    <button class="btn hvr-hover" id="btn_submit" style="color: white;">Log in <i class="fas fa-sign-in ml-1"></i></button>
                                 </div>
                             </div>
                             <!--Footer-->
@@ -692,19 +692,25 @@
                                 <div class="md-form form-sm mb-5">
                                     <i class="fas fa-envelope prefix"></i>
                                     <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput12">Your email</label>
+                                    <label data-error="wrong" data-success="" for="modalLRInput12">Your email</label>
+                                </div>
+
+                                <div class="md-form form-sm mb-5">
+                                    <i class="fas fa-phone-alt prefix"></i>
+                                    <input type="number" id="modalLRInput12" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="" for="modalLRInput12">Mobile number</label>
                                 </div>
 
                                 <div class="md-form form-sm mb-5">
                                     <i class="fas fa-lock prefix"></i>
                                     <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
+                                    <label data-error="wrong" data-success="" for="modalLRInput13">Your password</label>
                                 </div>
 
                                 <div class="md-form form-sm mb-4">
                                     <i class="fas fa-lock prefix"></i>
                                     <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
+                                    <label data-error="wrong" data-success="" for="modalLRInput14">Repeat password</label>
                                 </div>
 
                                 <div class="text-center form-sm mt-2">
@@ -756,10 +762,23 @@
     <!-- Plugin file -->
     <script src="<?= base_url('asset/js/addons/datatables.min.js') ?>"></script>
     <!-- MDBootstrap Initialize -->
-    <script>
+    <script type="text/javascript">
         $(document).ready(function() {
             $('#dtBasicExample').DataTable();
             $('.dataTables_length').addClass('bs-select');
+
+            function ValidateEmail(email) {
+                var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+                return expr.test(email);
+            };
+            $("#email").keyup(function() {
+                if (!ValidateEmail($("#email").val())) {
+                    //alert("Invalid email address.");
+                    $('#btn_submit').prop('disabled', true);
+                } else {
+                    $('#btn_submit').prop('disabled', false);
+                }
+            });
         });
     </script>
 
