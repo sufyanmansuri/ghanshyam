@@ -665,7 +665,7 @@
 
                                 <div class="md-form form-sm mb-4">
                                     <i class="fas fa-lock prefix"></i>
-                                    <input type="password" id="password" class="form-control form-control-sm validate">
+                                    <input type="password" id="lpassword" class="form-control form-control-sm validate">
                                     <label data-error="wrong" data-success="" for="password">Your password</label>
                                 </div>
                                 <div class="text-center mt-2">
@@ -688,6 +688,7 @@
                         <div class="tab-pane fade" id="panel8" role="tabpanel">
 
                             <!--Body-->
+                            <?= form_open("Home/CreateAccount"); ?>
                             <div class="modal-body">
                                 <div class="md-form form-sm mb-5">
                                     <i class="fas fa-envelope prefix"></i>
@@ -718,6 +719,7 @@
                                 </div>
 
                             </div>
+                            <?= form_open(); ?>
                             <!--Footer-->
                             <div class="modal-footer">
                                 <div class="options text-right">
