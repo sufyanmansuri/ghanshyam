@@ -215,7 +215,7 @@
     /* ..............................................
        Mobile Number Length
        ................................................. */
-    $('#mobile_number').keyup(function {
+    $('#mobile_number').keyup(function() {
         var mobile_number = $('#mobile_number').val();
         var mobile_number_len = $('#mobile_number').val().length;
         if (mobile_number_len > 0) {
