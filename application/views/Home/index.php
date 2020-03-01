@@ -63,7 +63,7 @@
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                         <li class="nav-item active"><a class="nav-link" href="<?php echo site_url('Home') ?>">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.php">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo site_url('Aboutus')?>">About Us</a></li>
                         <li class="dropdown megamenu-fw">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Buy <i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu megamenu-content" role="menu">
