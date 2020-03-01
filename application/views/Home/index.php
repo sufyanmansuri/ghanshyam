@@ -659,17 +659,17 @@
                             <div class="modal-body mb-1">
                                 <div class="md-form form-sm mb-5">
                                     <i class="fas fa-envelope prefix"></i>
-                                    <input type="email" id="email" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="" for="modalLRInput10">Your email</label>
+                                    <input type="email" id="lemail" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="" for="lemail">Your email</label>
                                 </div>
 
                                 <div class="md-form form-sm mb-4">
                                     <i class="fas fa-lock prefix"></i>
                                     <input type="password" id="password" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="" for="modalLRInput11">Your password</label>
+                                    <label data-error="wrong" data-success="" for="password">Your password</label>
                                 </div>
                                 <div class="text-center mt-2">
-                                    <button class="btn hvr-hover" id="btn_submit" style="color: white;">Log in <i class="fas fa-sign-in ml-1"></i></button>
+                                    <button class="btn hvr-hover" id="btn_login" style="color: white;">Log in <i class="fas fa-sign-in ml-1"></i></button>
                                 </div>
                             </div>
                             <!--Footer-->
@@ -691,30 +691,30 @@
                             <div class="modal-body">
                                 <div class="md-form form-sm mb-5">
                                     <i class="fas fa-envelope prefix"></i>
-                                    <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="" for="modalLRInput12">Your email</label>
+                                    <input type="email" id="email" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="" for="email">Your email</label>
                                 </div>
 
                                 <div class="md-form form-sm mb-5">
                                     <i class="fas fa-phone-alt prefix"></i>
-                                    <input type="number" id="modalLRInput12" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="" for="modalLRInput12">Mobile number</label>
+                                    <input type="number" id="mobile_number" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="" for="mobile_number">Mobile number</label>
                                 </div>
 
                                 <div class="md-form form-sm mb-5">
                                     <i class="fas fa-lock prefix"></i>
-                                    <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="" for="modalLRInput13">Your password</label>
+                                    <input type="password" id="password" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="" for="password">Your password</label>
                                 </div>
 
                                 <div class="md-form form-sm mb-4">
                                     <i class="fas fa-lock prefix"></i>
-                                    <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="" for="modalLRInput14">Repeat password</label>
+                                    <input type="password" id="rpassword" class="form-control form-control-sm validate">
+                                    <label data-error="wrong" data-success="" for="rpassword">Repeat password</label>
                                 </div>
 
                                 <div class="text-center form-sm mt-2">
-                                    <button class="btn btn-info">Sign up <i class="fas fa-sign-in ml-1"></i></button>
+                                    <button class="btn hvr-hover" id="btn_submit" style="color:white;">Sign up <i class="fas fa-sign-in ml-1"></i></button>
                                 </div>
 
                             </div>
@@ -767,12 +767,25 @@
             $('#dtBasicExample').DataTable();
             $('.dataTables_length').addClass('bs-select');
 
+            function ValidateLemail(lemail) {
+                var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+                return expr.test(lemail);
+            };
+            $("#lemail").keyup(function() {
+                if (!ValidateLemail($("#lemail").val())) {
+                    //alert("Invalid email address.");
+                    $('#btn_login').prop('disabled', true);
+                } else {
+                    $('#btn_login').prop('disabled', false);
+                }
+            });
+
             function ValidateEmail(email) {
                 var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
                 return expr.test(email);
             };
             $("#email").keyup(function() {
-                if (!ValidateEmail($("#email").val())) {
+                if (!ValidateLemail($("#email").val())) {
                     //alert("Invalid email address.");
                     $('#btn_submit').prop('disabled', true);
                 } else {
