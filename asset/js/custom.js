@@ -212,5 +212,21 @@
         cursorcolor: "#9b9b9c",
     });
 
+    /* ..............................................
+       Mobile Number Length
+       ................................................. */
+    $('#mobile_number').keyup(function {
+        var mobile_number = $('#mobile_number').val();
+        var mobile_number_len = $('#mobile_number').val().length;
+        if (mobile_number_len > 0) {
+            if (mobile_number_len == 10) {
+                $('#btn_submit').prop('disabled', disabled);
+            } else {
+                $('#btn_submit').prop('disabled', true);
+            }
+        } else {
+            $('#btn_submit').prop('disabled', true);
+        }
+    });
 
 }(jQuery));
