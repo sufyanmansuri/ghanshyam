@@ -200,6 +200,7 @@
     <div class="row" style="padding-top:10px;padding-left:10%;padding-right:10%">
         <div class="col-lg-6 col-md-12 mb-4" style="top:10px;">
             <!-- Material form login -->
+            <?= form_open('Admin/Login');?>
             <div class="card">
 
                 <h5 class="card-header white-text text-center py-4" style="background:#d33b33;">
@@ -214,13 +215,13 @@
 
                         <!-- Email -->
                         <div class="md-form">
-                            <input type="email" id="materialLoginFormEmail" class="form-control">
+                            <input type="text" name="admin_username" id="materialLoginFormEmail" class="form-control">
                             <label for="materialLoginFormEmail">E-mail</label>
                         </div>
 
                         <!-- Password -->
                         <div class="md-form">
-                            <input type="password" id="materialLoginFormPassword" class="form-control">
+                            <input type="password" id="materialLoginFormPassword" class="form-control" name="admin_password">
                             <label for="materialLoginFormPassword">Password</label>
                         </div>
 
@@ -267,10 +268,12 @@
                 </div>
 
             </div>
+            <?= form_close(); ?>
             <!-- Material form login -->
         </div>
         <div class="col-lg-6 col-md-12 mb-4" style="top:10px;">
             <!-- Material form register -->
+            <?= form_open("Admin/CreateAccount"); ?>
             <div class="card">
 
                 <h5 class="card-header white-text text-center py-4" style="background:#d33b33;">
@@ -287,14 +290,14 @@
                             <div class="col">
                                 <!-- First name -->
                                 <div class="md-form">
-                                    <input type="text" id="materialRegisterFormFirstName" class="form-control">
+                                    <input type="text" id="materialRegisterFormFirstName" name="fname" class="form-control">
                                     <label for="materialRegisterFormFirstName">First name</label>
                                 </div>
                             </div>
                             <div class="col">
                                 <!-- Last name -->
                                 <div class="md-form">
-                                    <input type="email" id="materialRegisterFormLastName" class="form-control">
+                                    <input type="text" id="materialRegisterFormLastName" name="lname" class="form-control">
                                     <label for="materialRegisterFormLastName">Last name</label>
                                 </div>
                             </div>
@@ -302,13 +305,13 @@
 
                         <!-- E-mail -->
                         <div class="md-form mt-0">
-                            <input type="email" id="materialRegisterFormEmail" class="form-control">
+                            <input type="email" id="materialRegisterFormEmail" name="email" class="form-control">
                             <label for="materialRegisterFormEmail">E-mail</label>
                         </div>
 
                         <!-- Password -->
                         <div class="md-form">
-                            <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
+                            <input type="password" id="materialRegisterFormPassword" name="password"class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
                             <label for="materialRegisterFormPassword">Password</label>
                             <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
                                 At least 8 characters and 1 digit
@@ -317,7 +320,7 @@
 
                         <!-- Phone number -->
                         <div class="md-form">
-                            <input type="password" id="materialRegisterFormPhone" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
+                            <input type="number" id="materialRegisterFormPhone" name="mobile_number" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
                             <label for="materialRegisterFormPhone">Phone number</label>
                             <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
                                 Optional - for two step authentication
@@ -362,6 +365,7 @@
                 </div>
 
             </div>
+            <?= form_close();?>
             <!-- Material form register -->
         </div>
     </div>
