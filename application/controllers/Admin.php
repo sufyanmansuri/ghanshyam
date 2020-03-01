@@ -70,5 +70,11 @@ class Admin extends CI_Controller
             $this->load->view('Admin/Dashboard');
         }
     }
+
+    public function Logout(){
+        $this->session->unset_userdata('admin_username');
+        $this->session->unset_userdata('admin_password');
+        return redirect('Admin/index');
+    }
 }
 ?>
