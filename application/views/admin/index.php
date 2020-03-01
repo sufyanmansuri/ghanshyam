@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Site Icons -->
+    <!-- Site Icons as-->
     <link rel="shortcut icon" href="<?= base_url('asset/image/logo.png') ?>" type="image/x-icon">
 
     <!-- Font Awesome -->
