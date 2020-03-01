@@ -641,11 +641,11 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
+                            <a class="nav-link white-text" style="background:#d33b33;border:1px solid white;" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
                                 Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
+                            <a class="nav-link white-text" style="background:#d33b33;border:1px solid white;" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
                                 Register</a>
                         </li>
                     </ul>
@@ -678,7 +678,7 @@
                                     <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
                                     <p>Forgot <a href="#" class="blue-text">Password?</a></p>
                                 </div>
-                                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-outline-danger waves-effect ml-auto" data-dismiss="modal">Close</button>
                             </div>
 
                         </div>
