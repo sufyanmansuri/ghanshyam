@@ -186,109 +186,105 @@
     </header>
     <!-- End Main Top -->
     <!-- Contact Section -->
-   <!--Section: Contact v.1-->
-<section class="section pb-5">
+    <div class="container card" style="padding-left:20%;padding-right:20%;top:10px;">
+        <!--Section: Contact v.2-->
+        <section class="mb-4">
 
-  <!--Section heading-->
-  <h2 class="section-heading h1 pt-4">Contact us</h2>
-  <!--Section description-->
-  <p class="section-description pb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
-    amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a
-    pariatur accusamus veniam.</p>
+            <!--Section heading-->
+            <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+            <!--Section description-->
+            <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+                a matter of hours to help you.</p>
 
-  <div class="row">
+            <div class="row">
 
-    <!--Grid column-->
-    <div class="col-lg-5 mb-4">
+                <!--Grid column-->
+                <div class="col-md-9 mb-md-0 mb-5">
+                    <form id="contact-form" name="contact-form" action="mail.php" method="POST">
 
-      <!--Form with header-->
-      <div class="card">
+                        <!--Grid row-->
+                        <div class="row">
 
-        <div class="card-body">
-          <!--Header-->
-          <div class="form-header blue accent-1">
-            <h3><i class="fas fa-envelope"></i> Write to us:</h3>
-          </div>
+                            <!--Grid column-->
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="name" name="name" class="form-control">
+                                    <label for="name" class="">Your name</label>
+                                </div>
+                            </div>
+                            <!--Grid column-->
 
-          <p>We'll write rarely, but with only the best content.</p>
-          <br>
+                            <!--Grid column-->
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="email" name="email" class="form-control">
+                                    <label for="email" class="">Your email</label>
+                                </div>
+                            </div>
+                            <!--Grid column-->
 
-          <!--Body-->
-          <div class="md-form">
-            <i class="fas fa-user prefix grey-text"></i>
-            <input type="text" id="form-name" class="form-control">
-            <label for="form-name">Your name</label>
-          </div>
+                        </div>
+                        <!--Grid row-->
 
-          <div class="md-form">
-            <i class="fas fa-envelope prefix grey-text"></i>
-            <input type="text" id="form-email" class="form-control">
-            <label for="form-email">Your email</label>
-          </div>
+                        <!--Grid row-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="subject" name="subject" class="form-control">
+                                    <label for="subject" class="">Subject</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Grid row-->
 
-          <div class="md-form">
-            <i class="fas fa-tag prefix grey-text"></i>
-            <input type="text" id="form-Subject" class="form-control">
-            <label for="form-Subject">Subject</label>
-          </div>
+                        <!--Grid row-->
+                        <div class="row">
 
-          <div class="md-form">
-            <i class="fas fa-pencil-alt prefix grey-text"></i>
-            <textarea id="form-text" class="form-control md-textarea" rows="3"></textarea>
-            <label for="form-text">Icon Prefix</label>
-          </div>
+                            <!--Grid column-->
+                            <div class="col-md-12">
 
-          <div class="text-center mt-4">
-            <button class="btn btn-light-blue">Submit</button>
-          </div>
+                                <div class="md-form">
+                                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                                    <label for="message">Your message</label>
+                                </div>
 
-        </div>
+                            </div>
+                        </div>
+                        <!--Grid row-->
 
-      </div>
-      <!--Form with header-->
+                    </form>
 
+                    <div class="text-center text-md-left">
+                        <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
+                    </div>
+                    <div class="status"></div>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-3 text-center">
+                    <ul class="list-unstyled mb-0">
+                        <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                            <p>San Francisco, CA 94126, USA</p>
+                        </li>
+
+                        <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                            <p>+ 01 234 567 89</p>
+                        </li>
+
+                        <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                            <p>contact@mdbootstrap.com</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+            </div>
+
+        </section>
+        <!--Section: Contact v.2-->
     </div>
-    <!--Grid column-->
-
-    <!--Grid column-->
-    <div class="col-lg-7">
-
-      <!--Google map-->
-      <div id="map-container-google-11" class="z-depth-1-half map-container-6" style="height: 400px">
-        <iframe src="https://maps.google.com/maps?q=new%20delphi&t=&z=13&ie=UTF8&iwloc=&output=embed"
-          frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
-
-      <br>
-      <!--Buttons-->
-      <div class="row text-center">
-        <div class="col-md-4">
-          <a class="btn-floating blue accent-1"><i class="fas fa-map-marker-alt"></i></a>
-          <p>San Francisco, CA 94126</p>
-          <p>United States</p>
-        </div>
-
-        <div class="col-md-4">
-          <a class="btn-floating blue accent-1"><i class="fas fa-phone"></i></a>
-          <p>+ 01 234 567 89</p>
-          <p>Mon - Fri, 8:00-22:00</p>
-        </div>
-
-        <div class="col-md-4">
-          <a class="btn-floating blue accent-1"><i class="fas fa-envelope"></i></a>
-          <p>info@gmail.com</p>
-          <p>sale@gmail.com</p>
-        </div>
-      </div>
-
-    </div>
-    <!--Grid column-->
-
-  </div>
-
-</section>
-<!--Section: Contact v.1-->
-<!-- Contact Sction -->
+    <!-- Contact Sction -->
     <!-- Start Blog  -->
     <div class="latest-blog">
         <div class="container">
