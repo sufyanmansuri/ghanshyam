@@ -74,7 +74,7 @@
                     <ul>
                         <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                         <li class="dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Welcome, user.&nbsp;&nbsp;<i class="fa fa-user"></i></a>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li><a href="<?= base_url('index.php/Admin/Logout'); ?>">Logout</a></li>
                             </ul>
