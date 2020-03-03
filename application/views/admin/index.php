@@ -200,7 +200,6 @@
     <div class="row" style="padding-top:10px;padding-left:10%;padding-right:10%">
         <div class="col-lg-6 col-md-12 mb-4" style="top:10px;">
             <!-- Material form login -->
-            <?= form_open('Admin/Login');?>
             <div class="card">
 
                 <h5 class="card-header white-text text-center py-4" style="background:#d33b33;">
@@ -211,6 +210,7 @@
                 <div class="card-body px-lg-5 pt-0">
 
                     <!-- Form -->
+                    <?= form_open('Admin/Login'); ?>
                     <form class="text-center" style="color: #757575;" action="#!">
 
                         <!-- Email -->
@@ -221,7 +221,7 @@
 
                         <!-- Password -->
                         <div class="md-form">
-                            <input type="password" id="materialLoginFormPassword" class="form-control" name="admin_password">
+                            <input type="password" name="admin_password" id="materialLoginFormPassword" class="form-control">
                             <label for="materialLoginFormPassword">Password</label>
                         </div>
 
@@ -263,12 +263,12 @@
                         </a>
 
                     </form>
+                    <?= form_close(); ?>
                     <!-- Form -->
 
                 </div>
 
             </div>
-            <?= form_close(); ?>
             <!-- Material form login -->
         </div>
         <div class="col-lg-6 col-md-12 mb-4" style="top:10px;">

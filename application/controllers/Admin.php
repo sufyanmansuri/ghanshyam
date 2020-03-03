@@ -9,7 +9,13 @@ class Admin extends CI_Controller
 
     public function index()
     {
-        $this->load->view('Admin/index');
+        if($this->session->userdata('admin_username') == "" && $this->session->userdata('admin_pwd') == "")
+        {
+            $this->load->view('Admin/index');
+        }
+        else{
+            return redirect('Admin/Dashboard');
+        }
     }
 
     public function CreateAccount()
@@ -46,23 +52,23 @@ class Admin extends CI_Controller
         }
     }
     public function Login(){
-        $ausername = $this->input->post("admin_username");
-        $apassword = $this->input->post("admin_password");
+        $ausername = $this->input->post('admin_username');
+        $apassword = $this->input->post('admin_password');
         $result = $this->am->Login();
-        if($result){
+        if($result == true){
             $session_data = [
-                'admin_username'    =>  $ausername,
-                'admin_password' =>  $apassword
+                'admin_username'=>$ausername,
+                'admin_password'=>$apassword
             ];
             $this->session->set_userdata($session_data);
-            return redirect('Admin/Dashboard');
+            $this->Dashboard();
         }
         else{
             return redirect('Admin/index');
         }
     }
     public function Dashboard(){
-        if($this->session->userdata('admin_email') == "" && $this->session->userdata('admin_pwd') == "")
+        if($this->session->userdata('admin_username') == "" && $this->session->userdata('admin_pwd') == "")
         {
             return redirect('Admin/index');
         }

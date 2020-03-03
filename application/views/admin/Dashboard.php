@@ -76,7 +76,7 @@
                         <li class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
                             <ul class="dropdown-menu dropdown-menu-right">
-                                <li><a href="<?= base_url('index.php/Admin/Logout');?>">Logout</a></li>
+                                <li><a href="<?= base_url('index.php/Admin/Logout'); ?>">Logout</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -355,6 +355,8 @@
         $(document).ready(function() {
             $('#dtBasicExample').DataTable();
             $('.dataTables_length').addClass('bs-select');
-        }); <
-        /body> < /
-        html >
+        });
+    </script>
+</body>
+
+</html>
