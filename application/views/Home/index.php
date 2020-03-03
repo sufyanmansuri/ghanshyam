@@ -62,8 +62,8 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                        <li class="nav-item active"><a class="nav-link" href="<?php echo site_url('Home') ?>">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?php echo site_url('About') ?>">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo site_url('Home') ?>">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?= base_url('About') ?>">About Us</a></li>
                         <li class="dropdown megamenu-fw">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Buy <i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu megamenu-content" role="menu">
@@ -73,10 +73,10 @@
                                             <h6 class="title">Top</h6>
                                             <div class="content">
                                                 <ul class="menu-col">
-                                                    <li><a href="shop.php">Jackets</a></li>
-                                                    <li><a href="shop.php">Shirts</a></li>
-                                                    <li><a href="shop.php">Sweaters & Cardigans</a></li>
-                                                    <li><a href="shop.php">T-shirts</a></li>
+                                                    <li><a href="<?= base_url('Shop'); ?>">Jackets</a></li>
+                                                    <li><a href="<?= base_url('Shop'); ?>">Shirts</a></li>
+                                                    <li><a href="<?= base_url('Shop'); ?>">Sweaters & Cardigans</a></li>
+                                                    <li><a href="<?= base_url('Shop'); ?>">T-shirts</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -85,10 +85,10 @@
                                             <h6 class="title">Bottom</h6>
                                             <div class="content">
                                                 <ul class="menu-col">
-                                                    <li><a href="shop.php">Swimwear</a></li>
-                                                    <li><a href="shop.php">Skirts</a></li>
-                                                    <li><a href="shop.php">Jeans</a></li>
-                                                    <li><a href="shop.php">Trousers</a></li>
+                                                    <li><a href="<?= base_url('Shop'); ?>">Swimwear</a></li>
+                                                    <li><a href="<?= base_url('Shop'); ?>">Skirts</a></li>
+                                                    <li><a href="<?= base_url('Shop'); ?>">Jeans</a></li>
+                                                    <li><a href="<?= base_url('Shop'); ?>">Trousers</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -97,10 +97,10 @@
                                             <h6 class="title">Clothing</h6>
                                             <div class="content">
                                                 <ul class="menu-col">
-                                                    <li><a href="shop.php">Top Wear</a></li>
-                                                    <li><a href="shop.php">Party wear</a></li>
-                                                    <li><a href="shop.php">Bottom Wear</a></li>
-                                                    <li><a href="shop.php">Indian Wear</a></li>
+                                                    <li><a href="<?= base_url('Shop'); ?>">Top Wear</a></li>
+                                                    <li><a href="<?= base_url('Shop'); ?>">Party wear</a></li>
+                                                    <li><a href="<?= base_url('Shop'); ?>">Bottom Wear</a></li>
+                                                    <li><a href="<?= base_url('Shop'); ?>">Indian Wear</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -108,10 +108,10 @@
                                             <h6 class="title">Accessories</h6>
                                             <div class="content">
                                                 <ul class="menu-col">
-                                                    <li><a href="shop.php">Bags</a></li>
-                                                    <li><a href="shop.php">Sunglasses</a></li>
-                                                    <li><a href="shop.php">Fragrances</a></li>
-                                                    <li><a href="shop.php">Wallets</a></li>
+                                                    <li><a href="<?= base_url('Shop'); ?>">Bags</a></li>
+                                                    <li><a href="<?= base_url('Shop'); ?>">Sunglasses</a></li>
+                                                    <li><a href="<?= base_url('Shop'); ?>">Fragrances</a></li>
+                                                    <li><a href="<?= base_url('Shop'); ?>">Wallets</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -126,12 +126,12 @@
                             <ul class="dropdown-menu">
                                 <li><a href="cart.php">Cart</a></li>
                                 <li><a href="checkout.php">Checkout</a></li>
-                                <li><a href="<?= base_url('Account') ?>">My Account</a></li>
-                                <li><a href="wishlist.php">Wishlist</a></li>
-                                <li><a href="shop-detail.php">Shop Detail</a></li>
+                                <li><a href="<?= base_url('Account');?>">My Account</a></li>
+                                <li><a href="<?= base_url('Wishlist'); ?>">Wishlist</a></li>
+                                <li><a href="<?= base_url('Shopdetail'); ?>">Shop Detail</a></li>
                             </ul>
                         </li>
-                        <!--<li class="nav-item"><a class="nav-link" href="service.php">Our Service</a></li>-->
+                        <li class="nav-item"><a class="nav-link" href="<?php echo site_url('Services') ?>">Our Service</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo site_url('Contact') ?>">Contact Us</a></li>
                     </ul>
                 </div>
@@ -143,7 +143,7 @@
                         <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
 
                         <!-- Login Popup Start-->
-                        <li><a href="" class="" data-toggle="modal" data-target="#modalLRForm"><i class="fas fa-user    "></i></a></li>
+                        <li><a href="" class="" data-toggle="modal" data-target="#modalLRForm"><i class="fas fa-user"></i></a></li>
                         <!-- Login Popup End-->
                         <li class="side-menu"><a href="#">
                                 <i class="fa fa-shopping-cart"></i>
@@ -174,7 +174,7 @@
                             <p>1x - <span class="price">$40.00</span></p>
                         </li>
                         <li class="total">
-                            <a href="#" class="btn hvr-hover btn-cart">VIEW CART</a>
+                            <a href="<?= base_url('Cart') ?>" class="btn hvr-hover btn-cart">VIEW CART</a>
                             <span class="float-right"><strong>Total</strong>: $180.00</span>
                         </li>
                     </ul>
@@ -477,7 +477,7 @@
 
 
     <!-- Start Instagram Feed  -->
-    <div class="instagram-box">
+    <div class="instagram-box"  style="background: url(<?= base_url('asset/image/ins-bg.jpg') ?>) no-repeat center center;">
         <div class="main-instagram owl-carousel owl-theme">
             <div class="item">
                 <div class="ins-inner-box">
@@ -592,6 +592,7 @@
                                 <li><a href="#">About Us</a></li>
                                 <li><a href="#">Customer Service</a></li>
                                 <li><a href="#">Our Sitemap</a></li>
+                                <li><a href="<?= base_url('login'); ?>">Admin</a></li>
                                 <li><a href="#">Terms &amp; Conditions</a></li>
                                 <li><a href="#">Privacy Policy</a></li>
                                 <li><a href="#">Delivery Information</a></li>
@@ -688,7 +689,7 @@
                         <div class="tab-pane fade" id="panel8" role="tabpanel">
 
                             <!--Body-->
-                            <?= form_open("Home/CreateAccount"); ?>
+                            <!-- form_open("Home/CreateAccount"); -->
                             <div class="modal-body">
                                 <div class="md-form form-sm mb-5">
                                     <i class="fas fa-envelope prefix"></i>
@@ -719,7 +720,7 @@
                                 </div>
 
                             </div>
-                            <?= form_open(); ?>
+                            <!-- form_open(); -->
                             <!--Footer-->
                             <div class="modal-footer">
                                 <div class="options text-right">
