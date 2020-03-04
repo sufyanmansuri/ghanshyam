@@ -741,6 +741,7 @@
 
     <!-- jQuery -->
     <script type="text/javascript" src="<?= base_url('asset/js/jquery.min.js') ?>"></script>
+    <script type="text/javascript" src="<?= base_url('asset/js/jquery-ui.js') ?>"></script>
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="<?= base_url('asset/js/popper.min.js') ?>"></script>
     <!-- Bootstrap core JavaScript -->
@@ -748,7 +749,7 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="<?= base_url('asset/js/mdb.min.js') ?>"></script>
     <!-- Your custom scripts (optional) -->
-    <script type="text/javascript"></script>
+    
 
     <!-- ALL PLUGINS -->
     <script src="<?= base_url('asset/js/jquery.superslides.min.js') ?>"></script>
@@ -761,6 +762,7 @@
     <script src="<?= base_url('asset/js/baguetteBox.min.js') ?>"></script>
     <script src="<?= base_url('asset/js/form-validator.min.js') ?>"></script>
     <script src="<?= base_url('asset/js/contact-form-script.js') ?>"></script>
+    <script src="<?= base_url('asset/js/jquery.nicescroll.min.js') ?>"></script>
     <script src="<?= base_url('asset/js/custom.js') ?>"></script>
     <!-- Plugin file -->
     <script src="<?= base_url('asset/js/addons/datatables.min.js') ?>"></script>
