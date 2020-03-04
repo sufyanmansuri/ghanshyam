@@ -431,5 +431,3 @@ class User extends BaseController
         return $return;
     }
 }
-
-?>

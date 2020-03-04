@@ -44,7 +44,7 @@
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>CI</b>AS</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>CodeInsect</b>AS</span>
+          <span class="logo-lg"><b>Ghanshyam</b>AS</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -107,49 +107,16 @@
               </a>
             </li>
             <li>
-              <a href="#" >
-                <i class="fa fa-plane"></i>
-                <span>New Task</span>
+              <a href="<?php echo base_url(); ?>Category/categoryListing" >
+                <i class="fa fa-list"></i>
+                <span>Category</span>
               </a>
             </li>
             <li>
               <a href="#" >
                 <i class="fa fa-ticket"></i>
-                <span>My Tasks</span>
+                <span>Product</span>
               </a>
-            </li>
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-share"></i> <span>Multilevel</span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-                <li class="treeview">
-                  <a href="#"><i class="fa fa-circle-o"></i> Level One
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                    <li class="treeview">
-                      <a href="#"><i class="fa fa-circle-o"></i> Level Two
-                        <span class="pull-right-container">
-                          <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                      </a>
-                      <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-              </ul>
             </li>
             <?php
             if($role == ROLE_ADMIN || $role == ROLE_MANAGER)
@@ -158,15 +125,10 @@
             <li>
               <a href="#" >
                 <i class="fa fa-thumb-tack"></i>
-                <span>Task Status</span>
+                <span>Orders</span>
               </a>
             </li>
-            <li>
-              <a href="#" >
-                <i class="fa fa-upload"></i>
-                <span>Task Uploads</span>
-              </a>
-            </li>
+           
             <?php
             }
             if($role == ROLE_ADMIN)

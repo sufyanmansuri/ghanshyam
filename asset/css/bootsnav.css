@@ -1137,13 +1137,15 @@ nav.navbar.bootsnav ul.dropdown-menu.megamenu-content .content ul.menu-col li a:
     }
     
    nav.navbar.bootsnav .dropdown .megamenu-content .col-menu .title:before{
-        font-family: 'FontAwesome';
+    font-weight :400;   
+    font-family: 'FontAwesome';
         content: "\f105";
         float: right;
         font-size: 16px;
         margin-left: 10px;
        position: relative;
        right: -15px;
+       display:none;
     }
     
     nav.navbar.bootsnav .dropdown .megamenu-content .col-menu:last-child .title{

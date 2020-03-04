@@ -61,6 +61,7 @@ $route['loginMe'] = 'login/loginMe';
 $route['dashboard'] = 'user';
 $route['logout'] = 'user/logout';
 $route['userListing'] = 'user/userListing';
+$route['categoryListing'] = 'user/categoryListing';
 $route['userListing/(:num)'] = "user/userListing/$1";
 $route['addNew'] = "user/addNew";
 $route['addNewUser'] = "user/addNewUser";

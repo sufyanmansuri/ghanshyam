@@ -41,6 +41,22 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        nav.navbar.bootsnav .dropdown .megamenu-content .col-menu .title:before {
+    font-family: 'FontAwesome';
+    content: "\f105";
+    float: right;
+    font-size: 16px;
+    margin-left: 10px;
+    position: relative;
+    right: -15px;
+    display: none !important;
+}
+.hvr-hover{
+
+color:#fff !important;
+}
+    </style>
 
 </head>
 
@@ -65,12 +81,12 @@
                         <li class="nav-item"><a class="nav-link" href="<?php echo site_url('Home') ?>">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('About') ?>">About Us</a></li>
                         <li class="dropdown megamenu-fw">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Buy <i class="fa fa-caret-down"></i></a>
+                            <a href="#" class="nav-link" data-toggle="dropdown">Buy <i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu megamenu-content" role="menu">
                                 <li>
                                     <div class="row">
                                         <div class="col-menu col-md-3">
-                                            <h6 class="title">Top</h6>
+                                            <h6 class="title">Top <i class="fa fa-caret-down" style="float:right;"></i></h6>
                                             <div class="content">
                                                 <ul class="menu-col">
                                                     <li><a href="<?= base_url('Shop'); ?>">Jackets</a></li>
@@ -122,7 +138,7 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile <i class="fa fa-caret-down"></i></a>
+                            <a href="#" class="nav-link" data-toggle="dropdown">Profile <i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="cart.php">Cart</a></li>
                                 <li><a href="checkout.php">Checkout</a></li>
