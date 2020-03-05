@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
-$route['default_controller'] = "login";
+$route['default_controller'] = "home";
 $route['404_override'] = 'error_404';
 $route['translate_uri_dashes'] = FALSE;
 
@@ -61,7 +61,6 @@ $route['loginMe'] = 'login/loginMe';
 $route['dashboard'] = 'user';
 $route['logout'] = 'user/logout';
 $route['userListing'] = 'user/userListing';
-$route['categoryListing'] = 'user/categoryListing';
 $route['userListing/(:num)'] = "user/userListing/$1";
 $route['addNew'] = "user/addNew";
 $route['addNewUser'] = "user/addNewUser";
@@ -73,6 +72,25 @@ $route['profile'] = "user/profile";
 $route['profile/(:any)'] = "user/profile/$1";
 $route['profileUpdate'] = "user/profileUpdate";
 $route['profileUpdate/(:any)'] = "user/profileUpdate/$1";
+
+$route['categoryListing'] = 'category/categoryListing';
+$route['categoryListing/(:num)'] = "category/categoryListing/$1";
+$route['subcategoryListing'] = 'category/subcategoryListing';
+$route['addNewC'] = "category/addNewC";
+$route['editOldC'] = "category/editOldC";
+$route['editOldC/(:num)'] = "category/editOldC/$1";
+$route['deleteCategory'] = 'category/deleteCategory';
+$route['deleteCategory/(:num)'] = "category/deleteCategory/$1";
+
+$route['productListing'] = 'product/productListing';
+$route['productListing/(:num)'] = "product/productListing/$1";
+$route['addNewP'] = "product/addNewP";
+$route['addNewProduct'] = "product/addNewProduct";
+$route['editOldP'] = "product/editOldP";
+$route['editOldP/(:num)'] = "product/editOldP/$1";
+$route['editProduct'] = "product/editProduct";
+$route['deleteProduct'] = 'product/deleteProduct';
+$route['deleteProduct/(:num)'] = "product/deleteProduct/$1";
 
 $route['loadChangePass'] = "user/loadChangePass";
 $route['changePassword'] = "user/changePassword";

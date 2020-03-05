@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <i class="fa fa-list"></i> Category
+            <i class="fa fa-ticket"></i> Product Management
             <small>Add, Edit, Delete</small>
         </h1>
     </section>
@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-xs-12 text-right">
                 <div class="form-group">
-                    <a class="btn btn-primary" href="<?php echo base_url(); ?>addNewC"><i class="fa fa-plus"></i> Add New</a>
+                    <a class="btn btn-primary" href="<?php echo base_url(); ?>addNewP"><i class="fa fa-plus"></i> Add New</a>
                 </div>
             </div>
         </div>
@@ -18,9 +18,9 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Categories List</h3>
+                        <h3 class="box-title">Products List</h3>
                         <div class="box-tools">
-                            <form action="<?php echo base_url() ?>Category/categoryListing" method="POST" id="searchList">
+                            <form action="<?php echo base_url() ?>productListing" method="POST" id="searchList">
                                 <div class="input-group">
                                     <input type="text" name="searchText" value="<?php echo $searchText; ?>" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search" />
                                     <div class="input-group-btn">
@@ -33,20 +33,26 @@
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">
                             <tr>
-                                <th>Id</th>
+                                <th>Product Id</th>
                                 <th>Name</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Created On</th>
                                 <th class="text-center">Actions</th>
                             </tr>
                             <?php
-                            if (!empty($categoryRecords)) {
-                                foreach ($categoryRecords as $record) {
+                            if (!empty($productRecords)) {
+                                foreach ($productRecords as $record) {
                             ?>
                                     <tr>
-                                        <td><?php echo $record->categoryid ?></td>
+                                        <td><?php echo $record->productId ?></td>
+                                        <td><?php echo $record->productName ?></td>
+                                        <td><?php echo $record->price ?></td>
                                         <td><?php echo $record->name ?></td>
+                                        <td><?php echo date("d-m-Y", strtotime($record->createdDt)) ?></td>
                                         <td class="text-center">
-                                            <a class="btn btn-sm btn-info" href="<?php echo base_url() . 'editOldC/' . $record->categoryid; ?>" title="Edit"><i class="fa fa-pencil"></i></a>
-                                            <a class="btn btn-sm btn-danger deleteCategory" onclick="return confirm('Are you sure to delete this category?')" href="<?php echo base_url() . 'deleteCategory/' . $record->categoryid; ?>" data-userid="<?php echo $record->categoryid; ?>" title="Delete"><i class="fa fa-trash"></i></a>
+                                            <a class="btn btn-sm btn-info" href="<?php echo base_url() . 'editOldP/' . $record->productId; ?>" title="Edit"><i class="fa fa-pencil"></i></a>
+                                            <a class="btn btn-sm btn-danger deleteProduct" href="#" data-userid="<?php echo $record->productId; ?>" title="Delete"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                             <?php
@@ -71,7 +77,7 @@
             e.preventDefault();
             var link = jQuery(this).get(0).href;
             var value = link.substring(link.lastIndexOf('/') + 1);
-            jQuery("#searchList").attr("action", baseURL + "categoryListing/" + value);
+            jQuery("#searchList").attr("action", baseURL + "productListing/" + value);
             jQuery("#searchList").submit();
         });
     });
