@@ -57,6 +57,9 @@
 
             color: #fff !important;
         }
+        body{
+            background: #f5f5f5;
+        }
     </style>
 
 </head>
@@ -160,7 +163,7 @@
                         <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
 
                         <!-- Login Popup Start-->
-                        <li><a href="" class="" data-toggle="modal" data-target="#modalLRForm"><i class="fas fa-user"></i></a></li>
+                        <li><a href="" class="waves-effect waves-light" data-toggle="modal" data-target="#elegantModalForm"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                         <!-- Login Popup End-->
                         <li class="side-menu"><a href="#">
                                 <i class="fa fa-shopping-cart"></i>

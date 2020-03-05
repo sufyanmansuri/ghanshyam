@@ -94,8 +94,7 @@
                 <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="footer-widget">
                         <h4>About Ghanshyam Caterers</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
+                        <p>The food served here is a cavalcade of taste & texture and has maintained the originality of its quality. We feature innovative contemporary Indian cuisine clubbed with some continental delicacies that create bold flavours with a modern twist. From our famous Chana Poori to Paneer Tikka, from our Chana Masala to our lip-smacking sizzlers we offer a host of delicious vegetarian delicacies which are offered to our customers post due diligence and tasting.</p>
                         <ul>
                             <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
@@ -111,13 +110,12 @@
                     <div class="footer-link">
                         <h4>Information</h4>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Customer Service</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
+                            <li><a href="<?= base_url('about')?>">About Us</a></li>
+                            <li><a href="<?= base_url('services')?>">Customer Service</a></li>
+                            <li><a href="<?= base_url('')?>">Our Sitemap</a></li>
                             <li><a href="<?= base_url('login'); ?>">Admin</a></li>
-                            <li><a href="#">Terms &amp; Conditions</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Delivery Information</a></li>
+                            <li><a href="<?= base_url('')?>">Terms &amp; Conditions</a></li>
+                            <li><a href="<?= base_url('')?>">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>
@@ -130,7 +128,7 @@
                                     <br> Isanpur,Ahmedabad-382443. </p>
                             </li>
                             <li>
-                                <p><i class="fas fa-phone-square-alt"></i>Phone: <a href="tel:+91-9054173660">+91-9054173660</a></p>
+                                <p><i class="fas fa-phone-square-alt"></i>Phone: <a href="callto:+919054173660">+91 9054173660</a></p>
                             </li>
                             <li>
                                 <p><i class="fas fa-envelope"></i>Email: <a href="mailto:ghanshyam@gmail.com">ghanshyam@gmail.com</a></p>
@@ -152,114 +150,96 @@
 
 <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
 
-<!--Modal: Login / Register Form-->
-<div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog cascading-modal" role="document">
-        <!--Content-->
-        <div class="modal-content">
-
-            <!--Modal cascading tabs-->
-            <div class="modal-c-tabs">
-
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link white-text" style="background:#d33b33;border:1px solid white;" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
-                            Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link white-text" style="background:#d33b33;border:1px solid white;" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
-                            Register</a>
-                    </li>
-                </ul>
-
-                <!-- Tab panels -->
-                <div class="tab-content">
-                    <!--Panel 7-->
-                    <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
-
-                        <!--Body-->
-                        <div class="modal-body mb-1">
-                            <div class="md-form form-sm mb-5">
-                                <i class="fas fa-envelope prefix"></i>
-                                <input type="email" id="lemail" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="" for="lemail">Your email</label>
-                            </div>
-
-                            <div class="md-form form-sm mb-4">
-                                <i class="fas fa-lock prefix"></i>
-                                <input type="password" id="lpassword" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="" for="password">Your password</label>
-                            </div>
-                            <div class="text-center mt-2">
-                                <button class="btn hvr-hover" id="btn_login" style="color: white;">Log in <i class="fas fa-sign-in ml-1"></i></button>
-                            </div>
-                        </div>
-                        <!--Footer-->
-                        <div class="modal-footer">
-                            <div class="options text-center text-md-right mt-1">
-                                <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
-                                <p>Forgot <a href="#" class="blue-text">Password?</a></p>
-                            </div>
-                            <button type="button" class="btn btn-outline-danger waves-effect ml-auto" data-dismiss="modal">Close</button>
-                        </div>
-
-                    </div>
-                    <!--/.Panel 7-->
-
-                    <!--Panel 8-->
-                    <div class="tab-pane fade" id="panel8" role="tabpanel">
-
-                        <!--Body-->
-                        <!-- form_open("Home/CreateAccount"); -->
-                        <div class="modal-body">
-                            <div class="md-form form-sm mb-5">
-                                <i class="fas fa-envelope prefix"></i>
-                                <input type="email" id="email" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="" for="email">Your email</label>
-                            </div>
-
-                            <div class="md-form form-sm mb-5">
-                                <i class="fas fa-phone-alt prefix"></i>
-                                <input type="number" id="mobile_number" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="" for="mobile_number">Mobile number</label>
-                            </div>
-
-                            <div class="md-form form-sm mb-5">
-                                <i class="fas fa-lock prefix"></i>
-                                <input type="password" id="password" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="" for="password">Your password</label>
-                            </div>
-
-                            <div class="md-form form-sm mb-4">
-                                <i class="fas fa-lock prefix"></i>
-                                <input type="password" id="rpassword" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="" for="rpassword">Repeat password</label>
-                            </div>
-
-                            <div class="text-center form-sm mt-2">
-                                <button class="btn hvr-hover" id="btn_submit" style="color:white;">Sign up <i class="fas fa-sign-in ml-1"></i></button>
-                            </div>
-
-                        </div>
-                        <!-- form_open(); -->
-                        <!--Footer-->
-                        <div class="modal-footer">
-                            <div class="options text-right">
-                                <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
-                            </div>
-                            <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                    <!--/.Panel 8-->
-                </div>
-
-            </div>
+<!--Modal: Login Form-->
+<!-- Modal -->
+<div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <!--Content-->
+    <div class="modal-content form-elegant">
+      <!--Header-->
+      <div class="modal-header text-center" style="background: #d33b33;
+">
+        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong class="white-text">Sign in</strong></h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body mx-4">
+        <!--Body-->
+        <div class="md-form mb-5">
+          <input type="email" id="Form-email1" class="form-control validate">
+          <label data-error="Please enter valid data" for="Form-email1">Your email</label>
         </div>
-        <!--/.Content-->
+
+        <div class="md-form pb-3">
+          <input type="password" id="Form-pass1" class="form-control validate">
+          <label data-error="Please enter valid data" for="Form-pass1">Your password</label>
+          <p class="font-small blue-text d-flex justify-content-end"><a href="#" class="blue-text ml-1">
+          Forgot Password?</a></p>
+        </div>
+
+        <div class="text-center mb-3">
+          <button type="button" class="btn hvr hvr-hover" style="box-shadow:none;">Sign in</button>
+        </div>
+      </div>
+      <!--Footer-->
+      <div class="modal-footer mx-5 pt-3 mb-1">
+        <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href="#" class="blue-text ml-1" data-dismiss="modal" data-toggle="modal" data-target="#elegantSignupModalForm">
+            Sign Up</a></p>
+      </div>
     </div>
+    <!--/.Content-->
+  </div>
 </div>
-<!--Modal: Login / Register Form-->
+<!-- Modal -->
+<!--Modal: Login Form-->
+<!--Modal: Register Form-->
+<!-- Modal -->
+<div class="modal fade" id="elegantSignupModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <!--Content-->
+    <div class="modal-content form-elegant">
+      <!--Header-->
+      <div class="modal-header text-center" style="background: #d33b33;">
+        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong class="white-text">Sign up</strong></h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body mx-4">
+        <!--Body-->
+        <div class="md-form mb-5">
+          <input type="email" id="Form-email2" class="form-control validate">
+          <label data-error="Please enter valid data" for="Form-email1">Your email</label>
+        </div>
+        <div class="md-form mb-5">
+          <input type="password" id="Form-pass2" class="form-control validate">
+          <label data-error="Please enter valid data" for="Form-pass2">Your password</label>
+        </div>
+        <div class="md-form mb-5">
+          <input type="password" id="Form-pass3" class="form-control validate">
+          <label data-error="Please enter valid data" for="Form-pass3">Enter password again</label>
+        </div>
+
+        <div class="text-center mb-3">
+          <button type="button" class="btn hvr hvr-hover" style="box-shadow:none;">Sign in</button>
+        </div>
+      </div>
+      <!--Footer-->
+      <div class="modal-footer mx-5 pt-3 mb-1">
+        <p class="font-small grey-text d-flex justify-content-end">Already a member? <a href="#" class="blue-text ml-1 " data-dismiss="modal" data-toggle="modal" data-target="#elegantModalForm">
+            Sign In</a></p>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!-- Modal -->
+<!--Modal: Register Form-->
 
 <!-- jQuery -->
 <script type="text/javascript" src="<?= base_url('asset/js/jquery.min.js') ?>"></script>

@@ -7,8 +7,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="m-b-20"><strong>Welcome To <br> Ghanshyam Caterers</strong></h1>
-                        <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
-                        <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                        <p class="m-b-40"><strong>We curate memorable fine-dine experiences worth cherishing</strong></p>
+
                     </div>
                 </div>
             </div>
@@ -19,8 +19,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="m-b-20"><strong>Welcome To <br> Ghanshyam Caterers</strong></h1>
-                        <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
-                        <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                        <p class="m-b-40"><strong>We hand-craft culinary masterpieces of your favourite cuisines</strong></p>
+
                     </div>
                 </div>
             </div>
@@ -31,8 +31,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="m-b-20"><strong>Welcome To <br> Ghanshyam Caterers</strong></h1>
-                        <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
-                        <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                        <p class="m-b-40"><strong>We offer scrumptious delicacies that leave you craving for more</strong></p>
+
                     </div>
                 </div>
             </div>
@@ -51,8 +51,8 @@
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="shop-cat-box">
-                    <img class="img-fluid" src="<?= base_url('asset/image/shahi-paneer.jpg') ?>" alt="" />
-                    <a class="btn hvr-hover" href="#">Shahi Paneer</a>
+                    <img class="img-fluid" src="<?= base_url('asset/image/t-shirts-img.jpg') ?>" alt="" />
+                    <a class="btn hvr-hover" href="#">T-shirts</a>
                 </div>
                 <div class="shop-cat-box">
                     <img class="img-fluid" src="<?= base_url('asset/image/shirt-img.jpg') ?>" alt="" />
@@ -61,8 +61,8 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="shop-cat-box">
-                    <img class="img-fluid" src="<?= base_url('asset/image/chaat.jpg') ?>" alt="" />
-                    <a class="btn hvr-hover" href="#">Chaat</a>
+                    <img class="img-fluid" src="<?= base_url('asset/image/wallet-img.jpg') ?>" alt="" />
+                    <a class="btn hvr-hover" href="#">Wallet</a>
                 </div>
                 <div class="shop-cat-box">
                     <img class="img-fluid" src="<?= base_url('asset/image/women-bag-img.jpg') ?>" alt="" />
