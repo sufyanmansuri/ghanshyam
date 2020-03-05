@@ -32,7 +32,7 @@
                         </div>
                         <div class="list-group list-group-collapse list-group-sm list-group-tree" id="list-group-men" data-children=".sub-men">
                             <div class="list-group-collapse sub-men">
-                                <a class="list-group-item list-group-item-action" href="#sub-men1" data-toggle="collapse" aria-expanded="true" aria-controls="sub-men1">Clothing <small class="text-muted">(100)</small>
+                                <a class="list-group-item list-group-item-action" href="#sub-men1" data-toggle="collapse" aria-expanded="true" aria-controls="sub-men1">Clothing <small class="text-muted">(100)</small><i style="float:right;" class="fa fa-angle-right" aria-hidden="true"></i>
                                 </a>
                                 <div class="collapse show" id="sub-men1" data-parent="#list-group-men">
                                     <div class="list-group">
@@ -46,7 +46,7 @@
                             </div>
                             <div class="list-group-collapse sub-men">
                                 <a class="list-group-item list-group-item-action" href="#sub-men2" data-toggle="collapse" aria-expanded="false" aria-controls="sub-men2">Footwear
-                                    <small class="text-muted">(50)</small>
+                                    <small class="text-muted">(50)</small><i style="float:right;" class="fa fa-angle-right" aria-hidden="true"></i>
                                 </a>
                                 <div class="collapse" id="sub-men2" data-parent="#list-group-men">
                                     <div class="list-group">

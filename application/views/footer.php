@@ -110,12 +110,12 @@
                     <div class="footer-link">
                         <h4>Information</h4>
                         <ul>
-                            <li><a href="<?= base_url('about')?>">About Us</a></li>
-                            <li><a href="<?= base_url('services')?>">Customer Service</a></li>
-                            <li><a href="<?= base_url('')?>">Our Sitemap</a></li>
+                            <li><a href="<?= base_url('about') ?>">About Us</a></li>
+                            <li><a href="<?= base_url('services') ?>">Customer Service</a></li>
+                            <li><a href="<?= base_url('') ?>">Our Sitemap</a></li>
                             <li><a href="<?= base_url('login'); ?>">Admin</a></li>
-                            <li><a href="<?= base_url('')?>">Terms &amp; Conditions</a></li>
-                            <li><a href="<?= base_url('')?>">Privacy Policy</a></li>
+                            <li><a href="<?= base_url('') ?>">Terms &amp; Conditions</a></li>
+                            <li><a href="<?= base_url('') ?>">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>
@@ -152,91 +152,93 @@
 
 <!--Modal: Login Form-->
 <!-- Modal -->
-<div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <!--Content-->
-    <div class="modal-content form-elegant">
-      <!--Header-->
-      <div class="modal-header text-center" style="background: #d33b33;
+<div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content form-elegant">
+            <!--Header-->
+            <div class="modal-header text-center" style="background: #d33b33;
 ">
-        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong class="white-text">Sign in</strong></h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" class="white-text">&times;</span>
-        </button>
-      </div>
-      <!--Body-->
-      <div class="modal-body mx-4">
-        <!--Body-->
-        <div class="md-form mb-5">
-          <input type="email" id="Form-email1" class="form-control validate">
-          <label data-error="Please enter valid data" for="Form-email1">Your email</label>
-        </div>
+                <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong class="white-text">Sign in</strong></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body mx-4">
+                <!--Body-->
+                <div class="md-form mb-5">
+                    <input type="email" id="Form-email1" class="form-control validate">
+                    <label data-error="Please enter valid data" for="Form-email1">Your email</label>
+                </div>
 
-        <div class="md-form pb-3">
-          <input type="password" id="Form-pass1" class="form-control validate">
-          <label data-error="Please enter valid data" for="Form-pass1">Your password</label>
-          <p class="font-small blue-text d-flex justify-content-end"><a href="#" class="blue-text ml-1">
-          Forgot Password?</a></p>
-        </div>
+                <div class="md-form pb-3">
+                    <input type="password" id="Form-pass1" class="form-control validate">
+                    <label data-error="Please enter valid data" for="Form-pass1">Your password</label>
+                    <p class="font-small blue-text d-flex justify-content-end"><a href="#" class="blue-text ml-1">
+                            Forgot Password?</a></p>
+                </div>
 
-        <div class="text-center mb-3">
-          <button type="button" class="btn hvr hvr-hover" style="box-shadow:none;">Sign in</button>
+                <div class="text-center mb-3">
+                    <button type="button" class="btn hvr hvr-hover" style="box-shadow:none;">Sign in</button>
+                </div>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer mx-5 pt-3 mb-1">
+                <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href="#" class="blue-text ml-1" data-dismiss="modal" data-toggle="modal" data-target="#elegantSignupModalForm">
+                        Sign Up</a></p>
+            </div>
         </div>
-      </div>
-      <!--Footer-->
-      <div class="modal-footer mx-5 pt-3 mb-1">
-        <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href="#" class="blue-text ml-1" data-dismiss="modal" data-toggle="modal" data-target="#elegantSignupModalForm">
-            Sign Up</a></p>
-      </div>
+        <!--/.Content-->
     </div>
-    <!--/.Content-->
-  </div>
 </div>
 <!-- Modal -->
 <!--Modal: Login Form-->
 <!--Modal: Register Form-->
 <!-- Modal -->
-<div class="modal fade" id="elegantSignupModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <!--Content-->
-    <div class="modal-content form-elegant">
-      <!--Header-->
-      <div class="modal-header text-center" style="background: #d33b33;">
-        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong class="white-text">Sign up</strong></h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" class="white-text">&times;</span>
-        </button>
-      </div>
-      <!--Body-->
-      <div class="modal-body mx-4">
-        <!--Body-->
-        <div class="md-form mb-5">
-          <input type="email" id="Form-email2" class="form-control validate">
-          <label data-error="Please enter valid data" for="Form-email1">Your email</label>
-        </div>
-        <div class="md-form mb-5">
-          <input type="password" id="Form-pass2" class="form-control validate">
-          <label data-error="Please enter valid data" for="Form-pass2">Your password</label>
-        </div>
-        <div class="md-form mb-5">
-          <input type="password" id="Form-pass3" class="form-control validate">
-          <label data-error="Please enter valid data" for="Form-pass3">Enter password again</label>
-        </div>
+<div class="modal fade" id="elegantSignupModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content form-elegant">
+            <!--Header-->
+            <div class="modal-header text-center" style="background: #d33b33;">
+                <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong class="white-text">Sign up</strong></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body mx-4">
+                <!--Body-->
+                <div class="md-form mb-5">
+                    <input type="email" id="Form-name" class="form-control validate">
+                    <label data-error="Please enter valid data" for="Form-email1">Full Name</label>
+                </div>
+                <div class="md-form mb-5">
+                    <input type="email" id="Form-email2" class="form-control validate">
+                    <label data-error="Please enter valid data" for="Form-email1">Your email</label>
+                </div>
+                <div class="md-form mb-5">
+                    <input type="password" id="Form-pass2" class="form-control validate">
+                    <label data-error="Please enter valid data" for="Form-pass2">Your password</label>
+                </div>
+                <div class="md-form mb-5">
+                    <input type="password" id="Form-pass3" class="form-control validate">
+                    <label data-error="Please enter valid data" for="Form-pass3">Enter password again</label>
+                </div>
 
-        <div class="text-center mb-3">
-          <button type="button" class="btn hvr hvr-hover" style="box-shadow:none;">Sign in</button>
+                <div class="text-center mb-3">
+                    <button type="button" class="btn hvr hvr-hover" style="box-shadow:none;">Sign in</button>
+                </div>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer mx-5 pt-3 mb-1">
+                <p class="font-small grey-text d-flex justify-content-end">Already a member? <a href="#" class="blue-text ml-1 " data-dismiss="modal" data-toggle="modal" data-target="#elegantModalForm">
+                        Sign In</a></p>
+            </div>
         </div>
-      </div>
-      <!--Footer-->
-      <div class="modal-footer mx-5 pt-3 mb-1">
-        <p class="font-small grey-text d-flex justify-content-end">Already a member? <a href="#" class="blue-text ml-1 " data-dismiss="modal" data-toggle="modal" data-target="#elegantModalForm">
-            Sign In</a></p>
-      </div>
+        <!--/.Content-->
     </div>
-    <!--/.Content-->
-  </div>
 </div>
 <!-- Modal -->
 <!--Modal: Register Form-->
@@ -271,6 +273,7 @@
 <!-- MDBootstrap Initialize -->
 <script type="text/javascript">
     $(document).ready(function() {
+
         $('#dtBasicExample').DataTable();
         $('.dataTables_length').addClass('bs-select');
 

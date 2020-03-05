@@ -53,11 +53,28 @@
             display: none !important;
         }
 
+        .list-group-item[data-toggle="collapse"]::after {
+            content: "\f105";
+            font-family: "Font Awesome 5 Free";
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: calc(50% - 12px);
+            right: 10px;
+            content: "";
+            -webkit-transition: top 0.2s, -webkit-transform 0.2s;
+            transition: top 0.2s, -webkit-transform 0.2s;
+            transition: transform 0.2s, top 0.2s;
+            transition: transform 0.2s, top 0.2s, -webkit-transform 0.2s;
+            display:none;
+        }
+
         .hvr-hover {
 
             color: #fff !important;
         }
-        body{
+
+        body {
             background: #f5f5f5;
         }
     </style>
@@ -90,7 +107,7 @@
                                 <li>
                                     <div class="row">
                                         <div class="col-menu col-md-3">
-                                            <h6 class="title">Top <i class="fa fa-caret-down" style="float:right;"></i></h6>
+                                            <h6 class="title">Top <i class="fa fa-angle-down d-block d-md-none" style="float:right;"></i></h6>
                                             <div class="content">
                                                 <ul class="menu-col">
                                                     <li><a href="<?= base_url('Shop'); ?>">Jackets</a></li>
@@ -102,7 +119,7 @@
                                         </div>
                                         <!-- end col-3 -->
                                         <div class="col-menu col-md-3">
-                                            <h6 class="title">Bottom</h6>
+                                            <h6 class="title">Bottom <i class="fa fa-angle-down d-block d-md-none" style="float:right;"></i></h6>
                                             <div class="content">
                                                 <ul class="menu-col">
                                                     <li><a href="<?= base_url('Shop'); ?>">Swimwear</a></li>
@@ -114,7 +131,7 @@
                                         </div>
                                         <!-- end col-3 -->
                                         <div class="col-menu col-md-3">
-                                            <h6 class="title">Clothing</h6>
+                                            <h6 class="title">Clothing <i class="fa fa-angle-down d-block d-md-none" style="float:right;"></i></h6>
                                             <div class="content">
                                                 <ul class="menu-col">
                                                     <li><a href="<?= base_url('Shop'); ?>">Top Wear</a></li>
@@ -125,7 +142,7 @@
                                             </div>
                                         </div>
                                         <div class="col-menu col-md-3">
-                                            <h6 class="title">Accessories</h6>
+                                            <h6 class="title">Accessories <i class="fa fa-angle-down d-block d-md-none" style="float:right;"></i></h6>
                                             <div class="content">
                                                 <ul class="menu-col">
                                                     <li><a href="<?= base_url('Shop'); ?>">Bags</a></li>
@@ -144,8 +161,8 @@
                         <li class="dropdown">
                             <a href="#" class="nav-link" data-toggle="dropdown">Profile <i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="cart.php">Cart</a></li>
-                                <li><a href="checkout.php">Checkout</a></li>
+                                <li><a href="<?= base_url('Cart'); ?>">Cart</a></li>
+                                <li><a href="<?= base_url('Checkout'); ?>">Checkout</a></li>
                                 <li><a href="<?= base_url('Account'); ?>">My Account</a></li>
                                 <li><a href="<?= base_url('Wishlist'); ?>">Wishlist</a></li>
                                 <li><a href="<?= base_url('Shopdetail'); ?>">Shop Detail</a></li>

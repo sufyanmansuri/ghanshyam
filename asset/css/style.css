@@ -1949,6 +1949,8 @@ ul.cart-list > li.total > .btn:hover {
 }
 
 .list-group-item[data-toggle="collapse"]::after {
+	content: "\f105";
+	font-family: "Font Awesome 5 Free";
 	width: 0;
 	height: 0;
 	position: absolute;
@@ -1959,8 +1961,6 @@ ul.cart-list > li.total > .btn:hover {
 	transition: top 0.2s, -webkit-transform 0.2s;
 	transition: transform 0.2s, top 0.2s;
 	transition: transform 0.2s, top 0.2s, -webkit-transform 0.2s;
-	font-family: Font Awesome 5 Free;
-	content: "\f105";
 }
 
 .list-group-tree .list-group-collapse .list-group {
