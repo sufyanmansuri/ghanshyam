@@ -15,7 +15,6 @@ class Home extends CI_Controller
     {
         $data['getCategory'] = $this->category_model->getCategory();
         $data['getProduct'] = $this->product_model->getProduct();
-
         $this->load->view('header');
         $this->load->view('index', $data);
         $this->load->view('footer');
@@ -80,5 +79,67 @@ class Home extends CI_Controller
                 $this->session->set_flashdata('error', 'Something went wrong!');
                 redirect('registration');
             }   
+    }
+    public function loginAccount()
+    {
+        $email = strtolower($this->security->xss_clean($this->input->post('lemail')));
+        $password = $this->input->post('lpassword');
+        $pid=$this->input->post('lpid');
+
+        $userInfo = array(
+            'email' => $email, 'password' => getHashedPassword($password));
+        $this->load->model('home_model');
+        $loginAccount = $this->home_model->loginAccount($userInfo);
+        $result = $this->login_model->loginMe($email, $password);
+            
+            if(!empty($result))
+            {
+                $lastLogin = $this->login_model->lastLoginInfo($result->userId);
+                $sessionArray = array('userId'=>$result->userId,                    
+                                        'role'=>$result->roleId,
+                                        'roleText'=>$result->role,
+                                        'name'=>$result->name,
+                                        'lastLogin'=> $lastLogin->createdDtm,
+                                        'isLoggedIn' => TRUE
+                                );
+
+                $this->session->set_userdata($sessionArray);
+
+                //unset($sessionArray['userId'], $sessionArray['isLoggedIn'], $sessionArray['lastLogin']);
+
+                $loginInfo = array("userId"=>$result->userId, "sessionData" => json_encode($sessionArray), "machineIp"=>$_SERVER['REMOTE_ADDR'], "userAgent"=>getBrowserAgent(), "agentString"=>$this->agent->agent_string(), "platform"=>$this->agent->platform());
+
+                $this->login_model->lastLogin($loginInfo);
+                
+                //redirect('/dashboard');
+                if($pid == ''){
+
+                    redirect('/');
+                }else{
+                    $checkdup=$this->cart_model->checkdup($sessionArray['userId'],$pid);
+                     if(count($checkdup) == 0){   
+            
+                    $uid=$sessionArray['userId'];  
+                    $data=array('user_id'=>$uid,'product_id'=>$pid);
+                    $this->cart_model->insertProduct($data);
+                     }
+                    redirect('shop/index');
+                }
+            }else{
+
+                $this->session->set_flashdata('error', 'Something went wrong!');
+                redirect('/');
+            }   
+    }
+    function logOut()
+    {
+        $user_data = $this->session->all_userdata();
+        foreach ($user_data as $key => $value) {
+            if ($key != 'session_id' && $key != 'ip_address' && $key != 'user_agent' && $key != 'last_activity') {
+                $this->session->unset_userdata($key);
+            }
+        }
+    $this->session->sess_destroy();
+    redirect('');
     }
 }

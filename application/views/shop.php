@@ -21,7 +21,7 @@
     </div>
 </div>
 <!-- End All Title Box -->
-
+<a class="" id="alert-target"></a>
 <!-- Start Shop Page  -->
 <div class="shop-box-inner">
     <div class="container">
@@ -172,10 +172,9 @@
              }else{
 
                   if(res.response == 'duplicate'){
-                    alert('this item already in cart');
+                    alert("Item already in Cart!");
                   } else{
-
-                      alert('item added in cart');
+                    alert("Item added in Cart")
                   }
 
              }

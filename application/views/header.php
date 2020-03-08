@@ -177,11 +177,14 @@
                 <!-- Start Atribute Navigation -->
                 <div class="attr-nav">
                     <ul>
-                        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-
+                        <?php if($this->session->userdata('isLoggedIn')){ ?>
+                            <li class=""><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                            <li class=""><a href="<?= base_url('Home/logOut'); ?>" data-toggle="tooltip" title="<?= $this->session->userdata('name')?>"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                        <?php }else{ ?>
                         <!-- Login Popup Start-->
                         <li><a href="" class="waves-effect waves-light" data-toggle="modal" data-target="#elegantModalForm"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                         <!-- Login Popup End-->
+                        <?php } ?>
                         <li class="side-menu"><a href="#">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span class="badge badge-pill badge-danger">3</span>

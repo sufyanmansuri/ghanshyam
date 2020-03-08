@@ -11,4 +11,10 @@ class Home_model extends CI_Model
         $this->db->trans_complete();
         return $insert_id;
     }
+    function loginAccount($userInfo)
+    {
+        $this->db->trans_start();
+        $this->db->get('tbl_users', $userInfo);
+        $this->db->trans_complete();
+    }
 }

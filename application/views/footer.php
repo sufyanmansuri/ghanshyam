@@ -166,24 +166,29 @@
             </div>
             <!--Body-->
             <div class="modal-body mx-4">
-                <!--Body-->
-                <div class="md-form mb-5">
-                    <input type="email" id="Form-email1" class="form-control validate">
-                    <label data-error="Please enter valid data" for="Form-email1">Your email</label>
-                    <input type="hidden" id="lpid" class="form-control validate" name="lpid" value="<?php if(isset($pid)){ echo $pid; }?>">
-                </div>
+                <?php $this->load->helper("form"); ?>
+                <form role="form" id="loginAccount" action="<?php echo base_url() ?>Home/loginAccount" method="post" role="form">
+                    <!--Body-->
+                    <div class="md-form mb-5">
+                        <input type="email" id="lemail" name="lemail" class="form-control validate">
+                        <label data-error="Please enter valid data" for="Form-email1">Your email</label>
+                        <input type="hidden" id="lpid" class="form-control validate" name="lpid" value="<?php if (isset($pid)) {
+                                                                                                            echo $pid;
+                                                                                                        } ?>">
+                    </div>
 
-                <div class="md-form pb-3">
-                    <input type="password" id="Form-pass1" class="form-control validate">
-                    <label data-error="Please enter valid data" for="Form-pass1">Your password</label>
-                    <p class="font-small blue-text d-flex justify-content-end"><a href="#" class="blue-text ml-1">
-                            Forgot Password?</a></p>
-                </div>
+                    <div class="md-form pb-3">
+                        <input type="password" id="lpassword" name="lpassword" class="form-control validate">
+                        <label data-error="Please enter valid data" for="Form-pass1">Your password</label>
+                        <p class="font-small blue-text d-flex justify-content-end"><a href="#" class="blue-text ml-1">
+                                Forgot Password?</a></p>
+                    </div>
 
-                <div class="text-center mb-3">
-                    <button type="button" class="btn hvr hvr-hover" style="box-shadow:none;">Sign in</button>
-                </div>
+                    <div class="text-center mb-3">
+                        <button type="submit" class="btn hvr hvr-hover" style="box-shadow:none;">Sign in</button>
+                    </div>
             </div>
+            </form>
             <!--Footer-->
             <div class="modal-footer mx-5 pt-3 mb-1">
                 <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href="javascript:void(0);" class="blue-text ml-1 newmodel" data-dismiss="modal" data-toggle="modal" data-target="#elegantSignupModalForm">
@@ -219,7 +224,9 @@
                     </div>
                     <div class="md-form mb-5">
                         <input type="email" id="email" class="form-control validate" name="email">
-                        <input type="hidden" id="pid" class="form-control validate" name="pid" value="<?php if(isset($pid)){ echo $pid; }?>">
+                        <input type="hidden" id="pid" class="form-control validate" name="pid" value="<?php if (isset($pid)) {
+                                                                                                            echo $pid;
+                                                                                                        } ?>">
                         <label data-error="not valid" for="email">Your email</label>
                     </div>
                     <div class="md-form mb-5">
@@ -318,11 +325,11 @@
         });
     });
     $(document).ready(function() {
-            var pid = $('#pid').val();
-            if(pid != ''){
-                $('.newmodel').click();
-            } 
-        });
+        var pid = $('#pid').val();
+        if (pid != '') {
+            $('.newmodel').click();
+        }
+    });
 </script>
 
 </body>
