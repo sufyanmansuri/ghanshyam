@@ -46,6 +46,7 @@ class Product extends BaseController
      */
     function addNewP()
     {
+        //echo FCPATH;exit;
         if ($this->isAdmin() == TRUE) {
             $this->loadThis();
         } else {
@@ -66,17 +67,27 @@ class Product extends BaseController
         } else {
             $this->load->library('form_validation');
 
-            $this->form_validation->set_rules('productName', 'Product Name', 'trim|required|max_length[128]');
+            $this->form_validation->set_rules('productName', 'Product Name', 'required');
+            //$this->form_validation->set_rules('file', 'file', 'required');
             $this->form_validation->set_rules('price', 'Price', 'required');
             $this->form_validation->set_rules('category', 'Category', 'trim|required|numeric');
 
             if ($this->form_validation->run() == FALSE) {
                 $this->addNewP();
             } else {
+                $file=$_FILES['file']['tmp_name'];
+                $path=FCPATH.'asset/image/';
+                $path_parts = pathinfo($_FILES['file']['name']);
+                $fileextension=$path_parts['extension'];
+                $imagename=time().'.'.$fileextension;
+                $imagepath=$path.$imagename;
+                move_uploaded_file($file, $imagepath);
+                $url=base_url().'asset/image/'.$imagename;
                 $productName = ucwords(strtolower($this->security->xss_clean($this->input->post('productName'))));
                 $price = $this->security->xss_clean($this->input->post('price'));
                 $categoryid = $this->input->post('category');
-                $productInfo = array('productName' => $productName, 'categoryid' => $categoryid, 'price' => $price, 'createdBy' => $this->vendorId,);
+                $desc=$this->input->post('desc');
+                $productInfo = array('productName' => $productName,'desc'=>$desc,'image'=>$url,'categoryid' => $categoryid, 'price' => $price, 'createdBy' => $this->vendorId,);
                 $this->load->model('product_model');
                 $result = $this->product_model->addNewProduct($productInfo);
 
@@ -130,11 +141,11 @@ class Product extends BaseController
         {
             $this->load->library('form_validation');
             
-            $productId = $this->input->post('productId');
-            
-            $this->form_validation->set_rules('productName', 'Product Name', 'trim|required|max_length[128]');
+            $productId = $this->input->post('productid');
+            $this->form_validation->set_rules('productName', 'Product Name', 'required|max_length[128]');
             $this->form_validation->set_rules('price', 'Price', 'required');
-            $this->form_validation->set_rules('category', 'Category', 'trim|required|numeric');
+            $this->form_validation->set_rules('desc', 'Description', 'required');
+            $this->form_validation->set_rules('category', 'Category', 'required|numeric');
             
             if($this->form_validation->run() == FALSE)
             {
@@ -142,12 +153,35 @@ class Product extends BaseController
             }
             else
             {
+                //echo "<pre>";print_r($_FILES['file']);exit;
+                if($_FILES['file']['error'] == 0){
+                //echo 'if';exit;
+                $file=$_FILES['file']['tmp_name'];
+                $path=FCPATH.'asset/image/';
+                $path_parts = pathinfo($_FILES['file']['name']);
+                $fileextension=$path_parts['extension'];
+                $imagename=time().'.'.$fileextension;
+                $imagepath=$path.$imagename;
+                move_uploaded_file($file, $imagepath);
+                //$url=base_url().'asset/image/'.$imagename;
+                $url=base_url().'asset/image/'.$imagename;
                 $productName = ucwords(strtolower($this->security->xss_clean($this->input->post('productName'))));
                 $price = $this->security->xss_clean($this->input->post('price'));
                 $categoryid = $this->input->post('category');
+                $desc = $this->input->post('desc');
+                $productInfo = array('productName'=>$productName,'desc'=>$desc,'image'=>$url,'categoryid'=>$categoryid, 'price'=>$price);
+
+                }else{
+                   // echo 'else';exit;
+                $productName = ucwords(strtolower($this->security->xss_clean($this->input->post('productName'))));
+                $price = $this->security->xss_clean($this->input->post('price'));
+                $categoryid = $this->input->post('category');
+                $desc = $this->input->post('desc');
+                $productInfo = array('productName'=>$productName,'desc'=>$desc,'categoryid'=>$categoryid, 'price'=>$price);
+
+                }
                 
-                $productInfo = array('productName'=>$productName, 'categoryid'=>$categoryid, 'price'=>$price);
-                
+                //print_r($productInfo);exit;
                 $result = $this->product_model->editProduct($productInfo, $productId);
                 
                 if($result == true)
@@ -158,7 +192,6 @@ class Product extends BaseController
                 {
                     $this->session->set_flashdata('error', 'Operation failed');
                 }
-                
                 redirect('productListing');
             }
         }

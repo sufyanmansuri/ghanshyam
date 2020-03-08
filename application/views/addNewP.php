@@ -22,7 +22,7 @@
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
-                    <form role="form" id="addProduct" action="<?php echo base_url() ?>addNewProduct" method="post" role="form">
+                    <form role="form" id="addProduct" action="<?php echo base_url() ?>addNewProduct" method="post" role="form" enctype="multipart/form-data">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-6">
@@ -34,8 +34,21 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <label for="productName">Product Image</label>
+                                        <input type="file" name="file" class="form-control required" >
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
                                         <label for="price">Price</label>
                                         <input type="number" class="form-control required" value="<?php echo set_value('price'); ?>" id="price" name="price" maxlength="20">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="price">Description</label>
+                                        <textarea  class="form-control required" id="desc" name="desc" ><?php echo set_value('desc'); ?></textarea>
                                     </div>
                                 </div>
                             </div>

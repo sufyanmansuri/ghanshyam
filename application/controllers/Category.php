@@ -186,25 +186,4 @@ class Category extends BaseController
        $this->category_model->deleteCategory($categoryid);
        redirect('categoryListing');
    }
-
-
-
-    /**
-     * This function is used to load category list
-     */
-    function subcategoryListing()
-    {
-        if ($this->isAdmin() == TRUE) {
-            $this->loadThis();
-        } else {
-            $searchText = $this->security->xss_clean($this->input->post('searchText'));
-            $data['searchText'] = $searchText;
-            $this->load->library('pagination');
-            $count = $this->category_model->subcategoryListingCount($searchText);
-            $returns = $this->paginationCompress("subcategoryListing/", $count, 10);
-            $data['categoryRecords'] = $this->category_model->subcategoryListing($searchText, $returns["page"], $returns["segment"]);
-            $this->global['pageTitle'] = 'Ghanshyam : Category Listing';
-            $this->loadViews("categories", $this->global, $data, NULL);
-        }
-    }
 }

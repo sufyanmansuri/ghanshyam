@@ -1,7 +1,9 @@
 <?php
 $productId = $productInfo->productId;
+$desc = $productInfo->desc;
 $productName = $productInfo->productName;
-$price= $productInfo->price;
+$image = $productInfo->image;
+$price = $productInfo->price;
 $categoryid = $productInfo->categoryid;
 ?>
 
@@ -29,15 +31,22 @@ $categoryid = $productInfo->categoryid;
                     </div><!-- /.box-header -->
                     <!-- form start -->
 
-                    <form role="form" action="<?php echo base_url() ?>editProduct" method="post" id="editProduct" role="form">
+                    <form role="form" action="<?php echo base_url() ?>editProduct" method="post" id="editProduct" role="form" enctype="multipart/form-data">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="fname">Product Name</label>
-                                        <input type="text" class="form-control" id="productName" placeholder="Product Name" name="productName" value="<?php echo $productName; ?>" maxlength="128">
-                                        <input type="hidden" value="<?php echo $productId; ?>" name="productId" id="productId" />
+                                        <input type="text" class="form-control" id="productName" name="productName" value="<?php echo $productName; ?>" maxlength="128">
+                                        <input type="hidden" name="productid" value="<?= $productId ?>">
                                     </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="productName">Product Image</label>
+                                        <input type="file" name="file" class="form-control"><img style="width:200px;" src="<?php echo $image ?>" target="_blank"></input>
+                                    </div>
+
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -47,7 +56,13 @@ $categoryid = $productInfo->categoryid;
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="role">Role</label>
+                                        <label for="price">Description</label>
+                                        <textarea class="form-control" id="desc" name="desc"><?= $desc ?></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="role">Category</label>
                                         <select class="form-control" id="category" name="category">
                                             <option value="0">Select Category</option>
                                             <?php
@@ -55,8 +70,8 @@ $categoryid = $productInfo->categoryid;
                                                 foreach ($categories as $rl) {
                                             ?>
                                                     <option value="<?php echo $rl->categoryid; ?>" <?php if ($rl->categoryid == $categoryid) {
-                                                                                                    echo "selected=selected";
-                                                                                                } ?>><?php echo $rl->name ?></option>
+                                                                                                        echo "selected=selected";
+                                                                                                    } ?>><?php echo $rl->name ?></option>
                                             <?php
                                                 }
                                             }

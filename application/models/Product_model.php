@@ -31,7 +31,7 @@ class Product_model extends CI_Model
      */
     function productListing($searchText = '', $page, $segment)
     {
-        $this->db->select('BaseTbl.productId,BaseTbl.productName,BaseTbl.price, BaseTbl.createdDt, Category.name');
+        $this->db->select('*');
         $this->db->from('tbl_products as BaseTbl');
         $this->db->join('tbl_categories as Category', 'Category.categoryid = BaseTbl.categoryid', 'left');
         if (!empty($searchText)) {
@@ -83,7 +83,7 @@ class Product_model extends CI_Model
      */
     function getProductInfo($productId)
     {
-        $this->db->select('productId, productName, price, categoryid');
+        $this->db->select('*');
         $this->db->from('tbl_products');
         $this->db->where('productId', $productId);
         $query = $this->db->get();
@@ -102,5 +102,15 @@ class Product_model extends CI_Model
         $this->db->update('tbl_products', $productInfo);
         
         return TRUE;
+    }
+    function getProduct()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_products');
+        //$this->db->order_by('name');
+        $this->db->limit('8');
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
     }
 }

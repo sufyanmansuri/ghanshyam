@@ -35,8 +35,10 @@
                             <tr>
                                 <th>Product Id</th>
                                 <th>Name</th>
+                                <th>Image</th>
                                 <th>Price</th>
                                 <th>Category</th>
+                                <th>Description</th>
                                 <th>Created On</th>
                                 <th class="text-center">Actions</th>
                             </tr>
@@ -47,8 +49,10 @@
                                     <tr>
                                         <td><?php echo $record->productId ?></td>
                                         <td><?php echo $record->productName ?></td>
+                                        <td><a href="<?php echo $record->image ?>" target="_blank"><?=$record->image ?></a></td>
                                         <td><?php echo $record->price ?></td>
                                         <td><?php echo $record->name ?></td>
+                                        <td><?php echo $record->desc ?></td>
                                         <td><?php echo date("d-m-Y", strtotime($record->createdDt)) ?></td>
                                         <td class="text-center">
                                             <a class="btn btn-sm btn-info" href="<?php echo base_url() . 'editOldP/' . $record->productId; ?>" title="Edit"><i class="fa fa-pencil"></i></a>

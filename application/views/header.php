@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="<?= base_url('asset/image/logo.png') ?>" type="image/x-icon">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <script src="https://kit.fontawesome.com/2b894c513d.js" crossorigin="anonymous"></script>
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <!-- Bootstrap core CSS -->

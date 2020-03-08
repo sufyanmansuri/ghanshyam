@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title><?php echo $pageTitle; ?></title>
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+  <!-- Site Icons -->
+  <link rel="shortcut icon" href="<?= base_url('asset/image/logo.png') ?>" type="image/x-icon">
   <!-- Bootstrap 3.3.4 -->
   <link href="<?php echo base_url(); ?>asset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
   <!-- FontAwesome 4.3.0 -->
@@ -106,7 +108,7 @@
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">MAIN NAVIGATION</li>
           <li>
-            <a href="<?php echo base_url(); ?>dashboard">
+            <a href="<?php echo base_url(''); ?>dashboard">
               <i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
             </a>
           </li>
@@ -115,7 +117,6 @@
               <i class="fa fa-list"></i> <span>Category</span>
             </a>
           </li>
-          <li><a href="<?php echo base_url(); ?>subcategoryListing"><i class="fa fa-list-alt    "></i> Subcategory</a></li>
           <li>
             <a href="<?php echo base_url(); ?>productListing">
               <i class="fa fa-ticket"></i>

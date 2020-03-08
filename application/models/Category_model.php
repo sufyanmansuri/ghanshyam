@@ -43,6 +43,45 @@ class Category_model extends CI_Model
         $result = $query->result();
         return $result;
     }
+    function getCategory()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_categories');
+        $this->db->order_by('name');
+        $this->db->limit('6');
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
+    }
+    function getAllCategory()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_categories');
+        $this->db->order_by('name');
+        //$this->db->limit('6');
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
+    }
+    function getProducts($id,$sort)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_products');
+        if($id !== "All"){
+            $this->db->where('categoryid',$id);
+        }
+        if($sort == 'nothing'){
+        $this->db->order_by('productName','ASC');
+        }else if($sort == 'priceDesc'){
+            $this->db->order_by('price','DESC');
+        }else{
+            $this->db->order_by('price','ASC');
+        }
+        //$this->db->limit('6');
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
+    }
 
     /**
      * This function is used to add new category to system
@@ -97,48 +136,4 @@ class Category_model extends CI_Model
         return $this->db->affected_rows();
     }
 
-
-
-
-    /**
-     * This function is used to get the subcategory listing count
-     * @param string $searchText : This is optional search text
-     * @return number $count : This is row count
-     */
-    function subcategoryListingCount($searchText = '')
-    {
-        $this->db->select('BaseTbl.categoryid, BaseTbl.name');
-        $this->db->from('tbl_categories as BaseTbl');
-        if (!empty($searchText)) {
-            $likeCriteria = "(BaseTbl.categoryid  LIKE '%" . $searchText . "%'
-                            OR  BaseTbl.name  LIKE '%" . $searchText . "%')";
-            $this->db->where($likeCriteria);
-        }
-        $query = $this->db->get();
-
-        return $query->num_rows();
-    }
-    /**
-     * This function is used to get the category listing count
-     * @param string $searchText : This is optional search text
-     * @param number $page : This is pagination offset
-     * @param number $segment : This is pagination limit
-     * @return array $result : This is result
-     */
-    function subcategoryListing($searchText = '', $page, $segment)
-    {
-        $this->db->select('BaseTbl.categoryid, BaseTbl.name');
-        $this->db->from('tbl_categories as BaseTbl');
-        if (!empty($searchText)) {
-            $likeCriteria = "(BaseTbl.categoryid  LIKE '%" . $searchText . "%'
-                            OR  BaseTbl.name  LIKE '%" . $searchText . "%')";
-            $this->db->where($likeCriteria);
-        }
-        $this->db->order_by('BaseTbl.categoryid');
-        $this->db->limit($page, $segment);
-        $query = $this->db->get();
-
-        $result = $query->result();
-        return $result;
-    }
 }
