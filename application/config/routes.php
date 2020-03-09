@@ -92,6 +92,9 @@ $route['editProduct'] = "product/editProduct";
 $route['deleteProduct'] = 'product/deleteProduct';
 $route['deleteProduct/(:num)'] = "product/deleteProduct/$1";
 
+$route['packageListing'] = 'package/packageListing';
+$route['packageListing/(:num)'] = "package/packageListing/$1";
+
 $route['loadChangePass'] = "user/loadChangePass";
 $route['changePassword'] = "user/changePassword";
 $route['changePassword/(:any)'] = "user/changePassword/$1";

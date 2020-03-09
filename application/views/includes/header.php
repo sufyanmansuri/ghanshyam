@@ -107,23 +107,33 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">MAIN NAVIGATION</li>
-          <li>
-            <a href="<?php echo base_url(''); ?>dashboard">
-              <i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
-            </a>
-          </li>
-          <li>
-            <a href="<?php echo base_url(); ?>categoryListing">
-              <i class="fa fa-list"></i> <span>Category</span>
-            </a>
-          </li>
-          <li>
-            <a href="<?php echo base_url(); ?>productListing">
-              <i class="fa fa-ticket"></i>
-              <span>Product</span>
-            </a>
-          </li>
           <?php
+          if ($role == ROLE_ADMIN || $role == ROLE_MANAGER || $role == ROLE_EMPLOYEE) {
+          ?>
+            <li>
+              <a href="<?php echo base_url(''); ?>dashboard">
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo base_url(); ?>categoryListing">
+                <i class="fa fa-list"></i> <span>Category</span>
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo base_url(); ?>productListing">
+                <i class="fa fa-ticket"></i>
+                <span>Product</span>
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo base_url(); ?>packageListing">
+                <i class="fa fa-dropbox" aria-hidden="true"></i>
+                <span>Package</span>
+              </a>
+            </li>
+          <?php
+          }
           if ($role == ROLE_ADMIN || $role == ROLE_MANAGER) {
           ?>
             <li>
