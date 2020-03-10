@@ -39,8 +39,9 @@
                             <h3>Categories</h3>
                         </div>
                         <div class="list-group list-group-collapse list-group-sm list-group-tree" id="list-group-men" data-children=".sub-men">
-                        <a href="<?= base_url().'shop/index/' ?>" class="list-group-item list-group-item-action <?php if ($cid == "All") {
-                                                                                                                                                    echo 'active';}?>">All</a>
+                            <a href="<?= base_url() . 'shop/index/' ?>" class="list-group-item list-group-item-action <?php if ($cid == "All") {
+                                                                                                                            echo 'active';
+                                                                                                                        } ?>">All</a>
                             <?php
                             foreach ($allCategory as $key => $value) { ?>
                                 <a href="<?= base_url() . 'shop/index/' . $value->categoryid ?>" class="list-group-item list-group-item-action <?php if ($cid == $value->categoryid) {
@@ -64,7 +65,7 @@
                                 <select id="sort" class="selectpicker show-tick form-control" data-placeholder="$ USD" style="margin-bottom:5px;">
                                     <option value="nothing" <?php if ($this->uri->segment(4) != '' && $this->uri->segment(4) == 'nothing') {
                                                                 echo 'selected';
-                                                            } ?>>Nothing</option>
+                                                            } ?>>Name</option>
                                     <option value="priceDesc" <?php if ($this->uri->segment(4) != '' && $this->uri->segment(4) == 'priceDesc') {
                                                                     echo 'selected';
                                                                 } ?>>High Price → Low Price</option>
@@ -76,16 +77,7 @@
                             </div>
                             <p>Showing all <?= count($product) ?> results</p>
                         </div>
-                        <div class="col-12 col-sm-4 text-center text-sm-right">
-                            <ul class="nav nav-tabs ml-auto">
-                                <li>
-                                    <a class="nav-link active" href="#grid-view" data-toggle="tab"> <i class="fa fa-th"></i> </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="#list-view" data-toggle="tab"> <i class="fa fa-list-ul"></i> </a>
-                                </li>
-                            </ul>
-                        </div>
+
                     </div>
 
                     <div class="row product-categorie-box">
@@ -98,7 +90,7 @@
                                                 <div class="box-img-hover">
                                                     <img src="<?= $value->image; ?>" class="img-fluid" alt="Image" onerror="this.onerror=null;this.src='http://localhost/ci/asset/image/productImage.jpg';">
                                                     <div class="mask-icon">
-                                                    <a class="cart add_cart" href="javascript:void(0);" data-id="<?= $value->productId ?>">Add to Cart</a>
+                                                        <a class="cart add_cart" href="javascript:void(0);" data-id="<?= $value->productId ?>">Add to Cart</a>
                                                     </div>
                                                 </div>
                                                 <div class="why-text">
@@ -110,30 +102,7 @@
                                     <?php } ?>
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane fade" id="list-view">
-                                <div class="list-view-box">
-                                    <div class="row">
-                                        <?php foreach($product as $key => $value){?>
-                                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                                            <div class="products-single fix">
-                                                <div class="box-img-hover">
-                                                    <img src="<?= $value->image ?>" class="img-fluid" alt="Image">
-                                                </div>
-                                            </div>
-                                        </div>
 
-                                        <div class="col-sm-6 col-md-6 col-lg-8 col-xl-8">
-                                            <div class="why-text full-width">
-                                                <h4><?= $value->productName ?></h4>
-                                                <h5>$40.79</h5>
-                                                <p>I<?= $value->desc ?></p>
-                                                <a class="btn hvr-hover add_cart" href="javascript:void(0);" data-id="<?= $value->productId ?>">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                        <?php } ?>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
@@ -160,27 +129,29 @@
         console.log(pid);
         $.ajax({
             type: "POST",
-            url: "<?= base_url().'shop/addCart' ?>",
-            data: { pid:pid },
+            url: "<?= base_url() . 'shop/addCart' ?>",
+            data: {
+                pid: pid
+            },
             dataType: "text",
-            success: function(data){
-             var res=JSON.parse(data);
-             if(res.error == 'yes'){
-               $('#pid').val(res.pid);  
-               $('#lpid').val(res.pid);
-               $('#elegantModalForm').modal('show');
-             }else{
+            success: function(data) {
+                var res = JSON.parse(data);
+                if (res.error == 'yes') {
+                    $('#pid').val(res.pid);
+                    $('#lpid').val(res.pid);
+                    $('#elegantModalForm').modal('show');
+                } else {
 
-                  if(res.response == 'duplicate'){
-                    alert("Item already in Cart!");
-                  } else{
-                    alert("Item added in Cart")
-                  }
+                    if (res.response == 'duplicate') {
+                        alert("Item already in Cart!");
+                    } else {
+                        alert("Item added in Cart")
+                    }
 
-             }
+                }
             }
-});
-        
+        });
+
 
 
     });

@@ -17,4 +17,33 @@ class Home_model extends CI_Model
         $this->db->get('tbl_users', $userInfo);
         $this->db->trans_complete();
     }
+        /**
+     * This function is used to check whether email id is already exist or not
+     * @param {string} $email : This is email id
+     * @param {number} $userId : This is user id
+     * @return {mixed} $result : This is searched result
+     */
+    function checkEmailExists($email, $userId = 0)
+    {
+        $this->db->select("email");
+        $this->db->from("tbl_users");
+        $this->db->where("email", $email);   
+        $this->db->where("isDeleted", 0);
+        if($userId != 0){
+            $this->db->where("userId !=", $userId);
+        }
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+    function getAddress()
+    {
+        $this->db->select('BaseTbl.*, Users.*');
+        $this->db->from('tbl_address as BaseTbl');
+        $this->db->join('tbl_users as Users', 'Users.userId = BaseTbl.userId','left');
+        $query = $this->db->get();
+
+        return $query->result();
+
+    }
 }

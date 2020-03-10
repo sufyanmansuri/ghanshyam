@@ -1,91 +1,3 @@
-<!-- Start Instagram Feed  -->
-<div class="instagram-box" style="background: url(<?= base_url('asset/image/ins-bg.jpg') ?>) no-repeat center center;">
-    <div class="main-instagram owl-carousel owl-theme">
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="<?= base_url('asset/image/instagram-img-01.jpg') ?>" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="<?= base_url('asset/image/instagram-img-02.jpg') ?>" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="<?= base_url('asset/image/instagram-img-03.jpg') ?>" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="<?= base_url('asset/image/instagram-img-04.jpg') ?>" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="<?= base_url('asset/image/instagram-img-05.jpg') ?>" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="<?= base_url('asset/image/instagram-img-06.jpg') ?>" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="<?= base_url('asset/image/instagram-img-07.jpg') ?>" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="<?= base_url('asset/image/instagram-img-08.jpg') ?>" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="<?= base_url('asset/image/instagram-img-09.jpg') ?>" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="<?= base_url('asset/image/instagram-img-05.jpg') ?>" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Instagram Feed  -->
-
-
 <!-- Start Footer  -->
 <footer>
     <div class="footer-main">
@@ -128,7 +40,7 @@
                                     <br> Isanpur,Ahmedabad-382443. </p>
                             </li>
                             <li>
-                                <p><i class="fas fa-phone-square-alt"></i>Phone: <a href="callto:+919054173660">+91 9054173660</a></p>
+                                <p><i class="fas fa-phone-square"></i>Phone: <a href="callto:+919054173660">+91 9054173660</a></p>
                             </li>
                             <li>
                                 <p><i class="fas fa-envelope"></i>Email: <a href="mailto:ghanshyam@gmail.com">ghanshyam@gmail.com</a></p>
@@ -330,6 +242,20 @@
             $('.newmodel').click();
         }
     });
+    // When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+            document.getElementById("navbar").style.padding = "30px 10px";
+            document.getElementById("logo").style.fontSize = "25px";
+        } else {
+            document.getElementById("navbar").style.padding = "80px 10px";
+            document.getElementById("logo").style.fontSize = "35px";
+        }
+    }
 </script>
 
 </body>

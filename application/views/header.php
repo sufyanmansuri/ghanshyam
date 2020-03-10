@@ -66,7 +66,7 @@
             transition: top 0.2s, -webkit-transform 0.2s;
             transition: transform 0.2s, top 0.2s;
             transition: transform 0.2s, top 0.2s, -webkit-transform 0.2s;
-            display:none;
+            display: none;
         }
 
         .hvr-hover {
@@ -101,73 +101,17 @@
                     <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                         <li class="nav-item"><a class="nav-link" href="<?php echo site_url('Home') ?>">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('About') ?>">About Us</a></li>
-                        <li class="dropdown megamenu-fw">
-                            <a href="#" class="nav-link" data-toggle="dropdown">Buy <i class="fa fa-caret-down"></i></a>
-                            <ul class="dropdown-menu megamenu-content" role="menu">
-                                <li>
-                                    <div class="row">
-                                        <div class="col-menu col-md-3">
-                                            <h6 class="title">Top <i class="fa fa-angle-down d-block d-md-none" style="float:right;"></i></h6>
-                                            <div class="content">
-                                                <ul class="menu-col">
-                                                    <li><a href="<?= base_url('Shop'); ?>">Jackets</a></li>
-                                                    <li><a href="<?= base_url('Shop'); ?>">Shirts</a></li>
-                                                    <li><a href="<?= base_url('Shop'); ?>">Sweaters & Cardigans</a></li>
-                                                    <li><a href="<?= base_url('Shop'); ?>">T-shirts</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- end col-3 -->
-                                        <div class="col-menu col-md-3">
-                                            <h6 class="title">Bottom <i class="fa fa-angle-down d-block d-md-none" style="float:right;"></i></h6>
-                                            <div class="content">
-                                                <ul class="menu-col">
-                                                    <li><a href="<?= base_url('Shop'); ?>">Swimwear</a></li>
-                                                    <li><a href="<?= base_url('Shop'); ?>">Skirts</a></li>
-                                                    <li><a href="<?= base_url('Shop'); ?>">Jeans</a></li>
-                                                    <li><a href="<?= base_url('Shop'); ?>">Trousers</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- end col-3 -->
-                                        <div class="col-menu col-md-3">
-                                            <h6 class="title">Clothing <i class="fa fa-angle-down d-block d-md-none" style="float:right;"></i></h6>
-                                            <div class="content">
-                                                <ul class="menu-col">
-                                                    <li><a href="<?= base_url('Shop'); ?>">Top Wear</a></li>
-                                                    <li><a href="<?= base_url('Shop'); ?>">Party wear</a></li>
-                                                    <li><a href="<?= base_url('Shop'); ?>">Bottom Wear</a></li>
-                                                    <li><a href="<?= base_url('Shop'); ?>">Indian Wear</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-menu col-md-3">
-                                            <h6 class="title">Accessories <i class="fa fa-angle-down d-block d-md-none" style="float:right;"></i></h6>
-                                            <div class="content">
-                                                <ul class="menu-col">
-                                                    <li><a href="<?= base_url('Shop'); ?>">Bags</a></li>
-                                                    <li><a href="<?= base_url('Shop'); ?>">Sunglasses</a></li>
-                                                    <li><a href="<?= base_url('Shop'); ?>">Fragrances</a></li>
-                                                    <li><a href="<?= base_url('Shop'); ?>">Wallets</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <!-- end col-3 -->
-                                    </div>
-                                    <!-- end row -->
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="nav-link" data-toggle="dropdown">Profile <i class="fa fa-caret-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="<?= base_url('Cart'); ?>">Cart</a></li>
-                                <li><a href="<?= base_url('Checkout'); ?>">Checkout</a></li>
-                                <li><a href="<?= base_url('Account'); ?>">My Account</a></li>
-                                <li><a href="<?= base_url('Wishlist'); ?>">Wishlist</a></li>
-                                <li><a href="<?= base_url('Shopdetail'); ?>">Shop Detail</a></li>
-                            </ul>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="<?= base_url('shop') ?>">Browse Products</a></li>
+                        <?php if (isset($_SESSION['name'])) { ?>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link" data-toggle="dropdown">Profile <i class="fa fa-caret-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="<?= base_url('Cart'); ?>">Cart</a></li>
+                                    <li><a href="<?= base_url('Checkout'); ?>">Checkout</a></li>
+                                    <li><a href="<?= base_url('Account'); ?>">My Account</a></li>
+                                </ul>
+                            </li>
+                        <?php } ?>
                         <li class="nav-item"><a class="nav-link" href="<?php echo site_url('Services') ?>">Our Service</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo site_url('Contact') ?>">Contact Us</a></li>
                     </ul>
@@ -177,18 +121,19 @@
                 <!-- Start Atribute Navigation -->
                 <div class="attr-nav">
                     <ul>
-                        <?php if($this->session->userdata('isLoggedIn')){ ?>
-                            <li class=""><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                            <li class=""><a href="<?= base_url('Home/logOut'); ?>" data-toggle="tooltip" title="<?= $this->session->userdata('name')?>"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
-                        <?php }else{ ?>
-                        <!-- Login Popup Start-->
-                        <li><a href="" class="waves-effect waves-light" data-toggle="modal" data-target="#elegantModalForm"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                        <!-- Login Popup End-->
+                        <?php if ($this->session->userdata('isLoggedIn')) { ?>
+                            <li class=""><a href="<?= base_url('Account') ?>"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                            <li class=""><a href="<?= base_url('Home/logOut'); ?>" data-toggle="tooltip" title="<?= $this->session->userdata('name') ?>"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                            <li class="side-menu"><a href="#">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span class="badge badge-pill badge-danger">3</span>
+                                </a></li>
+                        <?php } else { ?>
+                            <!-- Login Popup Start-->
+                            <li><a href="" class="waves-effect waves-light" data-toggle="modal" data-target="#elegantModalForm"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                            <!-- Login Popup End-->
                         <?php } ?>
-                        <li class="side-menu"><a href="#">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span class="badge badge-pill badge-danger">3</span>
-                            </a></li>
+
                     </ul>
                 </div>
                 <!-- End Atribute Navigation -->

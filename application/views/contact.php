@@ -28,7 +28,7 @@
                                 <br> Isanpur,Ahmedabad-382443. </p>
                         </li>
                         <li>
-                            <p><i class="fas fa-phone-square-alt"></i>Phone: <a href="tel:+91-9054173660">+91-9054173660</a></p>
+                            <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+91-9054173660">+91-9054173660</a></p>
                         </li>
                         <li>
                             <p><i class="fas fa-envelope"></i>Email: <a href="mailto:ghanshyam@gmail.com">ghanshyam@gmail.com</a></p>

@@ -15,9 +15,13 @@ class Home extends CI_Controller
     {
         $data['getCategory'] = $this->category_model->getCategory();
         $data['getProduct'] = $this->product_model->getProduct();
-        $this->load->view('header');
-        $this->load->view('index', $data);
-        $this->load->view('footer');
+        if (!$this->session->userdata('role') || $this->session->userdata('role') == 4) {
+            $this->load->view('header');
+            $this->load->view('index', $data);
+            $this->load->view('footer');
+        } else if ($this->session->userdata('role') != 4) {
+            redirect('login');
+        }
     }
 
     public function createAccount()
@@ -26,7 +30,7 @@ class Home extends CI_Controller
         $email = strtolower($this->security->xss_clean($this->input->post('email')));
         $password = $this->input->post('password');
         $roleId = 4;
-        $pid=$this->input->post('pid');
+        $pid = $this->input->post('pid');
 
         $userInfo = array(
             'email' => $email, 'password' => getHashedPassword($password), 'roleId' => $roleId, 'name' => $name, 'createdDtm' => date('Y-m-d H:i:s')
@@ -34,102 +38,111 @@ class Home extends CI_Controller
         $this->load->model('home_model');
         $createAccount = $this->home_model->createAccount($userInfo);
         $result = $this->login_model->loginMe($email, $password);
-            
-            if(!empty($result))
-            {
-                $lastLogin = $this->login_model->lastLoginInfo($result->userId);
 
-                $sessionArray = array('userId'=>$result->userId,                    
-                                        'role'=>$result->roleId,
-                                        'roleText'=>$result->role,
-                                        'name'=>$result->name,
-                                        'lastLogin'=> $lastLogin->createdDtm,
-                                        'isLoggedIn' => TRUE
-                                );
+        if (!empty($result)) {
+            $lastLogin = $this->login_model->lastLoginInfo($result->userId);
 
-                $this->session->set_userdata($sessionArray);
+            $sessionArray = array(
+                'userId' => $result->userId,
+                'role' => $result->roleId,
+                'roleText' => $result->role,
+                'name' => $result->name,
+                'email' => $result->email,
+                'mobile' => $result->mobile,
+                'lastLogin' => $lastLogin->createdDtm,
+                'isLoggedIn' => TRUE
+            );
 
-                //unset($sessionArray['userId'], $sessionArray['isLoggedIn'], $sessionArray['lastLogin']);
+            $this->session->set_userdata($sessionArray);
 
-                $loginInfo = array("userId"=>$result->userId, "sessionData" => json_encode($sessionArray), "machineIp"=>$_SERVER['REMOTE_ADDR'], "userAgent"=>getBrowserAgent(), "agentString"=>$this->agent->agent_string(), "platform"=>$this->agent->platform());
+            //unset($sessionArray['userId'], $sessionArray['isLoggedIn'], $sessionArray['lastLogin']);
 
-                $this->login_model->lastLogin($loginInfo);
-                
-                //redirect('/dashboard');
-                if ($result > 0) {
-                    $this->session->set_flashdata('success', 'New User created successfully');
-                } else {
-                    $this->session->set_flashdata('error', 'User creation failed');
-                }
-                if($pid == ''){
+            $loginInfo = array("userId" => $result->userId, "sessionData" => json_encode($sessionArray), "machineIp" => $_SERVER['REMOTE_ADDR'], "userAgent" => getBrowserAgent(), "agentString" => $this->agent->agent_string(), "platform" => $this->agent->platform());
 
-                    redirect('/');
-                }else{
-                    $checkdup=$this->cart_model->checkdup($sessionArray['userId'],$pid);
-                     if(count($checkdup) == 0){   
-            
-                    $uid=$sessionArray['userId'];  
-                    $data=array('user_id'=>$uid,'product_id'=>$pid);
+            $this->login_model->lastLogin($loginInfo);
+
+            //redirect('/dashboard');
+            if ($result > 0) {
+                $this->session->set_flashdata('success', 'New User created successfully');
+            } else {
+                $this->session->set_flashdata('error', 'User creation failed');
+            }
+            if ($pid == '') {
+
+                redirect('/');
+            } else {
+                $checkdup = $this->cart_model->checkdup($sessionArray['userId'], $pid);
+                if (count($checkdup) == 0) {
+
+                    $uid = $sessionArray['userId'];
+                    $data = array('user_id' => $uid, 'product_id' => $pid);
                     $this->cart_model->insertProduct($data);
-                     }
-                    redirect('shop/index');
                 }
-            }else{
+                redirect('shop/index');
+            }
+        } else {
 
-                $this->session->set_flashdata('error', 'Something went wrong!');
-                redirect('registration');
-            }   
+            $this->session->set_flashdata('error', 'Something went wrong!');
+            redirect('registration');
+        }
     }
     public function loginAccount()
     {
         $email = strtolower($this->security->xss_clean($this->input->post('lemail')));
         $password = $this->input->post('lpassword');
-        $pid=$this->input->post('lpid');
+        $pid = $this->input->post('lpid');
 
         $userInfo = array(
-            'email' => $email, 'password' => getHashedPassword($password));
+            'email' => $email, 'password' => getHashedPassword($password)
+        );
         $this->load->model('home_model');
         $loginAccount = $this->home_model->loginAccount($userInfo);
         $result = $this->login_model->loginMe($email, $password);
-            
-            if(!empty($result))
-            {
-                $lastLogin = $this->login_model->lastLoginInfo($result->userId);
-                $sessionArray = array('userId'=>$result->userId,                    
-                                        'role'=>$result->roleId,
-                                        'roleText'=>$result->role,
-                                        'name'=>$result->name,
-                                        'lastLogin'=> $lastLogin->createdDtm,
-                                        'isLoggedIn' => TRUE
-                                );
 
-                $this->session->set_userdata($sessionArray);
+        if (!empty($result)) {
+            $lastLogin = $this->login_model->lastLoginInfo($result->userId);
+            $sessionArray = array(
+                'userId' => $result->userId,
+                'role' => $result->roleId,
+                'roleText' => $result->role,
+                'name' => $result->name,
+                'email' => $result->email,
+                'mobile' => $result->mobile,
+                'lastLogin' => $lastLogin->createdDtm,
+                'isLoggedIn' => TRUE
+            );
 
-                //unset($sessionArray['userId'], $sessionArray['isLoggedIn'], $sessionArray['lastLogin']);
+            $this->session->set_userdata($sessionArray);
 
-                $loginInfo = array("userId"=>$result->userId, "sessionData" => json_encode($sessionArray), "machineIp"=>$_SERVER['REMOTE_ADDR'], "userAgent"=>getBrowserAgent(), "agentString"=>$this->agent->agent_string(), "platform"=>$this->agent->platform());
+            //unset($sessionArray['userId'], $sessionArray['isLoggedIn'], $sessionArray['lastLogin']);
 
-                $this->login_model->lastLogin($loginInfo);
-                
-                //redirect('/dashboard');
-                if($pid == ''){
+            $loginInfo = array("userId" => $result->userId, "sessionData" => json_encode($sessionArray), "machineIp" => $_SERVER['REMOTE_ADDR'], "userAgent" => getBrowserAgent(), "agentString" => $this->agent->agent_string(), "platform" => $this->agent->platform());
+
+            $this->login_model->lastLogin($loginInfo);
+
+            //redirect('/dashboard');
+            if ($this->session->userdata('role') == 4) {
+                if ($pid == '') {
 
                     redirect('/');
-                }else{
-                    $checkdup=$this->cart_model->checkdup($sessionArray['userId'],$pid);
-                     if(count($checkdup) == 0){   
-            
-                    $uid=$sessionArray['userId'];  
-                    $data=array('user_id'=>$uid,'product_id'=>$pid);
-                    $this->cart_model->insertProduct($data);
-                     }
+                } else {
+                    $checkdup = $this->cart_model->checkdup($sessionArray['userId'], $pid);
+                    if (count($checkdup) == 0) {
+
+                        $uid = $sessionArray['userId'];
+                        $data = array('user_id' => $uid, 'product_id' => $pid);
+                        $this->cart_model->insertProduct($data);
+                    }
                     redirect('shop/index');
                 }
-            }else{
+            } else {
+                redirect('login');
+            }
+        } else {
 
-                $this->session->set_flashdata('error', 'Something went wrong!');
-                redirect('/');
-            }   
+            $this->session->set_flashdata('error', 'Something went wrong!');
+            redirect('/');
+        }
     }
     function logOut()
     {
@@ -139,7 +152,7 @@ class Home extends CI_Controller
                 $this->session->unset_userdata($key);
             }
         }
-    $this->session->sess_destroy();
-    redirect('');
+        $this->session->sess_destroy();
+        redirect('');
     }
 }
