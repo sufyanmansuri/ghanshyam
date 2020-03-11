@@ -78,19 +78,32 @@
             </div>
             <!--Body-->
             <div class="modal-body mx-4">
+                 <input type="hidden" name="status" id="status" value="<?php if(isset($_GET['status']) && $_GET['status'] != ''){ echo $_GET['status']; } ?>">
+                 <?php
+                 
+                  if(isset($_GET['status']) && $_GET['status'] == 'wrong'){ ?>
+
+                    <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        Email or password is wrong!
+                    </div>
+
+                  <?php } ?>
+                 
+                
                 <?php $this->load->helper("form"); ?>
                 <form role="form" id="loginAccount" action="<?php echo base_url() ?>Home/loginAccount" method="post" role="form">
                     <!--Body-->
                     <div class="md-form mb-5">
-                        <input type="email" id="lemail" name="lemail" class="form-control validate">
+                        <input type="email" id="lemail" name="lemail" class="form-control" required>
                         <label data-error="Please enter valid data" for="Form-email1">Your email</label>
-                        <input type="hidden" id="lpid" class="form-control validate" name="lpid" value="<?php if (isset($pid)) {
+                        
+                    </div>
+                    <input type="hidden" id="lpid" class="form-control validate" name="lpid" value="<?php if (isset($pid)) {
                                                                                                             echo $pid;
                                                                                                         } ?>">
-                    </div>
-
                     <div class="md-form pb-3">
-                        <input type="password" id="lpassword" name="lpassword" class="form-control validate">
+                        <input type="password" id="lpassword" name="lpassword" class="form-control validate" required>
                         <label data-error="Please enter valid data" for="Form-pass1">Your password</label>
                         <p class="font-small blue-text d-flex justify-content-end"><a href="#" class="blue-text ml-1">
                                 Forgot Password?</a></p>
@@ -194,6 +207,8 @@
 <script src="<?= base_url('asset/js/custom.js') ?>"></script>
 <!-- Plugin file -->
 <script src="<?= base_url('asset/js/addons/datatables.min.js') ?>"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js">
+  </script>
 <!-- MDBootstrap Initialize -->
 <script type="text/javascript">
     $(document).ready(function() {
@@ -239,7 +254,7 @@
     $(document).ready(function() {
         var pid = $('#pid').val();
         if (pid != '') {
-            $('.newmodel').click();
+            $('#newmodel').modal('show');
         }
     });
     // When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
@@ -256,6 +271,57 @@
             document.getElementById("logo").style.fontSize = "35px";
         }
     }
+    $(document).ready(function() {
+        var status = $('#status').val();
+        if (status == 'wrong') {
+
+            $('#elegantModalForm').modal('show');
+            var oldURL = "<?= base_url() ?>"+"?status=wrong";
+                var index = 0;
+                var newURL = oldURL;
+                index = oldURL.indexOf('?');
+                if(index == -1){
+                    index = oldURL.indexOf('#');
+                }
+                if(index != -1){
+                    newURL = oldURL.substring(0, index);
+                }
+        }
+    });
+    
+    $('#person').keyup(function(event){
+       
+        var key = event.keyCode || event.charCode;
+
+        if( key == 8 || key == 46 ){
+            return false;
+        }
+     var person=$('#person').val();
+     var subtotal=$('#subtotal').val();
+     var sgst=$('#sgst').val();
+     var cgst=$('#cgst').val();
+     console.log(person);
+     console.log(subtotal);
+     var subcal=parseFloat(person) * parseFloat(subtotal);
+     $('#subtoal').val(subcal);
+     $('#subtotallabel').html('$ '+subcal);
+
+     var tax=(parseFloat(subcal) * parseFloat(2.5)) / parseFloat(100);
+     $('#sgst').val(tax);
+     $('#cgst').val(tax);
+     $('#sgstlabel').html('$ '+tax);
+     $('#cgstlabel').html('$ '+tax);
+
+     var total=parseFloat(subcal) + parseFloat(tax) + parseFloat(tax);
+     $('#total').val(total);
+     $('#totallabel').html('$ '+total);
+
+    
+
+
+
+    });
+    
 </script>
 
 </body>

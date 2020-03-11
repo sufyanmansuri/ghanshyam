@@ -82,6 +82,17 @@ class Category_model extends CI_Model
         $result = $query->result();
         return $result;
     }
+    function searchProducts($search)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_products');
+        $this->db->where("productName LIKE '%$search%'");
+        $this->db->order_by('productName','ASC');
+       
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
+    }
 
     /**
      * This function is used to add new category to system

@@ -29,8 +29,8 @@
             <div class="col-xl-3 col-lg-3 col-sm-12 col-xs-12 sidebar-shop-left">
                 <div class="product-categori">
                     <div class="search-product">
-                        <form action="#">
-                            <input class="form-control" placeholder="Search here..." type="text">
+                        <form action="<?= base_url().'shop/index' ?>" method="get">
+                            <input class="form-control" placeholder="Search here..." type="text" name="search" value="<?php if(isset($_GET['search']) && $_GET['search'] != ''){ echo $_GET['search']; } ?>">
                             <button type="submit"> <i class="fa fa-search"></i> </button>
                         </form>
                     </div>
@@ -143,9 +143,9 @@
                 } else {
 
                     if (res.response == 'duplicate') {
-                        alert("Item already in Cart!");
+                        toastr.error("item already in cart!");
                     } else {
-                        alert("Item added in Cart")
+                        toastr.success("item added succesfully in cart!");
                     }
 
                 }

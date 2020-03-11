@@ -37,6 +37,7 @@ class Product_model extends CI_Model
         if (!empty($searchText)) {
             $likeCriteria = "(BaseTbl.productName  LIKE '%" . $searchText . "%'
                             OR  Category.name  LIKE '%" . $searchText . "%'
+                            OR  Product.name  LIKE '%" . $searchText . "%'
                             OR  BaseTbl.price  LIKE '%" . $searchText . "%')";
             $this->db->where($likeCriteria);
         }

@@ -19,11 +19,12 @@ class Cart_model extends CI_Model
 
         return $query->result();
     }
-    function getCart()
+    function getCart($uid)
     {
         $this->db->select('BaseTbl.*, Product.*');
         $this->db->from('tbl_cart as BaseTbl');
         $this->db->join('tbl_products as Product', 'Product.productId = BaseTbl.product_id','left');
+        $this->db->where('BaseTbl.user_id', $uid);
         $query = $this->db->get();
 
         return $query->result();

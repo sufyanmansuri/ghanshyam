@@ -141,7 +141,7 @@ class Home extends CI_Controller
         } else {
 
             $this->session->set_flashdata('error', 'Something went wrong!');
-            redirect('/');
+            redirect('/?status=wrong');
         }
     }
     function logOut()

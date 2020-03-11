@@ -16,7 +16,12 @@ class Shop extends CI_Controller
         $data['cid']=($this->uri->segment(3) != '') ? $this->uri->segment(3) : "All" ;
         $data['sort']=($this->uri->segment(4) != '') ? $this->uri->segment(4) : 'nothing' ;
         $data['allCategory']=$this->category_model->getAllCategory();
-        $data['product']=$this->category_model->getProducts($data['cid'],$data['sort']);
+        if(isset($_GET['search']) && $_GET['search'] != ''){
+            $data['product']=$this->category_model->searchProducts($_GET['search']);
+        }else{
+            $data['product']=$this->category_model->getProducts($data['cid'],$data['sort']);
+        }
+        
         $this->load->view('header');
         $this->load->view('shop',$data);
         $this->load->view('footer');
