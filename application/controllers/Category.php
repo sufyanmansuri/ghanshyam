@@ -58,38 +58,37 @@ class Category extends BaseController
      */
     function addNewCategory()
     {
-        if($this->isAdmin() == TRUE)
-        {
+        if ($this->isAdmin() == TRUE) {
             $this->loadThis();
-        }
-        else
-        {
+        } else {
             $this->load->library('form_validation');
-            
-            $this->form_validation->set_rules('cname','Category Name','trim|required|max_length[128]');
-            
-            if($this->form_validation->run() == FALSE)
-            {
+
+            $this->form_validation->set_rules('cname', 'Category Name', 'trim|required|max_length[128]');
+
+            if ($this->form_validation->run() == FALSE) {
                 $this->addNewC();
-            }
-            else
-            {
+            } else {
+                $file=$_FILES['file']['tmp_name'];
+                $path=FCPATH.'asset/image/';
+                $path_parts = pathinfo($_FILES['file']['name']);
+                $fileextension=$path_parts['extension'];
+                $imagename=time().'.'.$fileextension;
+                $imagepath=$path.$imagename;
+                move_uploaded_file($file, $imagepath);
+                $url=base_url().'asset/image/'.$imagename;
                 $cname = ucwords(strtolower($this->security->xss_clean($this->input->post('cname'))));
-                
-                $categoryInfo = array('name'=> $cname);
-                
+
+                $categoryInfo = array('name' => $cname,'categoryImage'=>$url);
+
                 $this->load->model('category_model');
                 $result = $this->category_model->addNewCategory($categoryInfo);
-                
-                if($result > 0)
-                {
+
+                if ($result > 0) {
                     $this->session->set_flashdata('success', 'New Category added successfully');
-                }
-                else
-                {
+                } else {
                     $this->session->set_flashdata('error', 'Process failed');
                 }
-                
+
                 redirect('Category/addNewC');
             }
         }
@@ -100,22 +99,19 @@ class Category extends BaseController
      */
     function editOldC($categoryid = NULL)
     {
-        if($this->isAdmin() == TRUE /* || $userId == 1*/)
-        {
+        if ($this->isAdmin() == TRUE /* || $userId == 1*/) {
             $this->loadThis();
-        }
-        else
-        {
+        } else {
             /*
             if($userId == null)
             {
                 redirect('userListing');
             }*/
-            
+
             $data['categoryInfo'] = $this->category_model->getCategoryInfo($categoryid);
-            
+
             $this->global['pageTitle'] = 'Ghanshyam : Edit Category';
-            
+
             $this->loadViews("editOldC", $this->global, $data, NULL);
         }
     }
@@ -124,45 +120,48 @@ class Category extends BaseController
      */
     function editCategory()
     {
-        if($this->isAdmin() == TRUE)
-        {
+        if ($this->isAdmin() == TRUE) {
             $this->loadThis();
-        }
-        else
-        {
-            $this->load->library('form_validation');
-            
-            $categoryid = $this->input->post('categoryid');
-            
-            $this->form_validation->set_rules('name','Category Name','trim|required|max_length[128]');
-            
-            if($this->form_validation->run() == FALSE)
-            {
-                $this->editOldC($categoryid);
-            }
-            else
-            {
+        } else {
+            //echo "<pre>";print_r($_FILES['file']);exit;
+            if ($_FILES['file']['error'] == 0) {
+                //echo 'if';exit;
+                $file = $_FILES['file']['tmp_name'];
+                $path = FCPATH . 'asset/image/';
+                $path_parts = pathinfo($_FILES['file']['name']);
+                $fileextension = $path_parts['extension'];
+                $imagename = time() . '.' . $fileextension;
+                $imagepath = $path . $imagename;
+                move_uploaded_file($file, $imagepath);
+                //$url=base_url().'asset/image/'.$imagename;
+                $url = base_url() . 'asset/image/' . $imagename;
                 $name = ucwords(strtolower($this->security->xss_clean($this->input->post('name'))));
-                $categoryInfo = array();
-                $categoryInfo = array('categoryid'=>$categoryid,'name'=>$name);
-                $result = $this->category_model->editcategory($categoryInfo, $categoryid);
-                
-                if($result == true)
-                {
-                    $this->session->set_flashdata('success', 'category updated successfully');
-                }
-                else
-                {
-                    $this->session->set_flashdata('error', 'category updation failed');
-                }
-                
-                redirect('Category/categoryListing');
+                $categoryid = $this->input->post('categoryid');
+                $categoryInfo = array('name'=>$name,'categoryImage'=>$url,'categoryid'=>$categoryid);
+            } else {
+                $name = ucwords(strtolower($this->security->xss_clean($this->input->post('name'))));
+                $categoryid = $this->input->post('categoryid');
+                $categoryInfo = array('categoryid' => $categoryid, 'name' => $name);
             }
+
+            $result = $this->category_model->editCategory($categoryInfo, $categoryid);
+            if ($result == true) {
+                $this->session->set_flashdata('success', 'Product updated successfully');
+            } else {
+                $this->session->set_flashdata('error', 'Operation failed');
+            }
+            redirect('Category/categoryListing');
         }
     }
-    /**
-     * This function is used to delete the category using categoryid
-     * @return boolean $result : TRUE / FALSE
+    public function deleteCategory($categoryid)
+    {
+        $this->category_model->deleteCategory($categoryid);
+        redirect('categoryListing');
+    }
+}
+/**
+ * This function is used to delete the category using categoryid
+ * @return boolean $result : TRUE / FALSE
      
     function deleteCategory()
     {
@@ -181,9 +180,3 @@ class Category extends BaseController
             else { echo(json_encode(array('status'=>FALSE))); }
         }
     }*/
-    public function deleteCategory($categoryid)
-   {
-       $this->category_model->deleteCategory($categoryid);
-       redirect('categoryListing');
-   }
-}

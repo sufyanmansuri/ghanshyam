@@ -22,13 +22,21 @@
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php $this->load->helper("form"); ?>
-                    <form role="form" id="addUser" action="<?php echo base_url() ?>Category/addNewCategory" method="post" role="form">
+                    <form role="form" id="addUser" action="<?php echo base_url() ?>Category/addNewCategory" method="post" role="form" enctype="multipart/form-data">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="cname">Category Name</label>
                                         <input type="text" class="form-control required" value="<?php echo set_value('cname'); ?>" id="cname" name="cname" maxlength="128">
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="file">Category Image</label>
+                                        <input type="file" name="file" class="form-control" required></input>
                                     </div>
 
                                 </div>

@@ -69,7 +69,7 @@ class Product extends BaseController
 
             $this->form_validation->set_rules('productName', 'Product Name', 'required');
             //$this->form_validation->set_rules('file', 'file', 'required');
-            $this->form_validation->set_rules('price', 'Price', 'required');
+            $this->form_validation->set_rules('price', 'Price', 'trim|required');
             $this->form_validation->set_rules('category', 'Category', 'trim|required|numeric');
 
             if ($this->form_validation->run() == FALSE) {
@@ -195,5 +195,10 @@ class Product extends BaseController
                 redirect('productListing');
             }
         }
+    }
+    public function deleteProduct($productId)
+    {
+        $this->product_model->deleteProduct($productId);
+        redirect('productListing');
     }
 }

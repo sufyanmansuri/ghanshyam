@@ -48,4 +48,53 @@ class Package_model extends CI_Model
         $result = $query->result();
         return $result;
     }
+    function getPackage()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_package');
+        //$this->db->order_by('name');
+        $this->db->limit('3');
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
+    }
+    function getPackageInfo($packageId)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_package');
+        //$this->db->order_by('name');
+        //$this->db->limit('3');
+        $this->db->where('tbl_package.packageId',$packageId);
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
+    }
+    function getAllPackage()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_package');
+        //$this->db->order_by('name');
+        //$this->db->limit('3');
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
+    }
+    function getPackageProducts($packageId)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_package as p');
+       // $this->db->from('tbl_products as pr');
+        $this->db->join('tbl_packagedetails as pd','p.packageId = pd.packageId','left');
+        $this->db->join('tbl_products as pr','pr.productId = pd.productId','left');
+        $query = $this->db->get();
+        return $query->result();
+    }
+    function getProducts($packageId)
+    {
+        $this->db->select('pd.productId');
+        $this->db->from('tbl_packagedetails as pd');
+        $this->db->where('pd.packageId',$packageId);
+        $query=$this->db->get();
+        return $query->result();
+    }
 }

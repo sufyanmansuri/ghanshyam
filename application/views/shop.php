@@ -60,6 +60,19 @@
                         </div>
                         <input type="hidden" name="category" id="category" value="<?= $value->categoryid ?>">
                     </div>
+                    <div class="filter-brand-left">
+                        <div class="title-left">
+                            <h3>Package</h3>
+                        </div>
+                        <div class="brand-box">
+                            <ul>
+                                <?php
+                                foreach ($allPackage as $key => $value) { ?>
+                                    <a href="<?= base_url() . 'package/' . $value->packageId ?>" class="list-group-item list-group-item-action"> <?= $value->packageName ?></a>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                    </div>
 
 
 
@@ -103,9 +116,11 @@
                                                     </div>
                                                 </div>
                                                 <div class="why-text">
-                                                        <a data-dismiss="modal" data-toggle="modal" data-target="#modalQuickView<?= $value->productId ?>"><h4><?= $value->productName ?></h4>
-                                                    <h5><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;<?= $value->price ?></h5>
-                                                    <p id="desc"><?= $value->desc ?></p></a>
+                                                    <a data-dismiss="modal" data-toggle="modal" data-target="#modalQuickView<?= $value->productId ?>">
+                                                        <h4><?= $value->productName ?></h4>
+                                                        <h5><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;<?= $value->price ?></h5>
+                                                        <p id="desc"><?= $value->desc ?></p>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -120,16 +135,11 @@
                                                             </div>
                                                             <div class="col-lg-7">
                                                                 <h2 class="h2-responsive product-name">
-                                                                    <strong>Product Name</strong>
+                                                                    <strong><?= $value->productName ?></strong>
                                                                 </h2>
                                                                 <h4 class="h4-responsive">
                                                                     <span class="green-text">
-                                                                        <strong>$49</strong>
-                                                                    </span>
-                                                                    <span class="grey-text">
-                                                                        <small>
-                                                                            <s>$89</s>
-                                                                        </small>
+                                                                        <strong> <i class="fa fa-inr" aria-hidden="true"></i> <?= $value->price ?></strong>
                                                                     </span>
                                                                 </h4>
 

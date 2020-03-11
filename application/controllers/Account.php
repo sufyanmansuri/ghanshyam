@@ -7,13 +7,15 @@ class Account extends CI_Controller
         parent::__construct();
         $this->load->model('user_model');
         $this->load->model('home_model');
+        $this->load->model('cart_model');
     }
 
     public function index()
     {
-        $this->load->view('header');
+        $data1['getCartCount'] = $this->cart_model->getCartCount();
+        $this->load->view('header',$data1);
         $data['getAddress'] = $this->home_model->getAddress();
-        $this->load->view('my-account',$data);
+        $this->load->view('my-account', $data);
         $this->load->view('footer');
     }
     /**
@@ -77,37 +79,36 @@ class Account extends CI_Controller
     function changePassword()
     {
         $this->load->library('form_validation');
-        
-        $this->form_validation->set_rules('oldPassword','Old password','required|max_length[20]');
-        $this->form_validation->set_rules('newPassword','New password','required|max_length[20]');
-        $this->form_validation->set_rules('cNewPassword','Confirm new password','required|matches[newPassword]|max_length[20]');
-        
-        if($this->form_validation->run() == FALSE)
-        {
+
+        $this->form_validation->set_rules('oldPassword', 'Old password', 'required|max_length[20]');
+        $this->form_validation->set_rules('newPassword', 'New password', 'required|max_length[20]');
+        $this->form_validation->set_rules('cNewPassword', 'Confirm new password', 'required|matches[newPassword]|max_length[20]');
+
+        if ($this->form_validation->run() == FALSE) {
             $this->index();
-        }
-        else
-        {
+        } else {
             $oldPassword = $this->input->post('oldPassword');
             $newPassword = $this->input->post('newPassword');
-            
+
             $resultPas = $this->user_model->matchOldPassword($this->vendorId, $oldPassword);
-            
-            if(empty($resultPas))
-            {
+
+            if (empty($resultPas)) {
                 $this->session->set_flashdata('nomatch', 'Your old password is not correct');
                 redirect('Account');
-            }
-            else
-            {
-                $usersData = array('password'=>getHashedPassword($newPassword), 'updatedBy'=>$this->vendorId,
-                                'updatedDtm'=>date('Y-m-d H:i:s'));
-                
+            } else {
+                $usersData = array(
+                    'password' => getHashedPassword($newPassword), 'updatedBy' => $this->vendorId,
+                    'updatedDtm' => date('Y-m-d H:i:s')
+                );
+
                 $result = $this->user_model->changePassword($_SESSION['userId'], $usersData);
-                
-                if($result > 0) { $this->session->set_flashdata('success', 'Password updation successful'); }
-                else { $this->session->set_flashdata('error', 'Password updation failed'); }
-                
+
+                if ($result > 0) {
+                    $this->session->set_flashdata('success', 'Password updation successful');
+                } else {
+                    $this->session->set_flashdata('error', 'Password updation failed');
+                }
+
                 redirect('Account');
             }
         }

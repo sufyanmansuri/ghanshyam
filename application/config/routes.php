@@ -94,6 +94,8 @@ $route['deleteProduct/(:num)'] = "product/deleteProduct/$1";
 
 $route['packageListing'] = 'package/packageListing';
 $route['packageListing/(:num)'] = "package/packageListing/$1";
+$route['package'] = "home/package";
+$route['package/(:any)'] = "home/package/$1";
 
 $route['loadChangePass'] = "user/loadChangePass";
 $route['changePassword'] = "user/changePassword";
@@ -120,6 +122,10 @@ $route['resetPasswordConfirmCustomer/(:any)'] = "home/resetPasswordConfirmCustom
 $route['resetPasswordConfirmCustomer/(:any)/(:any)'] = "home/resetPasswordConfirmCustomer/$1/$2";
 $route['createPasswordCustomer'] = "home/createPasswordCustomer";
 
+
+$route['removeFromCart'] = "cart/removeFromCart";
+$route['removeFromCart/(:any)'] = "cart/removeFromCart/$1";
+$route['removeFromCart/(:any)/(:any)'] = "cart/removeFromCart/$1/$2";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

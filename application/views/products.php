@@ -56,7 +56,7 @@
                                         <td><?php echo date("d-m-Y", strtotime($record->createdDt)) ?></td>
                                         <td class="text-center">
                                             <a class="btn btn-sm btn-info" href="<?php echo base_url() . 'editOldP/' . $record->productId; ?>" title="Edit"><i class="fa fa-pencil"></i></a>
-                                            <a class="btn btn-sm btn-danger deleteProduct" href="#" data-userid="<?php echo $record->productId; ?>" title="Delete"><i class="fa fa-trash"></i></a>
+                                            <a class="btn btn-sm btn-danger deleteProduct" href="<?= base_url() . 'deleteProduct/' . $record->productId; ?>" data-userid="<?php echo $record->productId; ?>" title="Delete"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                             <?php

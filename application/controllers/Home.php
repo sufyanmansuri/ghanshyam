@@ -9,15 +9,24 @@ class Home extends CI_Controller
         $this->load->model('product_model');
         $this->load->model('login_model');
         $this->load->model('cart_model');
+        $this->load->model('package_model');
     }
 
     public function index()
     {
         $data['getCategory'] = $this->category_model->getCategory();
         $data['getProduct'] = $this->product_model->getProduct();
+        $isLoggedIn = $this->session->userdata('isLoggedIn');
+        $data['getPackage'] = $this->package_model->getPackage();
         if (!$this->session->userdata('role') || $this->session->userdata('role') == 4) {
-            $this->load->view('header');
-            $this->load->view('index', $data);
+            $isLoggedIn = $this->session->userdata('isLoggedIn');
+            if (isset($isLoggedIn) || $isLoggedIn == TRUE) {
+                $data1['getCartCount'] = $this->cart_model->getCartCount();
+                $this->load->view('header', $data1);
+            } else {
+                $this->load->view('header');
+            }
+            $this->load->view('index',$data);
             $this->load->view('footer');
         } else if ($this->session->userdata('role') != 4) {
             redirect('login');
@@ -169,7 +178,7 @@ class Home extends CI_Controller
         }
     }
 
-     /**
+    /**
      * This function used to generate reset password request link
      */
     function resetPasswordCustomer()
@@ -285,28 +294,40 @@ class Home extends CI_Controller
             setFlashData($status, $message);
             $result = $this->login_model->loginMe($email, $password);
 
-        if (!empty($result)) {
-            $lastLogin = $this->login_model->lastLoginInfo($result->userId);
-            $sessionArray = array(
-                'userId' => $result->userId,
-                'role' => $result->roleId,
-                'roleText' => $result->role,
-                'name' => $result->name,
-                'email' => $result->email,
-                'mobile' => $result->mobile,
-                'lastLogin' => $lastLogin->createdDtm,
-                'isLoggedIn' => TRUE
-            );
+            if (!empty($result)) {
+                $lastLogin = $this->login_model->lastLoginInfo($result->userId);
+                $sessionArray = array(
+                    'userId' => $result->userId,
+                    'role' => $result->roleId,
+                    'roleText' => $result->role,
+                    'name' => $result->name,
+                    'email' => $result->email,
+                    'mobile' => $result->mobile,
+                    'lastLogin' => $lastLogin->createdDtm,
+                    'isLoggedIn' => TRUE
+                );
 
-            $this->session->set_userdata($sessionArray);
+                $this->session->set_userdata($sessionArray);
 
-            //unset($sessionArray['userId'], $sessionArray['isLoggedIn'], $sessionArray['lastLogin']);
+                //unset($sessionArray['userId'], $sessionArray['isLoggedIn'], $sessionArray['lastLogin']);
 
-            $loginInfo = array("userId" => $result->userId, "sessionData" => json_encode($sessionArray), "machineIp" => $_SERVER['REMOTE_ADDR'], "userAgent" => getBrowserAgent(), "agentString" => $this->agent->agent_string(), "platform" => $this->agent->platform());
+                $loginInfo = array("userId" => $result->userId, "sessionData" => json_encode($sessionArray), "machineIp" => $_SERVER['REMOTE_ADDR'], "userAgent" => getBrowserAgent(), "agentString" => $this->agent->agent_string(), "platform" => $this->agent->platform());
 
-            $this->login_model->lastLogin($loginInfo);
-            redirect("Account");
+                $this->login_model->lastLogin($loginInfo);
+                redirect("Account");
+            }
         }
     }
-}
+    function package($packageId = 1)
+    {
+        $data['packageId'] = $this->uri->segment(2);
+        $data['allCategory'] = $this->category_model->getAllCategory();
+        $data['allPackage'] = $this->package_model->getAllPackage();
+        $data['packageProduct'] = $this->package_model->getPackageProducts($data['packageId']);
+        //$data['product']=$this->category_model->getProducts($data['cid'],$data['sort']);
+        $data['packageInfo'] = $this->package_model->getPackageInfo($data['packageId']);
+        $this->load->view('header');
+        $this->load->view('package', $data);
+        $this->load->view('footer');
+    }
 }

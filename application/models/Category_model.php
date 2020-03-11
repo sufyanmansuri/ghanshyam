@@ -8,7 +8,7 @@ class Category_model extends CI_Model
      */
     function categoryListingCount($searchText = '')
     {
-        $this->db->select('BaseTbl.categoryid, BaseTbl.name');
+        $this->db->select('BaseTbl.*');
         $this->db->from('tbl_categories as BaseTbl');
         if (!empty($searchText)) {
             $likeCriteria = "(BaseTbl.categoryid  LIKE '%" . $searchText . "%'
@@ -29,7 +29,7 @@ class Category_model extends CI_Model
      */
     function categoryListing($searchText = '', $page, $segment)
     {
-        $this->db->select('BaseTbl.categoryid, BaseTbl.name');
+        $this->db->select('BaseTbl.*');
         $this->db->from('tbl_categories as BaseTbl');
         if (!empty($searchText)) {
             $likeCriteria = "(BaseTbl.categoryid  LIKE '%" . $searchText . "%'
@@ -63,19 +63,19 @@ class Category_model extends CI_Model
         $result = $query->result();
         return $result;
     }
-    function getProducts($id,$sort)
+    function getProducts($id, $sort)
     {
         $this->db->select('*');
         $this->db->from('tbl_products');
-        if($id !== "All"){
-            $this->db->where('categoryid',$id);
+        if ($id !== "All") {
+            $this->db->where('categoryid', $id);
         }
-        if($sort == 'nothing'){
-        $this->db->order_by('productName','ASC');
-        }else if($sort == 'priceDesc'){
-            $this->db->order_by('price','DESC');
-        }else{
-            $this->db->order_by('price','ASC');
+        if ($sort == 'nothing') {
+            $this->db->order_by('productName', 'ASC');
+        } else if ($sort == 'priceDesc') {
+            $this->db->order_by('price', 'DESC');
+        } else {
+            $this->db->order_by('price', 'ASC');
         }
         //$this->db->limit('6');
         $query = $this->db->get();
@@ -87,8 +87,8 @@ class Category_model extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_products');
         $this->db->where("productName LIKE '%$search%'");
-        $this->db->order_by('productName','ASC');
-       
+        $this->db->order_by('productName', 'ASC');
+
         $query = $this->db->get();
         $result = $query->result();
         return $result;
@@ -117,7 +117,7 @@ class Category_model extends CI_Model
      */
     function getCategoryInfo($categoryid)
     {
-        $this->db->select('categoryid, name');
+        $this->db->select('categoryid, name,categoryImage');
         $this->db->from('tbl_categories');
         $this->db->where('categoryid', $categoryid);
         $query = $this->db->get();
@@ -146,5 +146,4 @@ class Category_model extends CI_Model
         $this->db->delete('tbl_categories', array('categoryid' => $categoryid));
         return $this->db->affected_rows();
     }
-
 }

@@ -7,15 +7,7 @@
                     <div class="footer-widget">
                         <h4>About Ghanshyam Caterers</h4>
                         <p>The food served here is a cavalcade of taste & texture and has maintained the originality of its quality. We feature innovative contemporary Indian cuisine clubbed with some continental delicacies that create bold flavours with a modern twist. From our famous Chana Poori to Paneer Tikka, from our Chana Masala to our lip-smacking sizzlers we offer a host of delicious vegetarian delicacies which are offered to our customers post due diligence and tasting.</p>
-                        <ul>
-                            <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
-                        </ul>
+
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12">
@@ -56,7 +48,7 @@
 
 <!-- Start copyright  -->
 <div class="footer-copyright">
-    <p class="footer-company">All Rights Reserved. &copy; 2020 <a href="#">Ghanshyam Caterers</a></p>
+    <p class="footer-company">All Rights Reserved. &copy; 2020 <a href="<?= base_url('') ?>">Ghanshyam Caterers</a></p>
 </div>
 <!-- End copyright  -->
 

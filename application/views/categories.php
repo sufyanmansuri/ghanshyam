@@ -35,6 +35,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Name</th>
+                                <th>Image</th>
                                 <th class="text-center">Actions</th>
                             </tr>
                             <?php
@@ -44,6 +45,7 @@
                                     <tr>
                                         <td><?php echo $record->categoryid ?></td>
                                         <td><?php echo $record->name ?></td>
+                                        <td><a href="<?php echo $record->categoryImage ?>" target="_blank"><?=$record->categoryImage ?></a></td>
                                         <td class="text-center">
                                             <a class="btn btn-sm btn-info" href="<?php echo base_url() . 'editOldC/' . $record->categoryid; ?>" title="Edit"><i class="fa fa-pencil"></i></a>
                                             <a class="btn btn-sm btn-danger deleteCategory" onclick="return confirm('Are you sure to delete this category?')" href="<?php echo base_url() . 'deleteCategory/' . $record->categoryid; ?>" data-userid="<?php echo $record->categoryid; ?>" title="Delete"><i class="fa fa-trash"></i></a>

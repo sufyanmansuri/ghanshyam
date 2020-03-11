@@ -37,7 +37,7 @@ class Product_model extends CI_Model
         if (!empty($searchText)) {
             $likeCriteria = "(BaseTbl.productName  LIKE '%" . $searchText . "%'
                             OR  Category.name  LIKE '%" . $searchText . "%'
-                            OR  Product.name  LIKE '%" . $searchText . "%'
+                            OR  BaseTbl.productName  LIKE '%" . $searchText . "%'
                             OR  BaseTbl.price  LIKE '%" . $searchText . "%')";
             $this->db->where($likeCriteria);
         }
@@ -113,5 +113,10 @@ class Product_model extends CI_Model
         $query = $this->db->get();
         $result = $query->result();
         return $result;
+    }
+    function deleteProduct($productId)
+    {
+        $this->db->delete('tbl_products', array('productId' => $productId));
+        return $this->db->affected_rows();
     }
 }

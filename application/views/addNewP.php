@@ -28,27 +28,27 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="productName">Product Name</label>
-                                        <input type="text" class="form-control required" value="<?php echo set_value('productName'); ?>" id="productName" name="productName" maxlength="128">
+                                        <input type="text" class="form-control required" value="<?php echo set_value('productName'); ?>" id="productName" name="productName" maxlength="128" required>
                                     </div>
 
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="productName">Product Image</label>
-                                        <input type="file" name="file" class="form-control required" >
+                                        <input type="file" name="file" class="form-control required" required>
                                     </div>
 
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="price">Price</label>
-                                        <input type="number" class="form-control required" value="<?php echo set_value('price'); ?>" id="price" name="price" maxlength="20">
+                                        <input type="number" class="form-control required" value="<?php echo set_value('price'); ?>" id="price" name="price" maxlength="20" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="price">Description</label>
-                                        <textarea  class="form-control required" id="desc" name="desc" ><?php echo set_value('desc'); ?></textarea>
+                                        <textarea  class="form-control required" id="desc" name="desc" required></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -56,8 +56,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="category">Category</label>
-                                        <select class="form-control required" id="category" name="category">
-                                            <option value="0">Select Category</option>
+                                        <select class="form-control required" id="category" name="category" required>
+                                            <option value="">Select Category</option>
                                             <?php
                                             if (!empty($categories)) {
                                                 foreach ($categories as $ct) {

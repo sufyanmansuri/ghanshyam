@@ -127,7 +127,7 @@
                             <li class=""><a href="<?= base_url('Home/logOut'); ?>" data-toggle="tooltip" title="<?= $this->session->userdata('name') ?>"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
                             <li class=""><a href="<?= base_url('Cart'); ?>">
                                     <i class="fa fa-shopping-cart"></i>
-                                    <span class="badge badge-pill badge-danger">3</span>
+                                    <span class="badge badge-pill badge-danger"><?= $getCartCount ?></span>
                                 </a></li>
                         <?php } else { ?>
                             <!-- Login Popup Start-->

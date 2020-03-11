@@ -14,9 +14,17 @@ class Contact extends CI_Controller
 
     public function index()
     {
-        $this->load->view('header');
+        $this->load->model('cart_model');
+        $isLoggedIn = $this->session->userdata('isLoggedIn');
+        if(isset($isLoggedIn) || $isLoggedIn == TRUE){
+            $data1['getCartCount'] = $this->cart_model->getCartCount();
+            $this->load->view('header',$data1);
+        }else{
+            $this->load->view('header');
+        }
         $this->load->view('contact');
         $this->load->view('footer');
+
     }
     public function sendMessage()
     {
@@ -46,7 +54,7 @@ class Contact extends CI_Controller
             $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
             $mail->Username   = 'sufyan8834@gmail.com';                     // SMTP username
-            $mail->Password   = 'Omg@123omg';                               // SMTP password
+            $mail->Password   = 'Samajhmeinaayakya?';                               // SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
             $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 

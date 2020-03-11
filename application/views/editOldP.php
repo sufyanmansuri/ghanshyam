@@ -43,7 +43,7 @@ $categoryid = $productInfo->categoryid;
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="productName">Product Image</label>
+                                        <label for="file">Product Image</label>
                                         <input type="file" name="file" class="form-control"><img style="width:200px;" src="<?php echo $image ?>" target="_blank"></input>
                                     </div>
 
