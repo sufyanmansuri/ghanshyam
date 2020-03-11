@@ -46,4 +46,19 @@ class Home_model extends CI_Model
         return $query->result();
 
     }
+    /**
+     * This function used to insert reset password data
+     * @param {array} $data : This is reset password data
+     * @return {boolean} $result : TRUE/FALSE
+     */
+    function resetPasswordCustomer($data)
+    {
+        $result = $this->db->insert('tbl_reset_password', $data);
+
+        if($result) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
 }

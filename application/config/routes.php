@@ -113,5 +113,13 @@ $route['createPasswordUser'] = "login/createPasswordUser";
 
 $route['accountUpdate'] = "account/accountUpdate";
 
+$route['customerForgotPassword'] = "home/customerForgotPassword";
+$route['resetPasswordCustomer'] = "home/resetPasswordCustomer";
+$route['resetPasswordConfirmCustomer'] = "home/resetPasswordConfirmCustomer";
+$route['resetPasswordConfirmCustomer/(:any)'] = "home/resetPasswordConfirmCustomer/$1";
+$route['resetPasswordConfirmCustomer/(:any)/(:any)'] = "home/resetPasswordConfirmCustomer/$1/$2";
+$route['createPasswordCustomer'] = "home/createPasswordCustomer";
+
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -80,8 +80,12 @@ class Login extends CI_Controller
                 $loginInfo = array("userId" => $result->userId, "sessionData" => json_encode($sessionArray), "machineIp" => $_SERVER['REMOTE_ADDR'], "userAgent" => getBrowserAgent(), "agentString" => $this->agent->agent_string(), "platform" => $this->agent->platform());
 
                 $this->login_model->lastLogin($loginInfo);
-
+                if($this->session->userdata('role') != 4)
+                {
                 redirect('/dashboard');
+                }else{
+                    redirect('/');
+                }
             } else {
                 $this->session->set_flashdata('error', 'Email or password mismatch');
 

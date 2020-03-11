@@ -53,7 +53,7 @@
             foreach ($getCategory as $key => $value) { ?>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="<?= $value->image ?>" alt="" onerror="this.onerror=null;this.src='http://localhost/ci/asset/image/placeholder-category.jpg';"/>
+                        <img class="img-fluid" src="<?= $value->categoryImage ?>" alt="" onerror="this.onerror=null;this.src='http://localhost/ci/asset/image/placeholder-category.jpg';"/>
                         <a class="btn hvr-hover" href="<?= base_url() . 'shop/index/' . $value->categoryid ?>"><?= $value->name ?></a>
                     </div>
 

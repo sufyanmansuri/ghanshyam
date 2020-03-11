@@ -84,20 +84,18 @@
                     <!--Body-->
                     <form action="<?php echo base_url() ?>accountUpdate" method="post" id="editProfile" role="form">
                         <div class="md-form mb-5">
-                            <input type="email" id="changeEmail" name="changeEmail" class="form-control validate" placeholder="<?= $_SESSION['email'] ?>" value="<?= $_SESSION['email']; ?>">
-                            <label data-error="wrong" data-success="right" for="changeEmail">Your email</label>
+                            <input type="email" id="changeEmail" name="changeEmail" class="form-control validate" placeholder="<?= $_SESSION['email'] ?>" value="<?= $_SESSION['email']; ?>" required>
+                            <label data-error="wrong"  for="changeEmail">Your email</label>
                         </div>
                         <div class="md-form mb-5">
-                            <input type="text" id="changeName" name="changeName" class="form-control validate" placeholder="<?= $_SESSION['name'] ?>" value="<?= $_SESSION['name']; ?>">
-                            <label data-error="wrong" data-success="right" for="changeName">Full Name</label>
+                            <input type="text" id="changeName" name="changeName" class="form-control validate" placeholder="<?= $_SESSION['name'] ?>" value="<?= $_SESSION['name']; ?>" required>
+                            <label data-error="wrong"  for="changeName">Full Name</label>
                         </div>
                         <div class="md-form mb-5">
-                            <input type="number" id="changeMobile" name="changeMobile" class="form-control validate" placeholder="<?= $_SESSION['mobile'] ?>" value="<?= $_SESSION['mobile']; ?>">
-                            <label data-error="wrong" data-success="right" for="changemobile">Mobile number</label>
+                            <input type="number" id="changeMobile" name="changeMobile" class="form-control validate" placeholder="<?= $_SESSION['mobile'] ?>" value="<?= $_SESSION['mobile']; ?>" required>
+                            <label data-error="wrong"  for="changemobile">Mobile number</label>
                         </div>
                         <div class="md-form pb-3">
-                            <input type="password" id="changePass" name="changePass" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="changePass">Your password</label>
                             <p class="font-small blue-text d-flex justify-content-end"><a href="#" data-dismiss="modal" data-toggle="modal" data-target="#changePasswordForm" class="blue-text ml-1">
                                     Change Password</a></p>
                         </div>

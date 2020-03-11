@@ -21,7 +21,7 @@
             <div class="col-lg-4 col-sm-12">
                 <div class="contact-info-left">
                     <h2>CONTACT INFO</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna diam, maximus ut ullamcorper quis, placerat id eros. Duis semper justo sed condimentum rutrum. Nunc tristique purus turpis. Maecenas vulputate. </p>
+
                     <ul>
                         <li>
                             <p><i class="fas fa-map-marker-alt"></i>Address: 18, Khodiyarnagar Society, <br>Opp.Vishalnagar Society,
@@ -39,40 +39,107 @@
             <div class="col-lg-8 col-sm-12">
                 <div class="contact-form-right">
                     <h2>GET IN TOUCH</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed odio justo, ultrices ac nisl sed, lobortis porta elit. Fusce in metus ac ex venenatis ultricies at cursus mauris.</p>
-                    <form id="contactForm">
+                    <!--Section: Contact v.2-->
+                    <section class="mb-4">
+
+                        <!--Section heading-->
+
+
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
-                                    <div class="help-block with-errors"></div>
+
+                            <!--Grid column-->
+                            <div class="col-md-9 mb-md-0 mb-5">
+                                <?php $this->load->helper('form'); ?>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <?php echo validation_errors('<div class="alert alert-danger alert-dismissable">', ' <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></div>'); ?>
+                                    </div>
                                 </div>
+                                <?php
+                                $this->load->helper('form');
+                                $send = $this->session->flashdata('send');
+                                $notsend = $this->session->flashdata('notsend');
+
+                                if ($send) {
+                                ?>
+                                    <div class="alert alert-success alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <?php echo $send; ?>
+                                    </div>
+                                <?php }
+
+                                if ($notsend) {
+                                ?>
+                                    <div class="alert alert-danger alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <?php echo $notsend; ?>
+                                    </div>
+                                <?php } ?>
+                                <form id="contact-form" name="contact-form" action="<?= base_url('Contact/sendMessage') ?>" method="POST">
+
+                                    <!--Grid row-->
+                                    <div class="row">
+
+                                        <!--Grid column-->
+                                        <div class="col-md-6">
+                                            <div class="md-form mb-0">
+                                                <input type="text" id="name" name="name" class="form-control">
+                                                <label for="name" class="">Your name</label>
+                                            </div>
+                                        </div>
+                                        <!--Grid column-->
+
+                                        <!--Grid column-->
+                                        <div class="col-md-6">
+                                            <div class="md-form mb-0">
+                                                <input type="text" id="cemail" name="cemail" class="form-control">
+                                                <label for="email" class="">Your email</label>
+                                            </div>
+                                        </div>
+                                        <!--Grid column-->
+
+                                    </div>
+                                    <!--Grid row-->
+
+                                    <!--Grid row-->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="md-form mb-0">
+                                                <input type="text" id="subject" name="subject" class="form-control">
+                                                <label for="subject" class="">Subject</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Grid row-->
+
+                                    <!--Grid row-->
+                                    <div class="row">
+
+                                        <!--Grid column-->
+                                        <div class="col-md-12">
+
+                                            <div class="md-form">
+                                                <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                                                <label for="message">Your message</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!--Grid row-->
+
+                                </form>
+
+                                <div class="text-center text-md-left">
+                                    <a class="btn hvr-hover" onclick="document.getElementById('contact-form').submit();">Send</a>
+                                </div>
+                                <div class="status"></div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <input type="text" placeholder="Your Email" id="email" class="form-control" name="name" required data-error="Please enter your email">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="subject" name="name" placeholder="Subject" required data-error="Please enter your Subject">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <textarea class="form-control" id="message" placeholder="Your Message" rows="4" data-error="Write your message" required></textarea>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                                <div class="submit-button text-center">
-                                    <button class="btn hvr-hover" id="submit" type="submit">Send Message</button>
-                                    <div id="msgSubmit" class="h3 text-center hidden"></div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
+                            <!--Grid column-->
+
                         </div>
-                    </form>
+
+                    </section>
+                    <!--Section: Contact v.2-->
                 </div>
             </div>
         </div>

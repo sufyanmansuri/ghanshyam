@@ -6,6 +6,13 @@
         margin-bottom: 5px;
 
     }
+
+    #desc {
+        width: 250px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 </style>
 <div class="all-title-box">
     <div class="container">
@@ -29,8 +36,10 @@
             <div class="col-xl-3 col-lg-3 col-sm-12 col-xs-12 sidebar-shop-left">
                 <div class="product-categori">
                     <div class="search-product">
-                        <form action="<?= base_url().'shop/index' ?>" method="get">
-                            <input class="form-control" placeholder="Search here..." type="text" name="search" value="<?php if(isset($_GET['search']) && $_GET['search'] != ''){ echo $_GET['search']; } ?>">
+                        <form action="<?= base_url() . 'shop/index' ?>" method="get">
+                            <input class="form-control" placeholder="Search here..." type="text" name="search" value="<?php if (isset($_GET['search']) && $_GET['search'] != '') {
+                                                                                                                            echo $_GET['search'];
+                                                                                                                        } ?>">
                             <button type="submit"> <i class="fa fa-search"></i> </button>
                         </form>
                     </div>
@@ -88,17 +97,85 @@
                                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                             <div class="products-single fix">
                                                 <div class="box-img-hover">
-                                                    <img src="<?= $value->image; ?>" class="img-fluid" alt="Image" onerror="this.onerror=null;this.src='http://localhost/ci/asset/image/productImage.jpg';">
+                                                    <a data-dismiss="modal" data-toggle="modal" data-target="#modalQuickView<?= $value->productId ?>"><img src="<?= $value->image; ?>" class="img-fluid" alt="Image" onerror="this.onerror=null;this.src='http://localhost/ci/asset/image/productImage.jpg';"></a>
                                                     <div class="mask-icon">
                                                         <a class="cart add_cart" href="javascript:void(0);" data-id="<?= $value->productId ?>">Add to Cart</a>
                                                     </div>
                                                 </div>
                                                 <div class="why-text">
-                                                    <h4><?= $value->productName ?></h4>
+                                                        <a data-dismiss="modal" data-toggle="modal" data-target="#modalQuickView<?= $value->productId ?>"><h4><?= $value->productName ?></h4>
                                                     <h5><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;<?= $value->price ?></h5>
+                                                    <p id="desc"><?= $value->desc ?></p></a>
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- Modal: modalQuickView -->
+                                        <div class="modal fade" id="modalQuickView<?= $value->productId ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-lg-5">
+                                                                <img class="d-block w-100" src="<?= $value->image; ?>" alt="First slide" onerror="this.onerror=null;this.src='http://localhost/ci/asset/image/productImage.jpg';">
+                                                            </div>
+                                                            <div class="col-lg-7">
+                                                                <h2 class="h2-responsive product-name">
+                                                                    <strong>Product Name</strong>
+                                                                </h2>
+                                                                <h4 class="h4-responsive">
+                                                                    <span class="green-text">
+                                                                        <strong>$49</strong>
+                                                                    </span>
+                                                                    <span class="grey-text">
+                                                                        <small>
+                                                                            <s>$89</s>
+                                                                        </small>
+                                                                    </span>
+                                                                </h4>
+
+                                                                <!--Accordion wrapper-->
+                                                                <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+                                                                    <!-- Accordion card -->
+                                                                    <div class="card" style="box-shadow:none;">
+                                                                        <!-- Card header -->
+
+                                                                        <!-- Card body -->
+                                                                        <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
+                                                                            <div class="card-body">
+                                                                                <?= $value->desc ?>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- Accordion card -->
+                                                                </div>
+                                                                <!-- Accordion wrapper -->
+
+                                                                <!-- Add to Cart -->
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="text-center">
+                                                                        <button type="button" class="btn hvr-hover" data-dismiss="modal" style="box-shadow:none;">
+                                                                            Close
+                                                                        </button>
+                                                                        <button class=" btn hvr-hover cart add_cart" href="javascript:void(0);" data-id="<?= $value->productId ?>" style="box-shadow:none;">
+                                                                            Add to cart
+                                                                            <i class="fas fa-cart-plus ml-2" aria-hidden="true"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- /.Add to Cart -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     <?php } ?>
                                 </div>
                             </div>
@@ -143,6 +220,7 @@
                 } else {
 
                     if (res.response == 'duplicate') {
+                        console.log('ok');
                         toastr.error("item already in cart!");
                     } else {
                         toastr.success("item added succesfully in cart!");

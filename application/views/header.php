@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="<?= base_url('asset/image/logo.png') ?>" type="image/x-icon">
 
     <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/2b894c513d.js" crossorigin="anonymous"></script>
+    <script src="<?= base_url('asset/js/fontawesome.js') ?>"></script>
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <!-- Bootstrap core CSS -->
@@ -36,7 +36,7 @@
 
     <!-- Plugin file -->
     <link rel="stylesheet" href="<?= base_url('asset/css/addons/datatables.min.css') ?>">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>asset/css/toastr.min.css">
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -125,7 +125,7 @@
                         <?php if ($this->session->userdata('isLoggedIn')) { ?>
                             <li class=""><a href="<?= base_url('Account') ?>"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                             <li class=""><a href="<?= base_url('Home/logOut'); ?>" data-toggle="tooltip" title="<?= $this->session->userdata('name') ?>"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
-                            <li class="side-menu"><a href="#">
+                            <li class=""><a href="<?= base_url('Cart'); ?>">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span class="badge badge-pill badge-danger">3</span>
                                 </a></li>
@@ -139,34 +139,7 @@
                 </div>
                 <!-- End Atribute Navigation -->
             </div>
-            <!-- Start Side Menu -->
-            <div class="side">
-                <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-                <li class="cart-box">
-                    <ul class="cart-list">
-                        <li>
-                            <a href="#" class="photo"><img src="<?= base_url('asset/image/img-pro-01.jpg') ?>" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Delica omtantur </a></h6>
-                            <p>1x - <span class="price">$80.00</span></p>
-                        </li>
-                        <li>
-                            <a href="#" class="photo"><img src="<?= base_url('asset/image/img-pro-02.jpg') ?>" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Omnes ocurreret</a></h6>
-                            <p>1x - <span class="price">$60.00</span></p>
-                        </li>
-                        <li>
-                            <a href="#" class="photo"><img src="<?= base_url('asset/image/img-pro-03.jpg') ?>" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Agam facilisis</a></h6>
-                            <p>1x - <span class="price">$40.00</span></p>
-                        </li>
-                        <li class="total">
-                            <a href="<?= base_url('Cart') ?>" class="btn hvr-hover btn-cart">VIEW CART</a>
-                            <span class="float-right"><strong>Total</strong>: $180.00</span>
-                        </li>
-                    </ul>
-                </li>
-            </div>
-            <!-- End Side Menu -->
+
         </nav>
         <!-- End Navigation -->
     </header>

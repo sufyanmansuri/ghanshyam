@@ -88,7 +88,7 @@
                     <h3>Order summary</h3>
                     <div class="d-flex">
                         <h4>Sub Total</h4>
-                        <div class="ml-auto font-weight-bold" id="subtotallabel"> $ <?= $totalPrice ?> </div>
+                        <div class="ml-auto font-weight-bold" id="subtotallabel"> <i class="fa fa-inr" aria-hidden="true"></i> <?= $totalPrice ?> </div>
                         <input type="hidden" id="subtotal" value="<?= $totalPrice ?>">
                     </div>
                     <div class="d-flex">
@@ -97,12 +97,12 @@
                     </div>
                     <div class="d-flex">
                         <h4>SGST (2.5%)</h4>
-                        <div class="ml-auto font-weight-bold" id="sgstlabel"> $ <?php echo $sgst=round(($totalPrice * 2.5) / 100,2); ?> </div>
+                        <div class="ml-auto font-weight-bold" id="sgstlabel"> <i class="fa fa-inr" aria-hidden="true"></i> <?php echo $sgst=round(($totalPrice * 2.5) / 100,2); ?> </div>
                         <input type="hidden" class="form-control" id="sgst" value="<?= $sgst ?>" style="width:65px;">
                     </div>
                     <div class="d-flex">
                         <h4>CGS (2.5%)</h4>
-                        <div class="ml-auto font-weight-bold" id="cgstlabel"> $ <?= $sgst ?> </div>
+                        <div class="ml-auto font-weight-bold" id="cgstlabel"> <i class="fa fa-inr" aria-hidden="true"></i> <?= $sgst ?> </div>
                         <input type="hidden" class="form-control" id="cgst" value="<?= $sgst ?>" style="width:65px;">
                     </div>
                     <div class="d-flex">
@@ -112,7 +112,7 @@
                     <hr>
                     <div class="d-flex gr-total">
                         <h5>Grand Total</h5>
-                        <div class="ml-auto h5" id="totallabel"> $ <?= $totalPrice+$sgst+$sgst ?> </div>
+                        <div class="ml-auto h5" id="totallabel"> <i class="fa fa-inr" aria-hidden="true"></i> <?= $totalPrice+$sgst+$sgst ?> </div>
                         <input type="hidden" class="form-control" id="total" value="<?= $totalPrice+$sgst+$sgst ?>" style="width:65px;">
                     </div>
                     <hr>
