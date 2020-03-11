@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <i class="fa fa-list"></i> Package
+            <i class="fa fa-list"></i> <?php foreach($packageInfo as $key=>$value){echo $value->packageName;} ?> Package
             <small>Add, Edit, Delete</small>
         </h1>
     </section>
@@ -18,7 +18,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Packages List</h3>
+                        <h3 class="box-title">Package Product List</h3>
                         <div class="box-tools">
                             <form action="<?php echo base_url() ?>Package/packageListing" method="POST" id="searchList">
                                 <div class="input-group">
@@ -33,24 +33,24 @@
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">
                             <tr>
-                                <th>Package Id</th>
-                                <th>Package Name</th>
-                                <th>Package Image</th>
-                                <th>Package Description</th>
+                                <th>Product Id</th>
+                                <th>Product Name</th>
+                                <th>Product Image</th>
+                                <th>Product Description</th>
                                 <th class="text-center">Actions</th>
                             </tr>
                             <?php
-                            if (!empty($packageRecords)) {
-                                foreach ($packageRecords as $record) {
+                            if (!empty($packageProductRecords)) {
+                                foreach ($packageProductRecords as $record) {
                             ?>
                                     <tr>
-                                        <td><?php echo $record->packageId ?></td>
-                                        <td><?php echo $record->packageName ?></td>
-                                        <td><?php echo $record->packageImage ?></td>
-                                        <td><?php echo $record->packageDesc ?></td>
+                                        <td><?php echo $record->productId ?></td>
+                                        <td><?php echo $record->productName ?></td>
+                                        <td><?php echo $record->image ?></td>
+                                        <td><?php echo $record->desc ?></td>
                                         <td class="text-center">
-                                            <a class="btn btn-sm btn-info" href="<?php echo base_url() . 'packageProductListing/' . $record->packageId; ?>" title="View Products"><i class="fa fa-list"></i></a>
-                                            <a class="btn btn-sm btn-info" href="<?php echo base_url() . 'editOldPac/' . $record->packageId; ?>" title="Edit"><i class="fa fa-pencil"></i></a>
+                                            <a class="btn btn-sm btn-info" href="<?php echo base_url() . 'editOldP/' . $record->productId; ?>" title="Edit"><i class="fa fa-pencil"></i></a>
+                                            <a class="btn btn-sm btn-danger deletePackage" onclick="return confirm('Are you sure to remove this product from package?')" href="<?php echo base_url() . 'removeProduct/' .$record->productId. '/'.$record->packageId; ?>" data-userid="<?php echo $record->packageId; ?>" title="Remove from <?php foreach($packageInfo as $key=>$value){echo $value->packageName;} ?> package">&times;</a>
                                             <a class="btn btn-sm btn-danger deletePackage" onclick="return confirm('Are you sure to delete this package?')" href="<?php echo base_url() . 'deletePackage/' . $record->packageId; ?>" data-userid="<?php echo $record->packageId; ?>" title="Delete"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
