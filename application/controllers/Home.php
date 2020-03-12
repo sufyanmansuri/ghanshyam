@@ -330,4 +330,28 @@ class Home extends CI_Controller
         $this->load->view('package', $data);
         $this->load->view('footer');
     }
+    public function tAndD()
+    {
+        $isLoggedIn = $this->session->userdata('isLoggedIn');
+        if(isset($isLoggedIn) || $isLoggedIn == TRUE){
+            $data1['getCartCount'] = $this->cart_model->getCartCount();
+            $this->load->view('header',$data1);
+        }else{
+            $this->load->view('header');
+        }
+        $this->load->view('terms');
+        $this->load->view('footer');
+    }
+    public function policy()
+    {
+        $isLoggedIn = $this->session->userdata('isLoggedIn');
+        if(isset($isLoggedIn) || $isLoggedIn == TRUE){
+            $data1['getCartCount'] = $this->cart_model->getCartCount();
+            $this->load->view('header',$data1);
+        }else{
+            $this->load->view('header');
+        }
+        $this->load->view('policy');
+        $this->load->view('footer');
+    }
 }

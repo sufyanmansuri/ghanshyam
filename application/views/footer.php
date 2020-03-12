@@ -18,8 +18,8 @@
                             <li><a href="<?= base_url('services') ?>">Customer Service</a></li>
                             <li><a href="<?= base_url('') ?>">Our Sitemap</a></li>
                             <li><a href="<?= base_url('login'); ?>">Admin</a></li>
-                            <li><a href="<?= base_url('') ?>">Terms &amp; Conditions</a></li>
-                            <li><a href="<?= base_url('') ?>">Privacy Policy</a></li>
+                            <li><a href="<?= base_url('terms') ?>">Terms &amp; Conditions</a></li>
+                            <li><a href="<?= base_url('policy') ?>">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>

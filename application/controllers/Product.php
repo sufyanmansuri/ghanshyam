@@ -108,7 +108,7 @@ class Product extends BaseController
      */
     function editOldP($productId = NULL)
     {
-        if($this->isAdmin() == TRUE || $productId == 1)
+        if($this->isAdmin() == TRUE)
         {
             $this->loadThis();
         }

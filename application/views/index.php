@@ -9,7 +9,7 @@
 <div id="slides-shop" class="cover-slides">
     <ul class="slides-container">
         <li class="text-center">
-            <img src="<?= base_url('asset/image/banner-01.jpg') ?>" alt="">
+            <img src="<?= base_url('asset/image/banner1.jpg') ?>" alt="">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -21,7 +21,7 @@
             </div>
         </li>
         <li class="text-center">
-            <img src="<?= base_url('asset/image/banner-02.jpg') ?>" alt="">
+            <img src="<?= base_url('asset/image/banner2.jpg') ?>" alt="">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -33,7 +33,7 @@
             </div>
         </li>
         <li class="text-center">
-            <img src="<?= base_url('asset/image/banner-03.jpg') ?>" alt="">
+            <img src="<?= base_url('asset/image/banner3.jpg') ?>" alt="">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">

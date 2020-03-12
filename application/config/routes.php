@@ -132,7 +132,8 @@ $route['removeFromCart/(:any)/(:any)'] = "cart/removeFromCart/$1/$2";
 $route['removeProduct'] = "package/removeProduct";
 $route['removeProduct/(:any)'] = "package/removeProduct/$1";
 $route['removeProduct/(:any)/(:any)'] = "package/removeProduct/$1/$2";
-$route['seo/sitemap\.xml'] = "seo/sitemap";
 
+$route['terms']="home/tAndD";
+$route['policy']="home/policy";
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
