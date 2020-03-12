@@ -45,4 +45,15 @@ class Cart extends CI_Controller
 		$this->cart_model->removeFromCart($productId,$userId);
 		redirect('Cart');
 	}
+	function checkout()
+	{
+		$subtotal=$_POST['subtotal'];
+		$person=$_POST['person'];
+		$sgst=$_POST['sgst'];
+		$cgst=$_POST['cgst'];
+		$total=$_POST['total'];
+		$billingInfo=array('subtotal'=>$subtotal,'person'=>$person,'sgst'=>$sgst,'cgst'=>$cgst,'total'=>$total);
+		$this->session->set_userdata($billingInfo);
+		redirect('checkout');
+	}
 }

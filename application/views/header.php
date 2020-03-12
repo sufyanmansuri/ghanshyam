@@ -20,6 +20,7 @@
 
     <!-- Font Awesome -->
     <script src="<?= base_url('asset/js/fontawesome.js') ?>"></script>
+    <link rel="stylesheet" href="<?= base_url('') ?>asset/css/font-awesome.min.css">
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <!-- Bootstrap core CSS -->

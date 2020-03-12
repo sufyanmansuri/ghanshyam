@@ -65,10 +65,10 @@
 
         <div class="row my-5">
             <div class="col-lg-6 col-sm-6">
-                <button class="btn hvr-hover" href="<?= base_url('shop'); ?>" type="button">Browse More</button>
+                <a href="<?= base_url('shop'); ?>"><button class="btn hvr-hover" type="button">Browse More</button></a>
             </div>
         </div>
-        <form action="" method="post">
+        <form action="<?= base_url('cart/checkout') ?>" method="post">
             <div class="row my-5">
                 <div class="col-lg-8 col-sm-12"></div>
                 <div class="col-lg-4 col-sm-12 ">
@@ -77,21 +77,21 @@
                         <div class="d-flex">
                             <h4>Sub Total</h4>
                             <div class="ml-auto font-weight-bold" id="subtotallabel"> <i class="fa fa-inr" aria-hidden="true"></i> <?= $totalPrice ?> </div>
-                            <input type="hidden" id="subtotal" value="<?= $totalPrice ?>">
+                            <input type="hidden" id="subtotal" name="subtotal" value="<?= $totalPrice ?>">
                         </div>
                         <div class="d-flex">
                             <h4>Total Person</h4>
-                            <div class="ml-auto font-weight-bold"> <input type="number" class="form-control" id="person" value="1" style="width:65px;"></div>
+                            <div class="ml-auto font-weight-bold"> <input type="number" class="form-control" name="person" id="person" value="1" style="width:65px;"></div>
                         </div>
                         <div class="d-flex">
                             <h4>SGST (2.5%)</h4>
                             <div class="ml-auto font-weight-bold" id="sgstlabel"> <i class="fa fa-inr" aria-hidden="true"></i> <?php echo $sgst = round(($totalPrice * 2.5) / 100, 2); ?> </div>
-                            <input type="hidden" class="form-control" id="sgst" value="<?= $sgst ?>" style="width:65px;">
+                            <input type="hidden" class="form-control" id="sgst" name="sgst" value="<?= $sgst ?>" style="width:65px;">
                         </div>
                         <div class="d-flex">
                             <h4>CGS (2.5%)</h4>
                             <div class="ml-auto font-weight-bold" id="cgstlabel"> <i class="fa fa-inr" aria-hidden="true"></i> <?= $sgst ?> </div>
-                            <input type="hidden" class="form-control" id="cgst" value="<?= $sgst ?>" style="width:65px;">
+                            <input type="hidden" class="form-control" id="cgst" name="cgst" value="<?= $sgst ?>" style="width:65px;">
                         </div>
                         <div class="d-flex">
                             <h4>Shipping Cost</h4>
@@ -101,12 +101,12 @@
                         <div class="d-flex gr-total">
                             <h5>Grand Total</h5>
                             <div class="ml-auto h5" id="totallabel"> <i class="fa fa-inr" aria-hidden="true"></i> <?= $totalPrice + $sgst + $sgst ?> </div>
-                            <input type="hidden" class="form-control" id="total" value="<?= $totalPrice + $sgst + $sgst ?>" style="width:65px;">
+                            <input type="hidden" class="form-control" name="total" id="total" value="<?= $totalPrice + $sgst + $sgst ?>" style="width:65px;">
                         </div>
                         <hr>
                     </div>
                 </div>
-                <div class="col-12 d-flex shopping-box"><a href="<?= base_url('Checkout'); ?>" class="ml-auto btn hvr-hover">Checkout</a> </div>
+                <div class="col-12 d-flex shopping-box"><button type="submit" class="ml-auto btn hvr-hover">Checkout</button></div>
             </div>
         </form>
     </div>
