@@ -16,7 +16,6 @@
                         <ul>
                             <li><a href="<?= base_url('about') ?>">About Us</a></li>
                             <li><a href="<?= base_url('services') ?>">Customer Service</a></li>
-                            <li><a href="<?= base_url('') ?>">Our Sitemap</a></li>
                             <li><a href="<?= base_url('login'); ?>">Admin</a></li>
                             <li><a href="<?= base_url('terms') ?>">Terms &amp; Conditions</a></li>
                             <li><a href="<?= base_url('policy') ?>">Privacy Policy</a></li>
@@ -293,17 +292,17 @@
         console.log(subtotal);
         var subcal = parseFloat(person) * parseFloat(subtotal);
         $('#subtoal').val(subcal);
-        $('#subtotallabel').html('$ ' + subcal);
+        $('#subtotallabel').html('₹ ' + subcal);
 
         var tax = (parseFloat(subcal) * parseFloat(2.5)) / parseFloat(100);
         $('#sgst').val(tax);
         $('#cgst').val(tax);
-        $('#sgstlabel').html('$ ' + tax);
-        $('#cgstlabel').html('$ ' + tax);
+        $('#sgstlabel').html('₹ ' + tax);
+        $('#cgstlabel').html('₹ ' + tax);
 
         var total = parseFloat(subcal) + parseFloat(tax) + parseFloat(tax);
         $('#total').val(total);
-        $('#totallabel').html('$ ' + total);
+        $('#totallabel').html('₹ ' + total);
 
     });
 </script>
