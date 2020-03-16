@@ -104,16 +104,6 @@
                         <li class="nav-item"><a class="nav-link" href="<?php echo site_url('Home') ?>">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('About') ?>">About Us</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('shop') ?>">Browse Products</a></li>
-                        <?php if (isset($_SESSION['name'])) { ?>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link" data-toggle="dropdown">Profile <i class="fa fa-caret-down"></i></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="<?= base_url('Cart'); ?>">Cart</a></li>
-                                    <li><a href="<?= base_url('Checkout'); ?>">Checkout</a></li>
-                                    <li><a href="<?= base_url('Account'); ?>">My Account</a></li>
-                                </ul>
-                            </li>
-                        <?php } ?>
                         <li class="nav-item"><a class="nav-link" href="<?php echo site_url('Services') ?>">Our Service</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?php echo site_url('Contact') ?>">Contact Us</a></li>
                     </ul>
@@ -124,8 +114,14 @@
                 <div class="attr-nav">
                     <ul>
                         <?php if ($this->session->userdata('isLoggedIn')) { ?>
-                            <li class=""><a href="<?= base_url('Account') ?>"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                            <li class=""><a href="<?= base_url('Home/logOut'); ?>" data-toggle="tooltip" title="<?= $this->session->userdata('name') ?>"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                            <li class="dropdown"><a href="<?= base_url('Account') ?>"><i class="fa fa-user" aria-hidden="true">&nbsp;Welcome,&nbsp;<?= $this->session->userdata('name') ?></i></a>
+                            <ul class="dropdown-menu">
+                                    <li><a href="<?= base_url('Cart'); ?>">Cart</a></li>
+                                    <!-- <li><a href="<?= base_url('Checkout'); ?>">Checkout</a></li -->
+                                    <li><a href="<?= base_url('Account'); ?>">My Account</a></li>
+                                    <li class=""><a href="<?= base_url('Home/logOut'); ?>" >Logout</a></li>
+                                </ul>
+                            </li>
                             <li class=""><a href="<?= base_url('Cart'); ?>">
                                     <i class="fa fa-shopping-cart"></i>
                                     <!--<span class="badge badge-pill badge-danger"><?= $getCartCount ?></span -->

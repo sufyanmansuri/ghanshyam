@@ -5,7 +5,7 @@
             <div class="col-lg-12">
                 <h2>Cart</h2>
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?= base_url('Shop') ?>">Shop</a></li>
+                    <li class="breadcrumb-item"><a href="<?=base_url('Shop')?>">Shop</a></li>
                     <li class="breadcrumb-item active">Cart</li>
                 </ul>
             </div>
@@ -31,31 +31,33 @@
                         </thead>
                         <tbody>
                             <?php
-                            $totalPrice = 0;
-                            foreach ($getCart as $key => $value) {
-                                $totalPrice = $totalPrice + $value->price;
-                            ?>
-                                <tr>
-                                    <td class="thumbnail-img">
-                                        <a href="#">
-                                            <img class="img-fluid" src="<?= $value->image ?>" alt="" onerror="this.onerror=null;this.src='http://localhost/ci/asset/image/productImage.jpg';" />
-                                        </a>
-                                    </td>
-                                    <td class="name-pr">
-                                        <a href="#">
-                                            <?= $value->productName; ?>
-                                        </a>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p><i class="fa fa-inr" aria-hidden="true"></i> <?= $value->price; ?></p>
-                                    </td>
-                                    <td class="remove-pr">
-                                        <a href="<?= base_url('removeFromCart/' . $value->productId . '/' . $_SESSION['userId']) ?>">
-                                            <i class="fas fa-times"></i>
-                                        </a>
-                                    </td>
-                                <?php } ?>
-                                </tr>
+$totalPrice = 0;
+foreach ($getCart as $key => $value) {
+    $totalPrice = $totalPrice + $value->price;
+    ?>
+                            <tr>
+                                <td class="thumbnail-img">
+                                    <a href="#">
+                                        <img class="img-fluid" src="<?=$value->image?>" alt=""
+                                            onerror="this.onerror=null;this.src='http://localhost/ci/asset/image/productImage.jpg';" />
+                                    </a>
+                                </td>
+                                <td class="name-pr">
+                                    <a href="#">
+                                        <?=$value->productName;?>
+                                    </a>
+                                </td>
+                                <td class="price-pr">
+                                    <p><i class="fa fa-inr" aria-hidden="true"></i> <?=$value->price;?></p>
+                                </td>
+                                <td class="remove-pr">
+                                    <a
+                                        href="<?=base_url('removeFromCart/' . $value->productId . '/' . $_SESSION['userId'])?>">
+                                        <i class="fas fa-times"></i>
+                                    </a>
+                                </td>
+                                <?php }?>
+                            </tr>
 
                         </tbody>
                     </table>
@@ -65,10 +67,10 @@
 
         <div class="row my-5">
             <div class="col-lg-6 col-sm-6">
-                <a href="<?= base_url('shop'); ?>"><button class="btn hvr-hover" type="button">Browse More</button></a>
+                <a href="<?=base_url('shop');?>"><button class="btn hvr-hover" type="button">Browse More</button></a>
             </div>
         </div>
-        <form action="<?= base_url('cart/checkout') ?>" method="post">
+        <form action="<?= base_url('Cart/checkout') ?>" method="post">
             <div class="row my-5">
                 <div class="col-lg-8 col-sm-12"></div>
                 <div class="col-lg-4 col-sm-12 ">
@@ -76,22 +78,29 @@
                         <h3>Order summary</h3>
                         <div class="d-flex">
                             <h4>Sub Total</h4>
-                            <div class="ml-auto font-weight-bold" id="subtotallabel"> <i class="fa fa-inr" aria-hidden="true"></i> <?= $totalPrice ?> </div>
-                            <input type="hidden" id="subtotal" name="subtotal" value="<?= $totalPrice ?>">
+                            <div class="ml-auto font-weight-bold" id="subtotallabel"> <i class="fa fa-inr"
+                                    aria-hidden="true"></i> <?=$totalPrice?> </div>
+                            <input type="hidden" id="subtotal" name="subtotal" value="<?=$totalPrice?>">
                         </div>
                         <div class="d-flex">
                             <h4>Total Person</h4>
-                            <div class="ml-auto font-weight-bold"> <input type="number" class="form-control" name="person" id="person" value="1" style="width:65px;"></div>
+                            <div class="ml-auto font-weight-bold"> <input type="number" class="form-control"
+                                    name="person" id="person" value="1" style="width:65px;"></div>
                         </div>
                         <div class="d-flex">
                             <h4>SGST (2.5%)</h4>
-                            <div class="ml-auto font-weight-bold" id="sgstlabel"> <i class="fa fa-inr" aria-hidden="true"></i> <?php echo $sgst = round(($totalPrice * 2.5) / 100, 2); ?> </div>
-                            <input type="hidden" class="form-control" id="sgst" name="sgst" value="<?= $sgst ?>" style="width:65px;">
+                            <div class="ml-auto font-weight-bold" id="sgstlabel"> <i class="fa fa-inr"
+                                    aria-hidden="true"></i> <?php echo $sgst = round(($totalPrice * 2.5) / 100, 2); ?>
+                            </div>
+                            <input type="hidden" class="form-control" id="sgst" name="sgst" value="<?=$sgst?>"
+                                style="width:65px;">
                         </div>
                         <div class="d-flex">
                             <h4>CGS (2.5%)</h4>
-                            <div class="ml-auto font-weight-bold" id="cgstlabel"> <i class="fa fa-inr" aria-hidden="true"></i> <?= $sgst ?> </div>
-                            <input type="hidden" class="form-control" id="cgst" name="cgst" value="<?= $sgst ?>" style="width:65px;">
+                            <div class="ml-auto font-weight-bold" id="cgstlabel"> <i class="fa fa-inr"
+                                    aria-hidden="true"></i> <?=$sgst?> </div>
+                            <input type="hidden" class="form-control" id="cgst" name="cgst" value="<?=$sgst?>"
+                                style="width:65px;">
                         </div>
                         <div class="d-flex">
                             <h4>Shipping Cost</h4>
@@ -100,13 +109,16 @@
                         <hr>
                         <div class="d-flex gr-total">
                             <h5>Grand Total</h5>
-                            <div class="ml-auto h5" id="totallabel"> <i class="fa fa-inr" aria-hidden="true"></i> <?= $totalPrice + $sgst + $sgst ?> </div>
-                            <input type="hidden" class="form-control" name="total" id="total" value="<?= $totalPrice + $sgst + $sgst ?>" style="width:65px;">
+                            <div class="ml-auto h5" id="totallabel"> <i class="fa fa-inr" aria-hidden="true"></i>
+                                <?=$totalPrice + $sgst + $sgst?> </div>
+                            <input type="hidden" class="form-control" name="total" id="total"
+                                value="<?=$totalPrice + $sgst + $sgst?>" style="width:65px;">
                         </div>
                         <hr>
                     </div>
                 </div>
-                <div class="col-12 d-flex shopping-box"><button type="submit" class="ml-auto btn hvr-hover">Checkout</button></div>
+                <div class="col-12 d-flex shopping-box"><button type="submit"
+                        class="ml-auto btn hvr-hover">Checkout</button></div>
             </div>
         </form>
     </div>

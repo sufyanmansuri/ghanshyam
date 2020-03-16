@@ -1,4 +1,24 @@
-<script src="<?= base_url('') ?>asset/js/cities.js"></script>
+<script src="<?=base_url('')?>asset/js/cities.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<?php
+// Set your secret key. Remember to switch to your live secret key in production!
+// See your keys here: https://dashboard.stripe.com/account/apikeys
+\Stripe\Stripe::setApiKey('sk_test_PwuymHGLn01nujkDxKKoD1vn00cLjzvItz');
+
+$session = \Stripe\Checkout\Session::create([
+    'payment_method_types' => ['card'],
+    'line_items' => [[
+        'name' => 'Ghanshyam Caterers',
+        'description' => 'Catering Service',
+        'images' => ['http://localhost/ci/asset/image/1583924544.jpg'],
+        'amount' => round($_SESSION['total']),
+        'currency' => 'inr',
+        'quantity' => $_SESSION['person'],
+    ]],
+    'success_url' => 'https://example.com/success?session_id={CHECKOUT_SESSION_ID}',
+    'cancel_url' => 'https://example.com/cancel',
+]);
+?>
 <!-- Start All Title Box -->
 <div class="all-title-box">
     <div class="container">
@@ -6,7 +26,7 @@
             <div class="col-lg-12">
                 <h2>Checkout</h2>
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?= base_url('Shop'); ?>">Shop</a></li>
+                    <li class="breadcrumb-item"><a href="<?=base_url('Shop');?>">Shop</a></li>
                     <li class="breadcrumb-item active">Checkout</li>
                 </ul>
             </div>
@@ -22,9 +42,9 @@
             <div class="col-sm-6 col-lg-6 mb-3">
                 <div class="checkout-address">
                     <div class="title-left">
-                        <h3>Billing address</h3>
+                        <h3>Address</h3>
                     </div>
-                    <form class="needs-validation" action="<?= base_url('placeOrder') ?>" method="post">
+                    
                         <div class="mb-3">
                             <label for="billname">Full Name *</label>
                             <div class="input-group">
@@ -34,8 +54,10 @@
                         </div>
                         <div class="mb-3">
                             <label for="mobile">Mobile Number *</label>
-                            <input type="number" class="form-control" id="mobile" placeholder="" required maxlength="10" minlength="10">
-                            <div class="invalid-feedback"> Please enter a valid mobile number for shipping updates. </div>
+                            <input type="number" class="form-control" id="mobile" placeholder="" required maxlength="10"
+                                minlength="10">
+                            <div class="invalid-feedback"> Please enter a valid mobile number for shipping updates.
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="address">Address *</label>
@@ -47,9 +69,10 @@
                         <div class="row">
                             <div class="col-md-5 mb-3">
                                 <label for="country">State *</label>
-                                <select onchange="print_city('state', this.selectedIndex);" id="sts" name="stt" class="form-control" required></select>
+                                <select onchange="print_city('state', this.selectedIndex);" id="sts" name="stt"
+                                    class="form-control" required></select>
                                 <script language="javascript">
-                                    print_state("sts");
+                                print_state("sts");
                                 </script>
                                 <div class="invalid-feedback"> Please select a valid State. </div>
                             </div>
@@ -60,18 +83,17 @@
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label for="zip">Zip *</label>
-                                <input type="text" class="form-control" id="zip" placeholder="" required maxlength="6" minlength="6" required>
+                                <input type="text" class="form-control" id="zip" placeholder="" required maxlength="6"
+                                    minlength="6" required>
                                 <div class="invalid-feedback"> Zip code required. </div>
                             </div>
                         </div>
                         <hr class="mb-4">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="sameAdd" value="sameAdd">
-                            <label class="custom-control-label" for="sameAdd">Shipping address is the same as my billing address</label>
+
                         </div>
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="save-info" value="saveAdd">
-                            <label class="custom-control-label" for="save-info">Save this information for next time</label>
+
                         </div>
                         <hr class="mb-4">
 
@@ -92,22 +114,25 @@
                             <hr class="my-1">
                             <div class="d-flex">
                                 <h4>Sub Total</h4>
-                                <div class="ml-auto font-weight-bold"><i class="fa fa-inr">&nbsp;</i><?= $_SESSION['subtotal'] ?> </div>
+                                <div class="ml-auto font-weight-bold"><i
+                                        class="fa fa-inr">&nbsp;</i><?=$_SESSION['subtotal']?> </div>
                             </div>
                             <div class="d-flex">
                             </div>
                             <hr class="my-1">
                             <div class="d-flex">
                                 <h4>Persons</h4>
-                                <div class="ml-auto font-weight-bold"></i><?= $_SESSION['person'] ?> </div>
+                                <div class="ml-auto font-weight-bold"></i><?=$_SESSION['person']?> </div>
                             </div>
                             <div class="d-flex">
                                 <h4>CGST(2.5%)</h4>
-                                <div class="ml-auto font-weight-bold"><i class="fa fa-inr">&nbsp;</i><?= $_SESSION['cgst'] ?> </div>
+                                <div class="ml-auto font-weight-bold"><i
+                                        class="fa fa-inr">&nbsp;</i><?=$_SESSION['cgst']?> </div>
                             </div>
                             <div class="d-flex">
                                 <h4>SGST(2.5%)</h4>
-                                <div class="ml-auto font-weight-bold"><i class="fa fa-inr">&nbsp;</i><?= $_SESSION['sgst'] ?> </div>
+                                <div class="ml-auto font-weight-bold"><i
+                                        class="fa fa-inr">&nbsp;</i><?=$_SESSION['sgst']?> </div>
                             </div>
                             <div class="d-flex">
                                 <h4>Shipping Cost</h4>
@@ -116,12 +141,14 @@
                             <hr>
                             <div class="d-flex gr-total">
                                 <h5>Grand Total</h5>
-                                <div class="ml-auto h5"><i class="fa fa-inr">&nbsp;</i><?= $_SESSION['total'] ?> </div>
+                                <div class="ml-auto h5"><i class="fa fa-inr">&nbsp;</i><?=$_SESSION['total']?> </div>
                             </div>
                             <hr>
                         </div>
                     </div>
-                    <div class="col-12 d-flex shopping-box"> <button type="submit" class="ml-auto btn hvr-hover">Place Order</button> </div>
+                    <form class="needs-validation" action="" onsubmit="stripe.redirectToCheckout()" method="post">
+                    <div class="col-12 d-flex shopping-box"> <button type="submit" class="ml-auto btn hvr-hover">Place
+                            Order</button> </div>
                     </form>
                 </div>
             </div>
@@ -129,5 +156,17 @@
 
     </div>
 </div>
-
+<script>
+var stripe = Stripe('pk_test_stZgCB76lAMwThmwCgseiXhu00pRVY7Xeo');
+stripe.redirectToCheckout({
+    // Make the id field from the Checkout Session creation API response
+    // available to this file, so you can provide it as parameter here
+    // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
+    sessionId: <?= $session ?>
+}).then(function(result) {
+    // If `redirectToCheckout` fails due to a browser or network
+    // error, display the localized error message to your customer
+    // using `result.error.message`.
+});
+</script>
 <!-- End Cart -->

@@ -184,7 +184,6 @@ class Home extends CI_Controller
     function resetPasswordCustomer()
     {
         $status = '';
-
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules('login_email', 'Email', 'trim|required|valid_email');
@@ -233,7 +232,7 @@ class Home extends CI_Controller
                 $status = 'invalid';
                 setFlashData($status, "This email is not registered with us.");
             }
-            redirect('/forgotPassword');
+            redirect('/customerForgotPassword');
         }
     }
     /**

@@ -90,14 +90,14 @@ class Account extends CI_Controller
             $oldPassword = $this->input->post('oldPassword');
             $newPassword = $this->input->post('newPassword');
 
-            $resultPas = $this->user_model->matchOldPassword($this->vendorId, $oldPassword);
+            $resultPas = $this->user_model->matchOldPassword($_SESSION['userId'], $oldPassword);
 
             if (empty($resultPas)) {
                 $this->session->set_flashdata('nomatch', 'Your old password is not correct');
                 redirect('Account');
             } else {
                 $usersData = array(
-                    'password' => getHashedPassword($newPassword), 'updatedBy' => $this->vendorId,
+                    'password' => getHashedPassword($newPassword), 'updatedBy' => $_SESSION['userId'],
                     'updatedDtm' => date('Y-m-d H:i:s')
                 );
 
@@ -112,5 +112,9 @@ class Account extends CI_Controller
                 redirect('Account');
             }
         }
+    }
+    function addAddress()
+    {
+        $this->load->model('address_model');
     }
 }

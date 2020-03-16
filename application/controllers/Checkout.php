@@ -7,7 +7,9 @@ class Checkout extends CI_Controller
     {
         $this->load->model('cart_model');
         $data1['getCartCount'] = $this->cart_model->getCartCount();
-        $this->load->view('header',$data1);
+        $userInfo = $this->session->userdata();
+        $getCart = $this->cart_model->getCart($userInfo['userId']);
+        $this->load->view('header', $data1);
         $this->load->view('checkout');
         $this->load->view('footer');
     }
