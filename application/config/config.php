@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |	http://example.com/
 |
 | WARNING: You MUST set this value!
-|
+| vvvvvvvvvvvvvvvv
 | If it is not set, then CodeIgniter will try guess the protocol and path
 | your installation, but due to security concerns the hostname will be set
 | to $_SERVER['SERVER_ADDR'] if available, or localhost otherwise.
@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $base  = "http://".$_SERVER['HTTP_HOST'];
 $base .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
-$config['base_url'] = '';
+$config['base_url'] = 'http://localhost/ci/';
 
 /*
 |--------------------------------------------------------------------------
